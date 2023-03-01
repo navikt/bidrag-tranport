@@ -10,7 +10,6 @@
   <version>${revision}${sha1}${changelist}</version>
   <packaging>jar</packaging>
 
-
   <properties>
     <revision>1.0</revision>
     <sha1/>
@@ -18,9 +17,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <kotlin.version>1.8.0</kotlin.version>
     <kotlin.code.style>official</kotlin.code.style>
-    <jackson.version>2.14.1</jackson.version>
+    <jackson.version>2.14.2</jackson.version>
+    <spring.version>5.3.25</spring.version>
+    <swagger.version>2.2.8</swagger.version>
     <kotlin.compiler.jvmTarget>17</kotlin.compiler.jvmTarget>
-    <mockk.version>1.13.2</mockk.version>
     <kotest.version>5.5.4</kotest.version>
     <java.version>17</java.version>
   </properties>
@@ -54,14 +54,24 @@
       <groupId>com.fasterxml.jackson.datatype</groupId>
       <artifactId>jackson-datatype-jsr310</artifactId>
       <version>${jackson.version}</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.module</groupId>
       <artifactId>jackson-module-kotlin</artifactId>
       <version>${jackson.version}</version>
-      <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.swagger.core.v3</groupId>
+      <artifactId>swagger-annotations</artifactId>
+      <version>${swagger.version}</version>
+    </dependency>
+
+
   </dependencies>
 
   <profiles>
