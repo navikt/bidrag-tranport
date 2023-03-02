@@ -13,9 +13,9 @@ data class SamhandlerDto(
     @Schema(description = "Type offentlig id. F.eks ORG for norske organisasjonsnummere.")
     val offentligIdType: String? = null,
 
-    @Schema(description = "Aktørens adresse. Angis ikke for personer.")
+    @Schema(description = "Samhandlerens adresse.")
     val adresse: AdresseDto? = null,
 
-    @Schema(description = "Aktørens kontonummer.")
+    @Schema(description = "Samhandlerens kontonummer. Kontonummer er ikke inkludert i søkeresultat, kun i oppslag.")
     val kontonummer: KontonummerDto? = null
 )

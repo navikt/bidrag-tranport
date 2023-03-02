@@ -2,7 +2,7 @@ package no.nav.bidrag.transport.samhandler
 
 import io.swagger.v3.oas.annotations.media.Schema
 
-@Schema(description = "Representerer navn og/eller adresse for en bidragsaktør. TODO: Beskrivelse av felter må kvalitetssikres.")
+@Schema(description = "Representerer navn og/eller adresse for en samhandler.")
 data class AdresseDto(
     @Schema(description = "Første adresselinje inneholder normalt gatenavn, men kan også innehold f.eks c/o.")
     val adresselinje1: String? = null,
@@ -19,6 +19,6 @@ data class AdresseDto(
     @Schema(description = "Poststed dersom dette er tilgjengelig som strukturerte data.")
     val poststed: String? = null,
 
-    @Schema(description = "Land som 3-bokstavs land-kode.")
+    @Schema(description = "Land. ISO 3166-1 alfa-3.")
     val land: String? = null
 )
