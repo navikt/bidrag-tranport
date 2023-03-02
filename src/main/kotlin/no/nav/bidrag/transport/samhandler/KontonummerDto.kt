@@ -3,7 +3,7 @@ package no.nav.bidrag.transport.samhandler
 import io.swagger.v3.oas.annotations.media.Schema
 
 @Schema(
-    description = "Representerer kontonummer for en bidragsaktør. For norske kontonummer " +
+    description = "Representerer kontonummer for en samhandler. For norske kontonummer " +
         "er det kun norskKontornr som er utfyllt, ellers benyttes de andre feltene for utlandske kontonummer."
 )
 data class KontonummerDto(
@@ -15,7 +15,7 @@ data class KontonummerDto(
     val swift: String? = null,
     @Schema(description = "Bankens navn.")
     val banknavn: String? = null,
-    @Schema(description = "Bankens landkode. TODO: Bestemme representasjon av land. 3-sifret land-kode?")
+    @Schema(description = "Bankens landkode. ISO 3166-1 alfa-3.")
     val landkodeBank: String? = null,
     @Schema(description = "BankCode. Format varierer.")
     val bankCode: String? = null,
