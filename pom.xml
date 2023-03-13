@@ -15,6 +15,7 @@
     <sha1/>
     <changelist>-SNAPSHOT</changelist>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <bidrag-domain.version>20230313140250_fba69d6</bidrag-domain.version>
     <kotlin.version>1.8.0</kotlin.version>
     <kotlin.code.style>official</kotlin.code.style>
     <jackson.version>2.14.2</jackson.version>
@@ -31,6 +32,13 @@
       <url>https://maven.pkg.github.com/navikt/bidrag-transport</url>
     </repository>
   </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/navikt/bidrag-commons</url>
+    </repository>
+  </repositories>
 
   <dependencies>
     <dependency>
@@ -70,7 +78,11 @@
       <artifactId>swagger-annotations</artifactId>
       <version>${swagger.version}</version>
     </dependency>
-
+    <dependency>
+      <groupId>no.nav.bidrag</groupId>
+      <artifactId>bidrag-domain</artifactId>
+      <version>${bidrag-domain.version}</version>
+    </dependency>
 
   </dependencies>
 
