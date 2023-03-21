@@ -35,7 +35,7 @@ data class PersonDto(
     var diskresjonskode: String? = null,
 
     @Schema(description = "Aktør id til personen")
-    var aktoerId: String? = null,
+    var aktørId: String? = null,
 
     @Schema(description = "Kortnavn på personen, navn som benyttes ved maskinelle utskrifter (maks 40 tegn)", deprecated = true)
     var kortNavn: String? = null,

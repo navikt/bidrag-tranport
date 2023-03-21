@@ -17,14 +17,14 @@ data class KontonummerDto(
     var swift: String? = null,
 
     @Schema(description = "Bankens navn.")
-    var bankNavn: String? = null,
+    var banknavn: String? = null,
 
     @Schema(description = "Bankens landkode.")
-    var bankLandkode: String? = null,
+    var banklandkode: String? = null,
 
     @Schema(description = "BankCode. Format varierer.")
-    var bankCode: String? = null,
+    var bankcode: String? = null,
 
     @Schema(description = "Kontoens valuta.")
-    var valutaKode: String? = null
+    var valutakode: String? = null
 )
