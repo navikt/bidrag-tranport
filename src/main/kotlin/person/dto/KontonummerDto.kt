@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class KontonummerDto(
 
     @Schema(description = "Norsk kontonummer, 11 siffer.")
-    val norskKontonr: String?,
+    val norskKontonr: String? = null,
 
     @Schema(description = "IBAN angir kontonummeret på et internasjonalt format.")
     var iban: String? = null,

@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema
 import person.enums.Skifteform
 import java.time.LocalDate
 
-data class DodsboDto(
+data class DødsboDto(
     @Schema(description = "Fra Tingretten angis skifteformen for booppgjøret.")
     val skifteform: Skifteform,
 
@@ -12,13 +12,13 @@ data class DodsboDto(
     val attestutstedelsesdato: LocalDate,
 
     @Schema(description = "Kontaktadresse i Norge eller utlandet for person, advokat eller oganisasjon.")
-    val kontaktadresse: DodsboKontaktadresse,
+    val kontaktadresse: DødsboKontaktadresse,
 
     @Schema(description = "Navn på kontaktperson for dødsboet. Dette kan være en person, advokat eller oganisasjon.")
     val kontaktperson: String,
 )
 
-data class DodsboKontaktadresse(
+data class DødsboKontaktadresse(
     @Schema(description = "Adresselinje 1")
     val adresselinje1: String,
 

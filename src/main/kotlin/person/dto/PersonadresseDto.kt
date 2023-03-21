@@ -5,7 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema
 import person.enums.Adressetype
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-data class PersonAdresseDto(
+data class PersonadresseDto(
     @Schema(description = "Gyldige adressetyper: BOSTEDSADRESSE, KONTAKTADRESSE, eller OPPHOLDSADRESSE")
     var adressetype: Adressetype,
 

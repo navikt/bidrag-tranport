@@ -2,7 +2,7 @@ package person.dto
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.swagger.v3.oas.annotations.media.Schema
-import person.enums.KjoennType
+import person.enums.Kjønn
 import java.time.LocalDate
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -23,13 +23,13 @@ data class PersonDto(
     var etternavn: String? = null,
 
     @Schema(description = "Kjønn til personen")
-    var kjoenn: KjoennType? = null,
+    var kjønn: Kjønn? = null,
 
     @Schema(description = "Dødsdato til personen")
-    var doedsdato: LocalDate? = null,
+    var dødsdato: LocalDate? = null,
 
     @Schema(description = "Fødselsdato til personen")
-    var foedselsdato: LocalDate? = null,
+    var fødselsdato: LocalDate? = null,
 
     @Schema(description = "Diskresjonskode (personvern)")
     var diskresjonskode: String? = null,
