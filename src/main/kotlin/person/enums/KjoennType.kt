@@ -1,6 +1,6 @@
 package person.enums
 
-enum class Kjønn {
+enum class KjoennType {
     KVINNE,
     MANN,
     UKJENT
