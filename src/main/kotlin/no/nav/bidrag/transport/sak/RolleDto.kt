@@ -24,7 +24,7 @@ data class RolleDto(
     @Deprecated("Bruk rolletype", ReplaceWith("type"))
     val rolleType: Rolletype = type
 ) {
-    init {
+    fun valider() {
         require(reellMottager == null || type == Rolletype.BA) { "Reell mottager kan kun opprettes for barn." }
     }
 
