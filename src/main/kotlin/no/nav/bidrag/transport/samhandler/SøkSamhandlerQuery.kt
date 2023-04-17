@@ -1,13 +1,17 @@
 package no.nav.bidrag.transport.samhandler
 
 import io.swagger.v3.oas.annotations.media.Schema
+import no.nav.bidrag.domain.number.Side
+import no.nav.bidrag.domain.string.FulltNavn
+import no.nav.bidrag.domain.string.Område
+import no.nav.bidrag.domain.string.Postnummer
 import no.nav.bidrag.transport.felles.QueryObject
 
 @Schema(description = "Query-felter for søk etter samhandlere.")
 data class SøkSamhandlerQuery(
-    val navn: String,
-    val postnummer: String? = null,
-    val område: String? = null,
+    val navn: FulltNavn,
+    val postnummer: Postnummer? = null,
+    val område: Område? = null,
     @Schema(description = "Sidenummer med resultater man ønsker, hvis det finnes og man ønsker påfølgende resultater.")
-    val side: Int = 0
+    val side: Side = Side(0)
 ) : QueryObject
