@@ -1,17 +1,21 @@
 package no.nav.bidrag.transport.samhandler
 
 import io.swagger.v3.oas.annotations.media.Schema
+import no.nav.bidrag.domain.ident.OffentligId
+import no.nav.bidrag.domain.ident.TssId
+import no.nav.bidrag.domain.string.FulltNavn
+import no.nav.bidrag.domain.string.OffentligIdtype
 
 data class SamhandlerDto(
-    val tssId: String,
+    val tssId: TssId,
     @Schema(description = "Navn på samhandler")
-    val navn: String?,
+    val navn: FulltNavn?,
 
     @Schema(description = "Offentlig id for samhandlere.")
-    val offentligId: String? = null,
+    val offentligId: OffentligId? = null,
 
     @Schema(description = "Type offentlig id. F.eks ORG for norske organisasjonsnummere.")
-    val offentligIdType: String? = null,
+    val offentligIdType: OffentligIdtype? = null,
 
     @Schema(description = "Samhandlerens adresse.")
     val adresse: AdresseDto? = null,
