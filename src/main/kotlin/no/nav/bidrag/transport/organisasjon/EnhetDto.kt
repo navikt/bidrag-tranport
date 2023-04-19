@@ -14,21 +14,21 @@ import no.nav.bidrag.domain.string.Telefonnummer
 
 @Schema(description = "Metadata for en enhet")
 data class EnhetDto(
-    val nummer: Enhetsnummer? = null,
+    val nummer: Enhetsnummer,
     val navn: Enhetsnavn? = null,
     @Deprecated("bruk nummer", ReplaceWith("nummer"))
-    val enhetIdent: Enhetsnummer? = nummer,
+    val enhetIdent: Enhetsnummer = nummer,
     @Deprecated("bruk navn", ReplaceWith("navn"))
     val enhetNavn: Enhetsnavn? = navn,
-    val status: Enhetsstatus? = Enhetsstatus.AKTIV
+    val status: Enhetsstatus = Enhetsstatus.AKTIV
 )
 
 @Schema(description = "Metadata for en enhet postadresse")
 data class EnhetKontaktinfoDto(
-    val nummer: Enhetsnummer? = null,
+    val nummer: Enhetsnummer,
     val navn: Enhetsnavn? = Enhetsnavn("NAV Familie- og pensjonsytelser"),
     @Deprecated("bruk nummer", ReplaceWith("nummer"))
-    val enhetIdent: Enhetsnummer? = nummer,
+    val enhetIdent: Enhetsnummer = nummer,
     @Deprecated("bruk navn", ReplaceWith("navn"))
     val enhetNavn: Enhetsnavn? = navn,
     val telefonnummer: Telefonnummer? = Telefonnummer("55553333"),
