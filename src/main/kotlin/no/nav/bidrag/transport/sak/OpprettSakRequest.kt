@@ -7,14 +7,14 @@ import no.nav.bidrag.domain.bool.LevdeAdskilt
 import no.nav.bidrag.domain.bool.Paragraf19
 import no.nav.bidrag.domain.enums.Konvensjon
 import no.nav.bidrag.domain.enums.Sakskategori
-import no.nav.bidrag.domain.string.Enhet
+import no.nav.bidrag.domain.string.Enhetsnummer
 import no.nav.bidrag.domain.string.FfuReferansenr
 import no.nav.bidrag.domain.string.Landkode
 import no.nav.bidrag.domain.tid.Konvensjonsdato
 
 class OpprettSakRequest(
     @Schema(description = "Sakens eierfogd (enhetsnummeret som får tilgang til saken.")
-    val eierfogd: Enhet,
+    val eierfogd: Enhetsnummer,
     val kategori: Sakskategori = Sakskategori.N,
     val ansatt: Ansatt = Ansatt(false),
     val inhabilitet: Inhabilitet = Inhabilitet(false),

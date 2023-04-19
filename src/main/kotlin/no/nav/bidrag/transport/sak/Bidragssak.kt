@@ -5,13 +5,13 @@ import no.nav.bidrag.domain.bool.BegrensetTilgang
 import no.nav.bidrag.domain.bool.Paragraf19
 import no.nav.bidrag.domain.enums.Bidragssakstatus
 import no.nav.bidrag.domain.enums.Sakskategori
-import no.nav.bidrag.domain.string.Enhet
+import no.nav.bidrag.domain.string.Enhetsnummer
 import no.nav.bidrag.domain.string.Saksnummer
 
 @Schema(description = "Metadata for en bidragssak")
 data class BidragssakDto(
     @Schema(description = "Eierfogd for bidragssaken")
-    val eierfogd: Enhet,
+    val eierfogd: Enhetsnummer,
     @Schema(description = "Saksnummeret til bidragssaken")
     val saksnummer: Saksnummer,
     @Schema(description = "Saksstatus til bidragssaken")
