@@ -2,12 +2,12 @@ package no.nav.bidrag.transport.samhandler
 
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domain.ident.OffentligId
-import no.nav.bidrag.domain.ident.TssId
+import no.nav.bidrag.domain.ident.SamhandlerId
 import no.nav.bidrag.domain.string.FulltNavn
 import no.nav.bidrag.domain.string.OffentligIdtype
 
 data class SamhandlerDto(
-    val tssId: TssId,
+    val tssId: SamhandlerId,
     @Schema(description = "Navn på samhandler")
     val navn: FulltNavn?,
 

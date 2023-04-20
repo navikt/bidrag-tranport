@@ -31,7 +31,6 @@ data class EnhetKontaktinfoDto(
     val telefonnummer: Telefonnummer? = null,
     val postadresse: EnhetspostadresseDto? = null
 
-
 ) {
 
     companion object {
