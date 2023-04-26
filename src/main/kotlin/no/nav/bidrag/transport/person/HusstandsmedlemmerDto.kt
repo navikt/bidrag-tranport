@@ -7,12 +7,10 @@ import no.nav.bidrag.domain.number.MatrikkelId
 import no.nav.bidrag.domain.string.Adressenavn
 import no.nav.bidrag.domain.string.Bruksenhetsnummer
 import no.nav.bidrag.domain.string.Bydelsnummer
-import no.nav.bidrag.domain.string.Etternavn
-import no.nav.bidrag.domain.string.Fornavn
+import no.nav.bidrag.domain.string.FulltNavn
 import no.nav.bidrag.domain.string.Husbokstav
 import no.nav.bidrag.domain.string.Husnummer
 import no.nav.bidrag.domain.string.Kommunenummer
-import no.nav.bidrag.domain.string.Mellomnavn
 import no.nav.bidrag.domain.string.Postnummer
 import no.nav.bidrag.domain.tid.Dødsdato
 import no.nav.bidrag.domain.tid.FomDato
@@ -43,9 +41,7 @@ data class Husstandsmedlem(
     val gyldigFraOgMed: FomDato?,
     val gyldigTilOgMed: TomDato?,
     val personId: PersonIdent,
-    val fornavn: Fornavn,
-    val mellomnavn: Mellomnavn?,
-    val etternavn: Etternavn,
+    val navn: FulltNavn,
     val fødselsdato: Fødselsdato? = null,
     val dødsdato: Dødsdato? = null,
     @Schema(deprecated = true)
