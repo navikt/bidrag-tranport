@@ -7,6 +7,7 @@ import no.nav.bidrag.domain.enums.Bidragssakstatus
 import no.nav.bidrag.domain.enums.Sakskategori
 import no.nav.bidrag.domain.string.Enhetsnummer
 import no.nav.bidrag.domain.string.Saksnummer
+import no.nav.bidrag.domain.tid.OpprettetDato
 
 @Schema(description = "Metadata for en bidragssak")
 data class BidragssakDto(
@@ -22,6 +23,7 @@ data class BidragssakDto(
     val erParagraf19: Paragraf19 = Paragraf19(false),
     @Schema(description = "Om saken inneholder personer med diskresjonskode")
     val begrensetTilgang: BegrensetTilgang = BegrensetTilgang(false),
+    val opprettetDato: OpprettetDato,
     @Schema(description = "Rollene som saken inneholder")
     val roller: List<RolleDto> = emptyList()
 )
