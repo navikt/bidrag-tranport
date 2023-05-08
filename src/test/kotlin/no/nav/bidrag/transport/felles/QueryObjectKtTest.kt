@@ -1,6 +1,11 @@
 package no.nav.bidrag.transport.felles
 
 import io.kotest.matchers.shouldBe
+import no.nav.bidrag.domain.string.FulltNavn
+import no.nav.bidrag.domain.string.Navn
+import no.nav.bidrag.domain.string.Område
+import no.nav.bidrag.domain.string.Postnummer
+import no.nav.bidrag.transport.samhandler.SøkSamhandlerQuery
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -64,6 +69,20 @@ internal class QueryObjectKtTest {
         val multiValueMap = søkSamhandlerQuery.toQueryParams()
 
         multiValueMap.containsKey("list") shouldBe false
+    }
+
+    @Test
+    fun `toQueryParams bruker JsonProperty`() {
+        val søkSamhandlerQuery = SøkSamhandlerQuery(
+            FulltNavn("navn"),
+            Postnummer("postnummer"),
+            Område("område")
+        )
+
+        val multiValueMap = søkSamhandlerQuery.toQueryParams()
+
+        multiValueMap.containsKey("omrade") shouldBe true
+        multiValueMap.containsKey("område") shouldBe false
     }
 
     inner class TestQueryObject(

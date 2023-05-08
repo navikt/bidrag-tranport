@@ -1,5 +1,7 @@
 package no.nav.bidrag.transport.samhandler
 
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.annotation.JsonValue
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domain.string.FulltNavn
 import no.nav.bidrag.domain.string.Område
@@ -10,6 +12,7 @@ import no.nav.bidrag.transport.felles.QueryObject
 data class SøkSamhandlerQuery(
     val navn: FulltNavn,
     val postnummer: Postnummer? = null,
+    @JsonProperty("omrade")
     val område: Område? = null,
     @Schema(description = "Sidenummer med resultater man ønsker, hvis det finnes og man ønsker påfølgende resultater.")
     val side: Int = 0
