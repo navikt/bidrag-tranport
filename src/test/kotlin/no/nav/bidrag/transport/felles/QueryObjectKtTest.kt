@@ -2,7 +2,6 @@ package no.nav.bidrag.transport.felles
 
 import io.kotest.matchers.shouldBe
 import no.nav.bidrag.domain.string.FulltNavn
-import no.nav.bidrag.domain.string.Navn
 import no.nav.bidrag.domain.string.Område
 import no.nav.bidrag.domain.string.Postnummer
 import no.nav.bidrag.transport.samhandler.SøkSamhandlerQuery
