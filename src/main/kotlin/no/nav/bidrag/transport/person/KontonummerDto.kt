@@ -8,6 +8,7 @@ import no.nav.bidrag.domain.string.Iban
 import no.nav.bidrag.domain.string.Landkode
 import no.nav.bidrag.domain.string.NorskKontonummer
 import no.nav.bidrag.domain.string.Swift
+import no.nav.bidrag.domain.tid.OpprettetTidspunkt
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Schema(description = "Representerer kontonummer for en person. For norske kontonummer er det kun norskKontornr som er utfyllt, ellers benyttes de andre feltene for utlandske kontonummer.")
@@ -28,5 +29,13 @@ data class KontonummerDto(
     @Deprecated("Skrivefeil", ReplaceWith("bankkode"))
     val bankcode: Bankkode? = bankkode,
     @Schema(description = "Kontoens valuta.")
-    val valutakode: String? = null
+    val valutakode: String? = null,
+    @Schema(description = "Tilleggsinformasjon")
+    val metadata: MetadataDto
+)
+
+data class MetadataDto(
+    val gyldingFom: OpprettetTidspunkt,
+    val opprettetAv: String,
+    val kilde: String?
 )
