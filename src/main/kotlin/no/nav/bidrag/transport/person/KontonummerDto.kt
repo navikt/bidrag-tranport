@@ -30,6 +30,12 @@ data class KontonummerDto(
     val bankcode: Bankkode? = bankkode,
     @Schema(description = "Kontoens valuta.")
     val valutakode: String? = null,
+    @Schema(description = "Adressefelt 1, utenlandsk bank")
+    val bankadresse1: String? = null,
+    @Schema(description = "Adressefelt 2, utenlandsk bank")
+    val bankadresse2: String? = null,
+    @Schema(description = "Adressefelt 3, utenlandsk bank")
+    val bankadresse3: String? = null,
     @Schema(description = "Tilleggsinformasjon")
     val metadata: MetadataDto
 )
