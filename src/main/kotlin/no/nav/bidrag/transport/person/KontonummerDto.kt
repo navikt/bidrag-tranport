@@ -41,7 +41,7 @@ data class KontonummerDto(
 )
 
 data class MetadataDto(
-    val gyldingFom: OpprettetTidspunkt,
+    val gyldigFom: OpprettetTidspunkt,
     val opprettetAv: String,
     val kilde: String?
 )
