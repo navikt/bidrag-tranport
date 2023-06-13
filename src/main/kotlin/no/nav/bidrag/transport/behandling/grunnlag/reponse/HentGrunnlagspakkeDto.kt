@@ -34,8 +34,10 @@ data class HentGrunnlagspakkeDto(
     @Deprecated(message = "Utgått og erstattet av husstandmedlemmerOgEgneBarnListe")
     val husstandmedlemListe: List<RelatertPersonDto> = emptyList(),
 
-    @Schema(description = "Liste over alle personer som har bodd sammen med BM/BP i perioden fra virkningstidspunkt og fremover med en liste " +
-            "over hvilke perioder de har delt bolig. Listen inkluderer i tillegg personens egne barn, selv om de ikke har delt bolig med BM/BP")
+    @Schema(
+        description = "Liste over alle personer som har bodd sammen med BM/BP i perioden fra virkningstidspunkt og fremover med en liste " +
+            "over hvilke perioder de har delt bolig. Listen inkluderer i tillegg personens egne barn, selv om de ikke har delt bolig med BM/BP"
+    )
     val husstandmedlemmerOgEgneBarnListe: List<RelatertPersonDto>,
 
     @Schema(description = "Periodisert liste over en persons sivilstand")
