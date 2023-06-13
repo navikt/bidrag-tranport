@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.tid.Bekreftelsesdato
 import no.nav.bidrag.domain.tid.FomDato
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-data class SivilstandDtoPerson(
+data class Sivilstandshistorikk(
     @Schema(description = "Liste over alle hentede forekomster av sivilstand fra bidrag-person")
     val sivilstand: List<Sivilstand>
 )
