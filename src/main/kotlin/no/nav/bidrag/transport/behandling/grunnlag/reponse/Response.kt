@@ -1,4 +1,4 @@
-package no.nav.bidrag.behandling.felles.dto.grunnlag
+package no.nav.bidrag.transport.behandling.grunnlag.reponse
 
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.behandling.felles.enums.GrunnlagRequestType
@@ -56,8 +56,11 @@ data class HentGrunnlagspakkeDto(
     @Schema(description = "Periodisert liste over innhentet kontantstøtte")
     val kontantstotteListe: List<KontantstotteDto>,
 
-    @Schema(description = "Liste over alle personer som har bodd sammen med BM/BP i perioden fra virkningstidspunkt og fremover med en liste over hvilke perioder de har delt bolig. Listen inkluderer i tillegg personens egne barn, selv om de ikke har delt bolig med BM/BP")
-    val husstandmedlemmerOgEgneBarnListe: List<RelatertPersonDto>,
+    @Schema(description = "Liste over alle BM/BPs barn opp til 22 år (alder sjekkes mot virkningstidspunkt). For hvert barn ligger det en liste over perioder barnet har bodd sammen med aktuell BM/BP i perioden fra virkningstidspunkt og fremover. Også barn som ikke har delt bolig med BM/BP er inkludert i listen")
+    val egneBarnIHusstandenListe: List<RelatertPersonDto>,
+
+    @Schema(description = "Periodisert liste over voksne som har bodd sammen med BP i perioden fra virkningstidspunkt og fremover. Listen inkluderer egne barn over 18 år (alder sjekkes mot virkningstidspunkt) som har delt bolig med BM/BP")
+    val husstandmedlemListe: List<RelatertPersonDto>,
 
     @Schema(description = "Periodisert liste over en persons sivilstand")
     val sivilstandListe: List<SivilstandDto>,
@@ -277,10 +280,10 @@ data class RelatertPersonDto(
     val partPersonId: String?,
 
     @Schema(description = "Personid til relatert person. Dette er husstandsmedlem eller barn av BM/BP")
-    var relatertPersonPersonId: String?,
+    val relatertPersonPersonId: String?,
 
     @Schema(description = "Navn på den relaterte personen, format <Fornavn, mellomnavn, Etternavn")
-    var navn: String?,
+    val navn: String?,
 
     @Schema(description = "Den relaterte personens fødselsdato")
     val fodselsdato: LocalDate?,

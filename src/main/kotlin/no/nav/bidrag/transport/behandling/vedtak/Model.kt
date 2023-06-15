@@ -25,7 +25,7 @@ data class VedtakHendelse(
 )
 
 data class Sporingsdata(val correlationId: String) {
-    var brukerident: String? = null
+    val brukerident: String? = null
 
     @Suppress("unused") // brukes av jackson
     val opprettet: LocalDateTime = LocalDateTime.now()

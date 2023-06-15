@@ -1,4 +1,4 @@
-package no.nav.bidrag.behandling.felles.dto.stonad
+package no.nav.bidrag.transport.behandling.stonad.reponse
 
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.behandling.felles.enums.Innkreving

@@ -1,4 +1,4 @@
-package no.nav.bidrag.behandling.felles.dto.grunnlag
+package no.nav.bidrag.transport.behandling.grunnlag.request
 
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.Valid
@@ -16,12 +16,9 @@ data class OpprettGrunnlagspakkeRequestDto(
     val formaal: Formaal,
 
     @Schema(description = "opprettet av")
+    @field:NotBlank(message = "Kan ikke være null eller blank.")
     val opprettetAv: String
-) {
-    init {
-        check(opprettetAv.isNotBlank()) {"Kan ikke være null eller blank."}
-    }
-}
+)
 
 data class OppdaterGrunnlagspakkeRequestDto(
 
@@ -29,14 +26,10 @@ data class OppdaterGrunnlagspakkeRequestDto(
     val gyldigTil: LocalDate? = null,
 
     @Schema(description = "Liste over hvilke typer grunnlag som skal hentes inn. På nivået under er personId og perioder angitt")
+    @field:Valid
+    @field:NotEmpty(message = "Listen kan ikke være null eller tom.")
     val grunnlagRequestDtoListe: List<GrunnlagRequestDto>
-
-
-) {
-    init {
-        check(grunnlagRequestDtoListe.isNotEmpty()) { "Listen kan ikke være null eller tom." }
-    }
-}
+)
 
 data class GrunnlagRequestDto(
 
