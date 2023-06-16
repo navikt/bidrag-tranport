@@ -1,40 +1,12 @@
 package no.nav.bidrag.transport.behandling.grunnlag.reponse
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.behandling.felles.enums.GrunnlagRequestType
-import no.nav.bidrag.behandling.felles.enums.GrunnlagsRequestStatus
-import no.nav.bidrag.behandling.felles.enums.SivilstandKode
-import no.nav.bidrag.behandling.felles.enums.barnetilsyn.Skolealder
-import no.nav.bidrag.behandling.felles.enums.barnetilsyn.Tilsyntype
+import no.nav.bidrag.domain.enums.SivilstandKode
+import no.nav.bidrag.domain.enums.barnetilsyn.Skolealder
+import no.nav.bidrag.domain.enums.barnetilsyn.Tilsyntype
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
-
-@Schema(description = "Respons ved oppdatering av  grunnlagspakke")
-data class OppdaterGrunnlagspakkeDto(
-
-    @Schema(description = "Grunnlagspakke-id")
-    val grunnlagspakkeId: Int,
-
-    @Schema(description = "Liste over grunnlagene som er hentet inn med person-id og status")
-    val grunnlagTypeResponsListe: List<OppdaterGrunnlagDto>
-)
-
-data class OppdaterGrunnlagDto(
-
-    @Schema(description = "Hvilken type grunnlag som er hentet")
-    val type: GrunnlagRequestType,
-
-    @Schema(description = "Angir personId som grunnlag er hentet for")
-    val personId: String,
-
-    @Schema(description = "Status for utført kall")
-    val status: GrunnlagsRequestStatus,
-
-    @Schema(description = "Statusmelding for utført kall")
-    val statusMelding: String
-
-)
 
 data class HentGrunnlagspakkeDto(
 

@@ -22,7 +22,7 @@
     <spring.version>6.0.9</spring.version>
     <jakarta.version>3.0.2</jakarta.version>
     <swagger.version>2.2.8</swagger.version>
-    <kotlin.compiler.jvmTarget>17</kotlin.compiler.jvmTarget>
+    <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
     <kotest.version>5.5.4</kotest.version>
     <java.version>1.8</java.version>
   </properties>
@@ -293,14 +293,6 @@
           </dependency>
           <!-- additional 3rd party ruleset(s) can be specified here -->
         </dependencies>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>8</source>
-          <target>8</target>
-        </configuration>
       </plugin>
     </plugins>
   </build>

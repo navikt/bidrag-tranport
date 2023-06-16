@@ -1,15 +1,14 @@
-package no.nav.bidrag.transport.behandling.stonad.reponse
+package no.nav.bidrag.transport.behandling.stonad.request
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.behandling.felles.enums.Innkreving
-import no.nav.bidrag.behandling.felles.enums.StonadType
+import no.nav.bidrag.domain.enums.Innkreving
+import no.nav.bidrag.domain.enums.StonadType
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
 
-data class StonadDto(
-    @Schema(description = "StønadId")
-    val stonadId: Int,
+@Schema(description = "Egenskaper ved en stønadsendring")
+data class OpprettStonadRequestDto(
 
     @Schema(description = "Stønadstype")
     val type: StonadType,
@@ -35,32 +34,18 @@ data class StonadDto(
     @Schema(description = "opprettet_av")
     val opprettetAv: String,
 
-    @Schema(description = "opprettet tidspunkt")
-    val opprettetTidspunkt: LocalDateTime,
-
-    @Schema(description = "endret av")
-    val endretAv: String?,
-
-    @Schema(description = "når sist endret tidspunkt")
-    val endretTidspunkt: LocalDateTime?,
-
     @Schema(description = "Liste over alle perioder som inngår i stønaden")
-    val periodeListe: List<StonadPeriodeDto>
+    val periodeListe: List<OpprettStonadPeriodeRequestDto>
 )
 
-data class StonadPeriodeDto(
-
-    @Schema(description = "Periode-id")
-    val periodeId: Int,
+@Schema(description = "Egenskaper ved en periode")
+data class OpprettStonadPeriodeRequestDto(
 
     @Schema(description = "Periode fra-og-med-dato")
     val periodeFom: LocalDate,
 
     @Schema(description = "Periode til-dato")
     val periodeTil: LocalDate?,
-
-    @Schema(description = "Stonad-id")
-    val stonadId: Int,
 
     @Schema(description = "Vedtak-id")
     val vedtakId: Int,
@@ -71,7 +56,7 @@ data class StonadPeriodeDto(
     @Schema(description = "Angir tidspunkt perioden eventuelt er ugyldig fra (tidspunkt for vedtak med periode som erstattet denne)")
     val gyldigTil: LocalDateTime?,
 
-    @Schema(description = "Periode-gjort-ugyldig-av-vedtak-id")
+    @Schema(description = "Periode gjort ugyldig av vedtak-id")
     val periodeGjortUgyldigAvVedtakId: Int?,
 
     @Schema(description = "Beregnet stønadsbeløp")
@@ -80,31 +65,7 @@ data class StonadPeriodeDto(
     @Schema(description = "Valutakoden tilhørende stønadsbeløpet")
     val valutakode: String?,
 
-    @Schema(description = "Resultatkode for stønaden")
+    @Schema(description = "Resultatkoden tilhørende stønadsbeløpet")
     val resultatkode: String
-)
 
-@Schema
-data class AlleMottakerIdHistorikkForStonadDto(
-
-    @Schema(description = "Alle forekomster på mottaker-id-historikk for en stønad")
-    val alleMottakerIdHistorikkForStonad: List<MottakerIdHistorikkDto>?
-)
-
-data class MottakerIdHistorikkDto(
-
-    @Schema(description = "stonad-id")
-    val stonadId: Int,
-
-    @Schema(description = "Utgått Mottaker-Id")
-    val mottakerIdEndretFra: String,
-
-    @Schema(description = "Ny Mottaker-Id")
-    val mottakerIdEndretTil: String,
-
-    @Schema(description = "Saksbehandler/batchjobb/annet som har oppdatert mottaker-id")
-    val opprettetAv: String,
-
-    @Schema(description = "Opprettet tidspunkt")
-    val opprettetTidspunkt: LocalDateTime
 )

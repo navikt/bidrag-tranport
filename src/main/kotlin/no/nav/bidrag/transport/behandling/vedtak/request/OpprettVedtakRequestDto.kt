@@ -7,13 +7,13 @@ import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.Size
-import no.nav.bidrag.behandling.felles.enums.BehandlingsrefKilde
-import no.nav.bidrag.behandling.felles.enums.EngangsbelopType
-import no.nav.bidrag.behandling.felles.enums.GrunnlagType
-import no.nav.bidrag.behandling.felles.enums.Innkreving
-import no.nav.bidrag.behandling.felles.enums.StonadType
-import no.nav.bidrag.behandling.felles.enums.VedtakKilde
-import no.nav.bidrag.behandling.felles.enums.VedtakType
+import no.nav.bidrag.domain.enums.BehandlingsrefKilde
+import no.nav.bidrag.domain.enums.EngangsbelopType
+import no.nav.bidrag.domain.enums.GrunnlagType
+import no.nav.bidrag.domain.enums.Innkreving
+import no.nav.bidrag.domain.enums.StonadType
+import no.nav.bidrag.domain.enums.VedtakKilde
+import no.nav.bidrag.domain.enums.VedtakType
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -210,16 +210,4 @@ data class OpprettVedtakPeriodeRequestDto(
     @Schema(description = "Liste over alle grunnlag som inngår i perioden")
     @NotEmpty
     val grunnlagReferanseListe: List<String>
-)
-
-@Schema
-data class OpprettVedtakPeriodeGrunnlagRequestDto(
-
-    @Schema(description = "Periode-id")
-    @Min(0)
-    val periodeId: Int,
-
-    @Schema(description = "grunnlag-id")
-    @Min(0)
-    val grunnlagId: Int
 )
