@@ -21,6 +21,7 @@ data class VedtakHendelse(
     val opprettetTidspunkt: LocalDateTime,
     val stonadsendringListe: List<Stonadsendring>?,
     val engangsbelopListe: List<Engangsbelop>?,
+    val behandlingsreferanseListe: List<Behandlingsreferanse>?,
     val sporingsdata: Sporingsdata
 )
 
@@ -70,4 +71,8 @@ data class Periode(
     val valutakode: String?,
     val resultatkode: String,
     val delytelseId: String?
+)
+data class Behandlingsreferanse(
+    val kilde: String,
+    val referanse: String
 )
