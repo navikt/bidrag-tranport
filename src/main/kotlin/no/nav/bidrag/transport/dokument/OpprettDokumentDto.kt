@@ -16,10 +16,10 @@ data class OpprettDokumentDto(
     @Deprecated("Erstatt med fysiskDokument", ReplaceWith("fysiskDokument"))
     val dokument: String? = null,
     @Schema(description = "Selve PDF dokumentet formatert som Base64")
-    val fysiskDokument: ByteArray = dokument?.toByteArray() ?: error("Det må finnes et fyiskDokument for OpprettDokumentDto")
+    val fysiskDokument: ByteArray? = dokument?.toByteArray()
 ) {
     override fun toString(): String {
         return "(tittel=$tittel, brevkode=$brevkode, dokumentreferanse=$dokumentreferanse, " +
-            "fysiskDokument(lengde)=${fysiskDokument.size}, dokument=${fysiskDokument.toString().subSequence(0, 20)}"
+            "fysiskDokument(lengde)=${fysiskDokument?.size}, dokument=${dokument.toString().subSequence(0, 20)}"
     }
 }

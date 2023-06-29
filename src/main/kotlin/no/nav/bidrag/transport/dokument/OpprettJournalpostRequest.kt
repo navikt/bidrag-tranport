@@ -10,10 +10,7 @@ import java.time.LocalDateTime
 data class OpprettJournalpostRequest(
     @Schema(description = "Om journalposten skal journalføres etter opprettelse. Journalføring betyr at journalpost låses for framtidige endringer")
     val skalFerdigstilles: Boolean = false,
-    @Schema(
-        description = "Tittel på journalposten (Tittel settes til hoveddokumentes tittel for Joark journalposter)",
-        deprecated = true
-    )
+    @Schema(description = "Tittel på journalposten (Tittel settes til hoveddokumentes tittel for Joark journalposter)", deprecated = true)
     @Deprecated("Slutt å bruke")
     val tittel: String? = null,
     @Schema(description = "Bruker som journalposten gjelder")
@@ -39,19 +36,11 @@ data class OpprettJournalpostRequest(
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Schema(description = "Dato når selve dokumentet ble opprettet")
     val datoDokument: LocalDateTime? = null,
-    @Schema(
-        description = "Type kanal som benyttes ved mottak/utsending av journalpost"
-    )
+    @Schema(description = "Type kanal som benyttes ved mottak/utsending av journalpost")
     val kanal: MottakUtsendingKanal? = null,
-    @Schema(
-        description = "Tema (Gyldige verdier er FAR og BID). Hvis det ikke settes opprettes journalpost med tema BID",
-        defaultValue = "BID"
-    )
+    @Schema(description = "Tema (Gyldige verdier er FAR og BID). Hvis det ikke settes opprettes journalpost med tema BID", defaultValue = "BID")
     val tema: String = "BID",
-    @Schema(
-        description = "Journalposttype, dette kan enten være Inngående, Utgående eller Notat",
-        required = true
-    )
+    @Schema(description = "Journalposttype, dette kan enten være Inngående, Utgående eller Notat", required = true)
     val journalposttype: JournalpostType,
     @Schema(description = "Referanse for journalpost. Hvis journalpost med samme referanse finnes vil tjenesten gå videre uten å opprette journalpost. Kan brukes for å lage løsninger idempotent")
     val referanseId: String? = null,
@@ -59,41 +48,7 @@ data class OpprettJournalpostRequest(
     @Deprecated("Bruk journalførendeEnhet", ReplaceWith("journalførendeEnhet"))
     val journalfoerendeEnhet: String? = null,
     @Schema(description = "NAV-enheten som oppretter journalposten")
-    val journalførendeEnhet: String = journalfoerendeEnhet ?: error("journalførendeEnhet må ha verdi"),
+    val journalførendeEnhet: String? = null,
     @Schema(description = "Ident til saksbehandler som oppretter journalpost. Dette vil prioriteres over ident som tilhører tokenet til kallet.")
     val saksbehandlerIdent: String? = null
-) {
-    init {
-        check(journalposttype in listOf(JournalpostType.UTGÅENDE, JournalpostType.NOTAT)) {
-            "Ugyldig journalposttype. Kan bare opprette journalpost med type notat eller utgående"
-        }
-
-        check(journalførendeEnhet.isNotEmpty()) {
-            "JournalførendeEnhet kan ikke være tom"
-        }
-
-        check(dokumenter.isNotEmpty()) {
-            "Mangler dokument. Journalpost må knyttes til et dokument"
-        }
-
-        check(dokumenter.size == 1) {
-            "For mange dokumenter. Midlertidig brevlager støtter bare et dokument per journalpost"
-        }
-
-        check(dokumenter[0].tittel.isNotEmpty()) {
-            "Dokumentet journalpost knyttes må ha satt tittel"
-        }
-
-        check(tilknyttSaker.isNotEmpty()) {
-            "Journalpost må knyttes til minst en sak"
-        }
-
-        check(!(gjelderIdent.isNullOrEmpty() && gjelder?.ident.isNullOrEmpty())) {
-            "Gjelder ident kan ikke være tom"
-        }
-
-        check(!(journalposttype == JournalpostType.UTGÅENDE && avsenderMottaker?.ident.isNullOrEmpty())) {
-            "Mottaker ident kan ikke være tom for utgående journalpost"
-        }
-    }
-}
+)

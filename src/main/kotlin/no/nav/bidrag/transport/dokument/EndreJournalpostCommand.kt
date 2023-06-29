@@ -31,7 +31,7 @@ data class EndreJournalpostCommand(
     @Schema(description = "Endre fagområde")
     val fagomrade: String? = null,
     @Schema(description = "Type ident for gjelder: FNR, ORGNR, AKTOERID")
-    val gjelderType: String? = null,
+    val gjelderType: IdentType? = null,
     @Schema(description = "Tittel på journalposten")
     val tittel: String? = null,
     @Schema(description = "Skal journalposten journalføres aka. registreres")
