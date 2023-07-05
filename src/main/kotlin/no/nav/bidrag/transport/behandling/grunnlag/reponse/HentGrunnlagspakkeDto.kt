@@ -49,9 +49,6 @@ data class HentGrunnlagspakkeDto(
     @Schema(description = "Periodisert liste over innhentet overgangsstønad")
     val overgangsstonadListe: List<OvergangsstonadDto>,
 
-    @Schema(description = "Periodisert liste over innhentede arbeidsforhold")
-    val arbeidsforholdListe: List<ArbeidsforholdDto> = emptyList()
-
 )
 
 data class AinntektDto(
@@ -380,74 +377,6 @@ data class OvergangsstonadDto(
 
     @Schema(description = "Beløp overgangsstønad")
     val belop: Int,
-
-    @Schema(description = "Hentet tidspunkt")
-    val hentetTidspunkt: LocalDateTime
-)
-data class ArbeidsforholdDto(
-
-    @Schema(description = "Id til personen arbeidsforholdet gjelder")
-    val partPersonId: String,
-
-    @Schema(description = "Startdato for arbeidsforholdet")
-    val periodeFra: LocalDate,
-
-    @Schema(description = "Eventuell sluttdato for arbeidsforholdet")
-    val periodeTil: LocalDate?,
-
-    @Schema(description = "Navn på arbeidsgiver")
-    val arbeidsgiverNavn: String?,
-
-    @Schema(description = "Arbeidsgivers organisasjonsnummer")
-    val arbeidsgiverOrgnummer: String?,
-
-    @Schema(description = "Type arbeidsforhold, Ordinaer, Maritim, Forenklet, Frilanser")
-    val arbeidsforholdType: String?,
-
-    @Schema(description = "Form for arbeidsforhold, fast, midlertidig")
-    val ansettelsesformKode: String?,
-
-    @Schema(description = "Beskrivelse av yrke")
-    val yrkeBeskrivelse: String?,
-
-    @Schema(description = "Avtalt antall timer i uken")
-    val antallTimerPrUke: Float?,
-
-    @Schema(description = "Stillingsprosent")
-    val stillingsprosent: Float?,
-
-    @Schema(description = "Dato for sist gang stillingsprosenten ble endret")
-    val stillingsprosentSistEndret: LocalDate?,
-
-    @Schema(description = "Dato for sist gang lønnen ble endret")
-    val lønnSistEndret: LocalDate?,
-
-    @Schema(description = "Dato for start for eventuell permisjon")
-    val permisjonStartdato: LocalDate?,
-
-    @Schema(description = "Dato for slutt for eventuell permisjon")
-    val permisjonSluttdato: LocalDate?,
-
-    @Schema(description = "Prosent for eventuell permisjon")
-    val permisjonProsent: Float?,
-
-    @Schema(description = "Dato for start for eventuell permittering")
-    val permitteringStartdato: LocalDate?,
-
-    @Schema(description = "Dato for slutt for eventuell permittering")
-    val permitteringSluttdato: LocalDate?,
-
-    @Schema(description = "Prosent for eventuell permittering")
-    val permitteringProsent: Float?,
-
-    @Schema(description = "Angir om en arbeidsforholdsopplysning er aktiv")
-    val aktiv: Boolean,
-
-    @Schema(description = "Tidspunkt grunnlaget tas i bruk")
-    val brukFra: LocalDateTime,
-
-    @Schema(description = "Tidspunkt grunnlaget ikke lenger aktivt som grunnlag. Null betyr at grunnlaget er aktiv")
-    val brukTil: LocalDateTime?,
 
     @Schema(description = "Hentet tidspunkt")
     val hentetTidspunkt: LocalDateTime
