@@ -1,4 +1,4 @@
-package no.nav.bidrag.transport.behandling.vedtak.reponse
+package no.nav.bidrag.transport.behandling.vedtak.response
 
 import com.fasterxml.jackson.databind.JsonNode
 import io.swagger.v3.oas.annotations.media.Schema
