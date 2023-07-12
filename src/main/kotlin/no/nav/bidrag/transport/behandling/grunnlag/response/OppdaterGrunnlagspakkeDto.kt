@@ -1,4 +1,4 @@
-package no.nav.bidrag.transport.behandling.grunnlag.reponse
+package no.nav.bidrag.transport.behandling.grunnlag.response
 
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domain.enums.GrunnlagRequestType

@@ -1,4 +1,4 @@
-package no.nav.bidrag.transport.behandling.stonad.reponse
+package no.nav.bidrag.transport.behandling.stonad.response
 
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domain.enums.Innkreving
