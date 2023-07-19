@@ -1,7 +1,7 @@
 package no.nav.bidrag.transport.behandling.inntekt.response
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.enums.InntektType
+import no.nav.bidrag.domain.enums.InntektBeskrivelse
 import java.math.BigDecimal
 import java.time.YearMonth
 
@@ -28,10 +28,10 @@ data class SummertMaanedsinntekt(
 )
 
 data class SummertAarsinntekt(
-    @Schema(description = "Type inntekt", example = "LIGNINGSINNTEKT")
-    val inntektType: InntektType,
+    @Schema(description = "Beskrivelse av inntekt", example = "LIGNINGSINNTEKT")
+    val inntektBeskrivelse: InntektBeskrivelse,
 
-    @Schema(description = "Visningsnavn for inntekttype", example = "Ligningsinntekt")
+    @Schema(description = "Visningsnavn for inntekt", example = "Ligningsinntekt")
     val visningsnavn: String,
 
     @Schema(description = "Referanse", example = "Referanse")
