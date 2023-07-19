@@ -47,7 +47,7 @@ data class HentGrunnlagspakkeDto(
     val barnetilsynListe: List<BarnetilsynDto>,
 
     @Schema(description = "Periodisert liste over innhentet overgangsstønad")
-    val overgangsstonadListe: List<OvergangsstonadDto>,
+    val overgangsstonadListe: List<OvergangsstonadDto>
 
 )
 
