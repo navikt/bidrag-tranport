@@ -8,11 +8,16 @@ object BidragEnhet {
 }
 
 enum class JournalpostStatus(val kode: String) {
+    AVVIK_ENDRE_FAGOMRADE("AF"),
+    AVVIK_BESTILL_RESKANNING("AR"),
+    AVVIK_BESTILL_SPLITTING("AS"),
     MOTTATT("M"),
     JOURNALFØRT("J"),
     EKSPEDERT("E"),
+    EKSPEDERT_JOARK("EJ"),
+    MOTTAKSREGISTRERT("M"),
     UKJENT(""),
-    DISTRIBUERT(""),
+    DISTRIBUERT("DR"),
     AVBRUTT("A"),
     KLAR_FOR_DISTRIBUSJON("KP"),
     RETUR("RE"),
@@ -20,32 +25,18 @@ enum class JournalpostStatus(val kode: String) {
     FEILREGISTRERT("F"),
     RESERVERT("R"),
     UTGÅR("U"),
+    SLETTET("S"),
     UNDER_OPPRETTELSE("UO"),
+    TIL_LAGRING("T"),
+    OPPRETTET("O"),
     UNDER_PRODUKSJON("D");
-
     companion object {
         fun fraKode(kode: String?): JournalpostStatus? {
-            return JournalpostStatus.values().firstOrNull { it.kode == kode }
+            return try {
+                JournalpostStatus.values().firstOrNull { it.kode == kode } ?: kode?.let { JournalpostStatus.valueOf(it) }
+            } catch (e: Exception) {
+                null
+            }
         }
     }
-//    companion object {
-//        fun konverterStatus(status: String?): JournalpostStatus? {
-//            return when (status) {
-//                MOTTATT.name, Journalstatus.MOTTATT -> MOTTATT
-//                FEILREGISTRERT.name, Journalstatus.FEILREGISTRERT -> FEILREGISTRERT
-//                UNDER_PRODUKSJON.name, Journalstatus.UNDER_PRODUKSJON -> UNDER_PRODUKSJON
-//                UNDER_OPPRETTELSE.name, Journalstatus.UNDER_OPPRETTELSE -> UNDER_OPPRETTELSE
-//                FERDIGSTILT.name, Journalstatus.FERDIGSTILT -> FERDIGSTILT
-//                EKSPEDERT.name, Journalstatus.EKSPEDERT -> EKSPEDERT
-//                AVBRUTT.name, Journalstatus.AVBRUTT -> AVBRUTT
-//                KLAR_FOR_DISTRIBUSJON.name, Journalstatus.KLAR_TIL_PRINT -> KLAR_FOR_DISTRIBUSJON
-//                UTGÅR.name, Journalstatus.UTGAR -> UTGÅR
-//                RETUR.name, Journalstatus.RETUR -> RETUR
-//                RESERVERT.name, Journalstatus.RESERVERT -> RESERVERT
-//                JOURNALFØRT.name, Journalstatus.JOURNALFORT -> JOURNALFØRT
-//                DISTRIBUERT.name -> DISTRIBUERT
-//                else -> null
-//            }
-//        }
-//    }
 }

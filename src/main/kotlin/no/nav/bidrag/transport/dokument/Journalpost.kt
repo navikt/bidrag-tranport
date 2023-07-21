@@ -48,7 +48,7 @@ data class JournalpostDto(
     @Schema(description = "Journalpostens status, (A, D, J, M, O, R, S, T, U, KP, EJ, E)", deprecated = true)
     val journalstatus: String? = null,
     @Schema(description = "Journalpostens status")
-    val status: JournalpostStatus? = JournalpostStatus.fraKode(journalstatus) ?: journalstatus?.let { JournalpostStatus.valueOf(it) },
+    val status: JournalpostStatus? = JournalpostStatus.fraKode(journalstatus),
     @Schema(description = "Om journalposten er feilført på bidragssak")
     val feilfort: Boolean? = null,
     @Schema(description = "Brevkoden til en journalpost")
