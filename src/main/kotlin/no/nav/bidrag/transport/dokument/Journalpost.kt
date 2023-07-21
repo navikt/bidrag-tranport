@@ -35,10 +35,10 @@ data class JournalpostDto(
     val journalfortDato: LocalDate? = null,
     @Schema(description = "Identifikator av journalpost i midlertidig brevlager eller fra joark på formatet [BID|JOARK]-<journalpostId>")
     val journalpostId: String? = null,
-    @Schema(description = "Kanalen som er kilden til at journalposten ble registrert", deprecated = true)
+    @Schema(description = "Kanalen som er kilden til at journalposten ble registrert", deprecated = true, enumAsRef = true)
     @Deprecated("Ersatt med kanal", ReplaceWith("kanal"))
     val kilde: Kanal? = null,
-    @Schema(description = "Kanalen journalposten ble mottatt i eller sendt ut på")
+    @Schema(description = "Kanalen journalposten ble mottatt i eller sendt ut på", enumAsRef = true)
     val kanal: Kanal? = null,
     @Schema(description = "Dato for når dokument er mottat, dvs. dato for journalføring eller skanning")
     val mottattDato: LocalDate? = null,
