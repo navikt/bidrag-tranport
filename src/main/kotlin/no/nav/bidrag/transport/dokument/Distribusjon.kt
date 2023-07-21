@@ -30,8 +30,10 @@ data class DistribuerTilAdresse(
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class DistribusjonInfoDto(
+    @Schema(enumAsRef = true)
     val journalstatus: JournalpostStatus,
     val kanal: String,
+    @Schema(enumAsRef = true)
     val utsendingsinfo: UtsendingsInfoDto? = null,
     val distribuertDato: LocalDateTime? = null,
     val distribuertAvIdent: String? = null,
@@ -40,6 +42,7 @@ data class DistribusjonInfoDto(
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class UtsendingsInfoDto(
+    @Schema(enumAsRef = true)
     val varseltype: UtsendingsInfoVarselTypeDto? = null,
     val adresse: String? = null,
     val tittel: String? = null,
