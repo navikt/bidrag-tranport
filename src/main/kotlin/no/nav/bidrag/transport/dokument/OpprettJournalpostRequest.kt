@@ -40,7 +40,7 @@ data class OpprettJournalpostRequest(
     val kanal: MottakUtsendingKanal? = null,
     @Schema(description = "Tema (Gyldige verdier er FAR og BID). Hvis det ikke settes opprettes journalpost med tema BID", defaultValue = "BID")
     val tema: String = "BID",
-    @Schema(description = "Journalposttype, dette kan enten være Inngående, Utgående eller Notat", required = true)
+    @Schema(description = "Journalposttype, dette kan enten være Inngående, Utgående eller Notat", required = true, enumAsRef = true)
     val journalposttype: JournalpostType,
     @Schema(description = "Referanse for journalpost. Hvis journalpost med samme referanse finnes vil tjenesten gå videre uten å opprette journalpost. Kan brukes for å lage løsninger idempotent")
     val referanseId: String? = null,

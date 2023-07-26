@@ -143,7 +143,7 @@ data class ReturDetaljerLog(
 data class AktorDto(
     @Schema(description = "Identifaktor til aktøren")
     val ident: String = "",
-    @Schema(description = "Hvilken identtype som skal brukes")
+    @Schema(description = "Hvilken identtype som skal brukes", enumAsRef = true)
     val type: IdentType? = null
 )
 
@@ -192,7 +192,7 @@ data class DokumentDto(
     override fun toString(): String {
         return "(dokumentreferanse=$dokumentreferanse,journalpostId=$journalpostId, dokumentType=$dokumentType, " +
             "tittel=$tittel, status=$status, arkivSystem=$arkivSystem " +
-            "dokumentmal=$dokumentmalId, metadata=$metadata, dokument=${dokument?.subSequence(0, 20)}...)"
+            "dokumentmal=$dokumentmalId, metadata=$metadata"
     }
 }
 
@@ -248,21 +248,6 @@ object DokumentType {
     const val UTGÅENDE = "U"
     const val INNGÅENDE = "I"
 }
-
-// object Journalstatus {
-//    const val MOTTATT = "M"
-//    const val JOURNALFORT = "J"
-//    const val EKSPEDERT = "E"
-//    const val AVBRUTT = "A"
-//    const val KLAR_TIL_PRINT = "KP"
-//    const val RETUR = "RE"
-//    const val FERDIGSTILT = "FS"
-//    const val FEILREGISTRERT = "F"
-//    const val RESERVERT = "R"
-//    const val UTGAR = "U"
-//    const val UNDER_PRODUKSJON = "D"
-//    const val UNDER_OPPRETTELSE = "UO"
-// }
 
 object Fagomrade {
     const val BIDRAG = "BID"
