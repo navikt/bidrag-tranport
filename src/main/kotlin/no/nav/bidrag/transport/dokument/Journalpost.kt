@@ -35,10 +35,10 @@ data class JournalpostDto(
     val journalfortDato: LocalDate? = null,
     @Schema(description = "Identifikator av journalpost i midlertidig brevlager eller fra joark på formatet [BID|JOARK]-<journalpostId>")
     val journalpostId: String? = null,
-    @Schema(description = "Kanalen som er kilden til at journalposten ble registrert", deprecated = true)
+    @Schema(description = "Kanalen som er kilden til at journalposten ble registrert", deprecated = true, enumAsRef = true)
     @Deprecated("Ersatt med kanal", ReplaceWith("kanal"))
     val kilde: Kanal? = null,
-    @Schema(description = "Kanalen journalposten ble mottatt i eller sendt ut på")
+    @Schema(description = "Kanalen journalposten ble mottatt i eller sendt ut på", enumAsRef = true)
     val kanal: Kanal? = null,
     @Schema(description = "Dato for når dokument er mottat, dvs. dato for journalføring eller skanning")
     val mottattDato: LocalDate? = null,
@@ -47,8 +47,8 @@ data class JournalpostDto(
     @Deprecated("Bruk status istedenfor", replaceWith = ReplaceWith("status"))
     @Schema(description = "Journalpostens status, (A, D, J, M, O, R, S, T, U, KP, EJ, E)", deprecated = true)
     val journalstatus: String? = null,
-    @Schema(description = "Journalpostens status")
-    val status: JournalpostStatus? = JournalpostStatus.fraKode(journalstatus) ?: journalstatus?.let { JournalpostStatus.valueOf(it) },
+    @Schema(description = "Journalpostens status", enumAsRef = true)
+    val status: JournalpostStatus? = JournalpostStatus.fraKode(journalstatus),
     @Schema(description = "Om journalposten er feilført på bidragssak")
     val feilfort: Boolean? = null,
     @Schema(description = "Brevkoden til en journalpost")
@@ -86,7 +86,7 @@ data class AvsenderMottakerDto(
     val navn: String? = null,
     @Schema(description = "Person ident eller organisasjonsnummer")
     val ident: String? = null,
-    @Schema(description = "Identtype")
+    @Schema(description = "Identtype", enumAsRef = true)
     val type: AvsenderMottakerDtoIdType = AvsenderMottakerDtoIdType.FNR,
     @Schema(description = "Adresse til mottaker hvis dokumentet skal sendes/er sendt gjennom sentral print")
     val adresse: MottakerAdresseTo? = null
@@ -143,7 +143,7 @@ data class ReturDetaljerLog(
 data class AktorDto(
     @Schema(description = "Identifaktor til aktøren")
     val ident: String = "",
-    @Schema(description = "Hvilken identtype som skal brukes")
+    @Schema(description = "Hvilken identtype som skal brukes", enumAsRef = true)
     val type: IdentType? = null
 )
 
@@ -182,9 +182,9 @@ data class DokumentDto(
     val brevkode: String? = null,
     @Schema(description = "Typen dokument. Dokumentmal sier noe om dokumentets innhold og oppbygning.")
     val dokumentmalId: String? = null,
-    @Schema(description = "Dokumentets status. Benyttes hvis journalposten er av typen forsendelse")
+    @Schema(description = "Dokumentets status. Benyttes hvis journalposten er av typen forsendelse", enumAsRef = true)
     val status: DokumentStatusDto? = null,
-    @Schema(description = "Arkivsystem hvor dokumentet er produsert og lagret")
+    @Schema(description = "Arkivsystem hvor dokumentet er produsert og lagret", enumAsRef = true)
     val arkivSystem: DokumentArkivSystemDto? = null,
     @Schema(description = "Metadata om dokumentet")
     val metadata: Map<String, String> = emptyMap()
@@ -192,7 +192,7 @@ data class DokumentDto(
     override fun toString(): String {
         return "(dokumentreferanse=$dokumentreferanse,journalpostId=$journalpostId, dokumentType=$dokumentType, " +
             "tittel=$tittel, status=$status, arkivSystem=$arkivSystem " +
-            "dokumentmal=$dokumentmalId, metadata=$metadata, dokument=${dokument?.subSequence(0, 20)}...)"
+            "dokumentmal=$dokumentmalId, metadata=$metadata"
     }
 }
 
@@ -248,21 +248,6 @@ object DokumentType {
     const val UTGÅENDE = "U"
     const val INNGÅENDE = "I"
 }
-
-// object Journalstatus {
-//    const val MOTTATT = "M"
-//    const val JOURNALFORT = "J"
-//    const val EKSPEDERT = "E"
-//    const val AVBRUTT = "A"
-//    const val KLAR_TIL_PRINT = "KP"
-//    const val RETUR = "RE"
-//    const val FERDIGSTILT = "FS"
-//    const val FEILREGISTRERT = "F"
-//    const val RESERVERT = "R"
-//    const val UTGAR = "U"
-//    const val UNDER_PRODUKSJON = "D"
-//    const val UNDER_OPPRETTELSE = "UO"
-// }
 
 object Fagomrade {
     const val BIDRAG = "BID"

@@ -24,7 +24,7 @@ data class JournalpostHendelse(
     val enhet: String? = null,
     @Deprecated("Bruk status istedenfor", ReplaceWith("status"))
     val journalstatus: String? = null,
-    val status: JournalpostStatus? = JournalpostStatus.fraKode(journalstatus) ?: journalstatus?.let { JournalpostStatus.valueOf(it) },
+    val status: JournalpostStatus? = JournalpostStatus.fraKode(journalstatus),
     val sporing: Sporingsdata? = null,
     val sakstilknytninger: List<String> = emptyList(),
     val dokumentDato: LocalDate? = null,

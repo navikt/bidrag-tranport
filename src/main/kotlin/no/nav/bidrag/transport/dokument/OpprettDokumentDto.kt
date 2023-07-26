@@ -9,7 +9,10 @@ data class OpprettDokumentDto(
     @Schema(description = "Dokumentets tittel")
     val tittel: String = "",
     @Schema(description = "Typen dokument. Brevkoden sier noe om dokumentets innhold og oppbygning.")
+    @Deprecated("Erstatt med dokumentmalId", ReplaceWith("dokumentmalId"))
     val brevkode: String? = null,
+    @Schema(description = "Typen dokument. Dokumentmal sier noe om dokumentets innhold og oppbygning.")
+    val dokumentmalId: String? = brevkode,
     @Schema(description = "Referansen til dokumentet hvis det er lagret i et annet arkivsystem")
     val dokumentreferanse: String? = null,
     @Schema(description = "Selve PDF dokumentet formatert som Base64", deprecated = true)
@@ -19,7 +22,7 @@ data class OpprettDokumentDto(
     val fysiskDokument: ByteArray? = dokument?.toByteArray()
 ) {
     override fun toString(): String {
-        return "(tittel=$tittel, brevkode=$brevkode, dokumentreferanse=$dokumentreferanse, " +
-            "fysiskDokument(lengde)=${fysiskDokument?.size}, dokument=${dokument.toString().subSequence(0, 20)}"
+        return "(tittel=$tittel, brevkode=$brevkode, dokumentmalId=$dokumentmalId, dokumentreferanse=$dokumentreferanse, " +
+            "fysiskDokument(lengde)=${fysiskDokument?.size}"
     }
 }
