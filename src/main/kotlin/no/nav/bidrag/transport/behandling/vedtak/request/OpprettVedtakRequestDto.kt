@@ -113,7 +113,6 @@ data class OpprettStonadsendringRequestDto(
 
     @Schema(description = "Liste over alle perioder som inngår i stønadsendringen")
     @field:Valid
-    @field:NotEmpty(message = "Listen kan ikke være null eller tom.")
     val periodeListe: List<OpprettVedtakPeriodeRequestDto>
 )
 
