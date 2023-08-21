@@ -1,9 +1,23 @@
 package no.nav.bidrag.transport.beregning.felles
 
+import io.swagger.v3.oas.annotations.media.Schema
 import java.math.BigDecimal
 import java.time.LocalDate
 
 // Felles
+
+@Schema(description = "Periode (fra-til dato")
+data class Periode(
+    @Schema(description = "Fra-og-med-dato") var datoFom: LocalDate? = null,
+    @Schema(description = "Til-dato") var datoTil: LocalDate? = null
+) {
+
+    constructor(periode: PeriodeCore) : this(
+        datoFom = periode.datoFom,
+        datoTil = periode.datoTil
+    )
+}
+
 data class PeriodeCore(
     val datoFom: LocalDate,
     val datoTil: LocalDate?
