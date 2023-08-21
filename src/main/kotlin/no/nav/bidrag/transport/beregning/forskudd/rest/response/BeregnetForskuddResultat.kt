@@ -1,8 +1,6 @@
 package no.nav.bidrag.transport.beregning.forskudd.rest.response
 
 import no.nav.bidrag.transport.beregning.felles.PeriodeCore
-import no.nav.bidrag.transport.beregning.felles.SjablonInnholdCore
-import no.nav.bidrag.transport.beregning.felles.SjablonNokkelCore
 import no.nav.bidrag.transport.beregning.felles.SjablonPeriodeCore
 import java.math.BigDecimal
 import java.time.LocalDate
