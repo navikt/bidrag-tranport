@@ -6,6 +6,11 @@ import java.time.LocalDate
 
 // Felles
 
+interface IResultatPeriode {
+    val periode: PeriodeCore
+    val grunnlagReferanseListe: List<String>
+}
+
 @Schema(description = "Periode (fra-til dato")
 data class Periode(
     @Schema(description = "Fra-og-med-dato") var datoFom: LocalDate? = null,
