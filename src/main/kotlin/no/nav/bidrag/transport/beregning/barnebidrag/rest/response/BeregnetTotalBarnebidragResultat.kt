@@ -1,3 +1,5 @@
+package no.nav.bidrag.transport.beregning.barnebidrag.rest.response
+
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.swagger.v3.oas.annotations.media.Schema
