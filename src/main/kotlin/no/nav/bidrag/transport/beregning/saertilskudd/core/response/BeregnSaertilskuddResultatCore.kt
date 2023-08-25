@@ -7,18 +7,18 @@ import java.math.BigDecimal
 
 // Resultatperiode
 data class BeregnSaertilskuddResultatCore(
-    val resultatPeriodeListe: List<ResultatPeriodeCore>,
-    val avvikListe: List<AvvikCore>
+  val resultatPeriodeListe: List<ResultatPeriodeCore>,
+  val avvikListe: List<AvvikCore>
 )
 
 data class ResultatPeriodeCore(
-    override val periode: PeriodeCore,
-    val soknadsbarnPersonId: Int,
-    val resultat: ResultatBeregningCore,
-    override val grunnlagReferanseListe: List<String>
+  override val periode: PeriodeCore,
+  val soknadsbarnPersonId: Int,
+  val resultat: ResultatBeregningCore,
+  override val grunnlagReferanseListe: List<String>
 ) : IResultatPeriode
 
 data class ResultatBeregningCore(
-    val belop: BigDecimal,
-    val kode: String
+  val belop: BigDecimal,
+  val kode: String,
 )

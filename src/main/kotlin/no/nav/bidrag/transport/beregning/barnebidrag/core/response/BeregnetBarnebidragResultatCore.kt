@@ -7,19 +7,19 @@ import java.math.BigDecimal
 
 // Resultat
 data class BeregnetBarnebidragResultatCore(
-    val resultatPeriodeListe: List<ResultatPeriodeCore>,
-    val sjablonListe: List<SjablonResultatGrunnlagCore>,
-    val avvikListe: List<AvvikCore>
+  val resultatPeriodeListe: List<ResultatPeriodeCore>,
+  val sjablonListe: List<SjablonResultatGrunnlagCore>,
+  val avvikListe: List<AvvikCore>
 )
 
 data class ResultatPeriodeCore(
-    val soknadsbarnPersonId: Int,
-    val periode: PeriodeCore,
-    val resultat: ResultatBeregningCore,
-    val grunnlagReferanseListe: List<String>
+  val soknadsbarnPersonId: Int,
+  val periode: PeriodeCore,
+  val resultat: ResultatBeregningCore,
+  val grunnlagReferanseListe: List<String>
 )
 
 data class ResultatBeregningCore(
-    val belop: BigDecimal,
-    val kode: String
+  val belop: BigDecimal,
+  val kode: String
 )
