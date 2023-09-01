@@ -17,7 +17,7 @@ data class TransformerInntekterResponseDto(
 )
 
 data class SummertMaanedsinntekt(
-    @Schema(description = "Periode (YYYYMM)", example = "202301")
+    @Schema(description = "Periode (YYYYMM)", example = "2023-01")
     val periode: YearMonth,
 
     @Schema(description = "Summert inntekt for måneden", example = "50000")
@@ -28,10 +28,10 @@ data class SummertMaanedsinntekt(
 )
 
 data class SummertAarsinntekt(
-    @Schema(description = "Beskrivelse av inntekt", example = "LIGNINGSINNTEKT")
+    @Schema(description = "Beskrivelse av inntekt", example = "AINNTEKT")
     val inntektBeskrivelse: InntektBeskrivelse,
 
-    @Schema(description = "Visningsnavn for inntekt", example = "Ligningsinntekt")
+    @Schema(description = "Visningsnavn for inntekt", example = "Lønn og trekk 2022")
     val visningsnavn: String,
 
     @Schema(description = "Referanse", example = "Referanse")
@@ -40,10 +40,10 @@ data class SummertAarsinntekt(
     @Schema(description = "Summert inntekt for perioden, omgjort til årsinntekt", example = "600000")
     val sumInntekt: BigDecimal,
 
-    @Schema(description = "Periode (YYYYMM) som inntekten gjelder fra", example = "202301")
+    @Schema(description = "Periode (YYYYMM) som inntekten gjelder fra", example = "2023-01")
     val periodeFra: YearMonth,
 
-    @Schema(description = "Periode (YYYYMM) som inntekten gjelder til", example = "202312")
+    @Schema(description = "Periode (YYYYMM) som inntekten gjelder til", example = "2023-12")
     val periodeTil: YearMonth?,
 
     @Schema(description = "Liste over inntektsposter (generisk, avhengig av type) som utgjør grunnlaget for summert inntekt")
