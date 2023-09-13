@@ -3,22 +3,22 @@ package no.nav.bidrag.transport.beregning.saertilskudd.core.response
 import no.nav.bidrag.transport.beregning.felles.AvvikCore
 import no.nav.bidrag.transport.beregning.felles.IResultatPeriode
 import no.nav.bidrag.transport.beregning.felles.PeriodeCore
+import no.nav.bidrag.transport.beregning.felles.SjablonResultatGrunnlagCore
 import java.math.BigDecimal
 
 // Resultatperiode
-data class BeregnSaertilskuddResultatCore(
-    val resultatPeriodeListe: List<SaertilskuddResultatPeriodeCore>,
+data class BeregnBidragsevneResultatCore(
+    val resultatPeriodeListe: List<BidragsevneResultatPeriodeCore>,
+    val sjablonListe: List<SjablonResultatGrunnlagCore>,
     val avvikListe: List<AvvikCore>
 )
 
-data class SaertilskuddResultatPeriodeCore(
+data class BidragsevneResultatPeriodeCore(
     override val periode: PeriodeCore,
-    val soknadsbarnPersonId: Int,
-    val resultatBeregning: SaertilskuddResultatBeregningCore,
+    val resultatBeregning: BidragsevneResultatBeregningCore,
     override val grunnlagReferanseListe: List<String>
 ) : IResultatPeriode
 
-data class SaertilskuddResultatBeregningCore(
-    val belop: BigDecimal,
-    val kode: String
+data class BidragsevneResultatBeregningCore(
+    val belop: BigDecimal
 )

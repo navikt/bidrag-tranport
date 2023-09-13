@@ -3,8 +3,8 @@ package no.nav.bidrag.transport.beregning.saertilskudd.rest.response
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.transport.beregning.felles.Periode
 import no.nav.bidrag.transport.beregning.saertilskudd.core.response.BeregnSaertilskuddResultatCore
-import no.nav.bidrag.transport.beregning.saertilskudd.core.response.ResultatBeregningCore
-import no.nav.bidrag.transport.beregning.saertilskudd.core.response.ResultatPeriodeCore
+import no.nav.bidrag.transport.beregning.saertilskudd.core.response.SaertilskuddResultatBeregningCore
+import no.nav.bidrag.transport.beregning.saertilskudd.core.response.SaertilskuddResultatPeriodeCore
 import no.nav.bidrag.transport.beregning.saertilskudd.rest.request.Grunnlag
 import java.math.BigDecimal
 
@@ -27,10 +27,10 @@ data class ResultatPeriode(
     @Schema(description = "Beregnet grunnlag innhold") var grunnlagReferanseListe: List<String> = emptyList()
 ) {
 
-    constructor(resultatPeriode: ResultatPeriodeCore) : this(
+    constructor(resultatPeriode: SaertilskuddResultatPeriodeCore) : this(
         barn = resultatPeriode.soknadsbarnPersonId,
         periode = Periode(resultatPeriode.periode),
-        resultat = ResultatBeregning(resultatPeriode.resultat),
+        resultat = ResultatBeregning(resultatPeriode.resultatBeregning),
         grunnlagReferanseListe = resultatPeriode.grunnlagReferanseListe
     )
 }
@@ -41,7 +41,7 @@ data class ResultatBeregning(
     @Schema(description = "Resultat kode") var kode: String = ""
 ) {
 
-    constructor(resultatBeregning: ResultatBeregningCore) : this(
+    constructor(resultatBeregning: SaertilskuddResultatBeregningCore) : this(
         belop = resultatBeregning.belop,
         kode = resultatBeregning.kode
     )
