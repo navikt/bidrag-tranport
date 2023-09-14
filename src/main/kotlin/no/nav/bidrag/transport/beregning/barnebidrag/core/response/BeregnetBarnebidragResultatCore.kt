@@ -1,5 +1,6 @@
 package no.nav.bidrag.transport.beregning.barnebidrag.core.response
 
+import no.nav.bidrag.domain.enums.resultatkoder.ResultatKodeBarnebidrag
 import no.nav.bidrag.transport.beregning.felles.AvvikCore
 import no.nav.bidrag.transport.beregning.felles.PeriodeCore
 import no.nav.bidrag.transport.beregning.felles.SjablonResultatGrunnlagCore
@@ -21,5 +22,5 @@ data class ResultatPeriodeCore(
 
 data class ResultatBeregningCore(
     val belop: BigDecimal,
-    val kode: String
+    val kode: ResultatKodeBarnebidrag
 )

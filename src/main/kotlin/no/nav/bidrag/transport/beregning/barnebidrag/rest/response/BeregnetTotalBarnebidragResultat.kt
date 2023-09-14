@@ -1,11 +1,11 @@
 
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.ObjectMapper
 import io.swagger.v3.oas.annotations.media.Schema
+import no.nav.bidrag.domain.enums.resultatkoder.ResultatKodeBarnebidrag
 import no.nav.bidrag.transport.beregning.barnebidrag.core.response.BeregnetBarnebidragResultatCore
 import no.nav.bidrag.transport.beregning.barnebidrag.core.response.ResultatBeregningCore
 import no.nav.bidrag.transport.beregning.barnebidrag.core.response.ResultatPeriodeCore
+import no.nav.bidrag.transport.beregning.felles.Grunnlag
 import no.nav.bidrag.transport.beregning.felles.Periode
 import java.math.BigDecimal
 
@@ -13,10 +13,10 @@ import java.math.BigDecimal
 @Schema(description = "Resultatet av en barnebidragsberegning")
 data class BeregnetTotalBarnebidragResultat(
     @Schema(description = "Periodisert liste over resultat av barnebidragsberegning") var beregnetBarnebidragPeriodeListe: List<ResultatPeriode> = emptyList(),
-    @Schema(description = "Liste over grunnlag brukt i beregning") var grunnlagListe: List<ResultatGrunnlag> = emptyList()
+    @Schema(description = "Liste over grunnlag brukt i beregning") var grunnlagListe: List<Grunnlag> = emptyList()
 ) {
 
-    constructor(beregnetBarnebidragResultat: BeregnetBarnebidragResultatCore, grunnlagListe: List<ResultatGrunnlag>) : this(
+    constructor(beregnetBarnebidragResultat: BeregnetBarnebidragResultatCore, grunnlagListe: List<Grunnlag>) : this(
         beregnetBarnebidragPeriodeListe = beregnetBarnebidragResultat.resultatPeriodeListe.map { ResultatPeriode(it) },
         grunnlagListe = grunnlagListe
     )
@@ -25,9 +25,9 @@ data class BeregnetTotalBarnebidragResultat(
 @Schema(description = "Resultatet av en beregning for en gitt periode - barnebidrag")
 data class ResultatPeriode(
     @Schema(description = "Søknadsbarn") var barn: Int = 0,
-    @Schema(description = "Beregnet resultat periode") var periode: Periode = Periode(),
-    @Schema(description = "Beregnet resultat innhold") var resultat: ResultatBeregning = ResultatBeregning(),
-    @Schema(description = "Beregnet grunnlag innhold") var grunnlagReferanseListe: List<String> = emptyList()
+    @Schema(description = "Beregnet resultat periode") var periode: Periode,
+    @Schema(description = "Beregnet resultat innhold") var resultat: ResultatBeregning,
+    @Schema(description = "Beregnet grunnlag innhold") var grunnlagReferanseListe: List<String>
 ) {
 
     constructor(resultatPeriode: ResultatPeriodeCore) : this(
@@ -40,8 +40,8 @@ data class ResultatPeriode(
 
 @Schema(description = "Resultatet av en beregning")
 data class ResultatBeregning(
-    @Schema(description = "Resultat beløp") var belop: BigDecimal = BigDecimal.ZERO,
-    @Schema(description = "Resultat kode") var kode: String = ""
+    @Schema(description = "Resultat beløp") var belop: BigDecimal,
+    @Schema(description = "Resultat kode") var kode: ResultatKodeBarnebidrag
 ) {
 
     constructor(resultatBeregning: ResultatBeregningCore) : this(
@@ -49,10 +49,3 @@ data class ResultatBeregning(
         kode = resultatBeregning.kode
     )
 }
-
-@Schema(description = "Grunnlaget for en beregning")
-data class ResultatGrunnlag(
-    @Schema(description = "Referanse") val referanse: String = "",
-    @Schema(description = "Type") val type: String = "",
-    @Schema(description = "Innhold") val innhold: JsonNode = ObjectMapper().createObjectNode()
-)
