@@ -5,7 +5,7 @@ import no.nav.bidrag.domain.enums.InntektBeskrivelse
 import java.math.BigDecimal
 import java.time.YearMonth
 
-data class TransformerInntekterResponseDto(
+data class TransformerInntekterResponse(
     @Schema(description = "Dato + commit hash", example = "20230705081501_68e71c7")
     val versjon: String = "",
 
