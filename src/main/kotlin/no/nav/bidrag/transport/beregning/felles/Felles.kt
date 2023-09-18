@@ -5,7 +5,6 @@ import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domain.enums.GrunnlagType
 import java.time.LocalDate
 
-
 @Schema(description = "Grunnlaget for en beregning av barnebidrag, forskudd og særtilskudd")
 data class BeregnGrunnlag(
     @Schema(description = "Beregn fra-dato") val beregnDatoFra: LocalDate? = null,
