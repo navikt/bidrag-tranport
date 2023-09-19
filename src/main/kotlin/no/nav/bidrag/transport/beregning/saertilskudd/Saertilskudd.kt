@@ -150,3 +150,36 @@ data class ResultatBeregning(
     @Schema(description = "Resultat beløp") var belop: BigDecimal,
     @Schema(description = "Resultat kode") var kode: ResultatKodeSaertilskudd
 )
+
+// Resultat
+class BidragsevneResultatPeriode(
+    datoFom: LocalDate,
+    datoTil: LocalDate,
+    val belop: BigDecimal,
+    val grunnlagReferanseListe: List<String>
+) :
+    BasePeriode(datoFom, datoTil)
+
+class BPsAndelSaertilskuddResultatPeriode(
+    datoFom: LocalDate,
+    datoTil: LocalDate,
+    val belop: BigDecimal,
+    val prosent: BigDecimal,
+    val selvforsorget: Boolean,
+    val grunnlagReferanseListe: List<String>
+) : BasePeriode(datoFom, datoTil)
+
+class SamvaersfradragResultatPeriode(
+    datoFom: LocalDate,
+    datoTil: LocalDate,
+    val belop: BigDecimal,
+    val barn: Int,
+    val grunnlagReferanseListe: List<String>
+) : BasePeriode(datoFom, datoTil)
+
+class SjablonResultatPeriode(
+    datoFom: LocalDate,
+    datoTil: LocalDate,
+    val sjablonNavn: String,
+    val sjablonVerdi: Int
+) : BasePeriode(datoFom, datoTil)
