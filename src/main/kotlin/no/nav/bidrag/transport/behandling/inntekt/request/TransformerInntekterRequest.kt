@@ -14,7 +14,7 @@ data class TransformerInntekterRequest(
     val ainntektsposter: List<Ainntektspost> = emptyList(),
 
     @Schema(description = "Periodisert liste over inntekter fra Sigrun")
-    val skattegrunnlagListe: List<SkattegrunnlagForLigningsår> = emptyList(),
+    val skattegrunnlagsliste: List<SkattegrunnlagForLigningsår> = emptyList(),
 
     @Schema(description = "Periodisert liste over overgangsstønad")
     val overgangsstonadsliste: List<Overgangsstonad> = emptyList()
