@@ -1,9 +1,7 @@
 package no.nav.bidrag.transport.behandling.inntekt.request
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.transport.behandling.grunnlag.response.OvergangsstonadDto
 import no.nav.bidrag.transport.behandling.grunnlag.response.SkattegrunnlagspostDto
-import no.nav.bidrag.transport.behandling.grunnlag.response.UtvidetBarnetrygdOgSmaabarnstilleggDto
 import java.math.BigDecimal
 import java.time.LocalDate
 
@@ -18,11 +16,8 @@ data class TransformerInntekterRequest(
     @Schema(description = "Periodisert liste over inntekter fra Sigrun")
     val skattegrunnlagListe: List<SkattegrunnlagForLigningsår> = emptyList(),
 
-    @Schema(description = "Periodisert liste over utvidet barnetrygd og småbarnstillegg")
-    val ubstListe: List<UtvidetBarnetrygdOgSmaabarnstilleggDto> = emptyList(),
-
     @Schema(description = "Periodisert liste over overgangsstønad")
-    val overgangsstonadListe: List<OvergangsstonadDto> = emptyList()
+    val overgangsstonadsliste: List<Overgangsstonad> = emptyList()
 )
 
 data class SkattegrunnlagForLigningsår(
@@ -50,4 +45,16 @@ data class Ainntektspost(
 
     @Schema(description = "Belop")
     val belop: BigDecimal
+)
+
+data class Overgangsstonad(
+
+    @Schema(description = "Periode fra-dato")
+    val periodeFra: LocalDate,
+
+    @Schema(description = "Periode til-dato")
+    val periodeTil: LocalDate?,
+
+    @Schema(description = "Beløp overgangsstønad")
+    val belop: Int
 )
