@@ -1,7 +1,6 @@
 package no.nav.bidrag.transport.behandling.inntekt.request
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.transport.behandling.grunnlag.response.KontantstotteDto
 import no.nav.bidrag.transport.behandling.grunnlag.response.OvergangsstonadDto
 import no.nav.bidrag.transport.behandling.grunnlag.response.SkattegrunnlagspostDto
 import no.nav.bidrag.transport.behandling.grunnlag.response.UtvidetBarnetrygdOgSmaabarnstilleggDto
@@ -21,9 +20,6 @@ data class TransformerInntekterRequest(
 
     @Schema(description = "Periodisert liste over utvidet barnetrygd og småbarnstillegg")
     val ubstListe: List<UtvidetBarnetrygdOgSmaabarnstilleggDto> = emptyList(),
-
-    @Schema(description = "Periodisert liste over kontantstøtte")
-    val kontantstotteListe: List<KontantstotteDto> = emptyList(),
 
     @Schema(description = "Periodisert liste over overgangsstønad")
     val overgangsstonadListe: List<OvergangsstonadDto> = emptyList()
