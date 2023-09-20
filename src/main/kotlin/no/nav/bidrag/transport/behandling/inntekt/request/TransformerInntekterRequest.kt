@@ -56,5 +56,5 @@ data class Overgangsstonad(
     val periodeTil: LocalDate?,
 
     @Schema(description = "Beløp overgangsstønad")
-    val belop: Int
+    val belop: BigDecimal
 )
