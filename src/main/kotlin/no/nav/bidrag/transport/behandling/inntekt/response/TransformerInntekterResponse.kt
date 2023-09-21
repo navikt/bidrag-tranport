@@ -2,6 +2,8 @@ package no.nav.bidrag.transport.behandling.inntekt.response
 
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domain.enums.InntektBeskrivelse
+import no.nav.bidrag.domain.tid.FomMåned
+import no.nav.bidrag.domain.tid.TomMåned
 import java.math.BigDecimal
 import java.time.YearMonth
 
@@ -17,7 +19,7 @@ data class TransformerInntekterResponse(
 )
 
 data class SummertMaanedsinntekt(
-    @Schema(description = "Periode (YYYYMM)", example = "2023-01")
+    @Schema(description = "Periode (YYYYMM)", example = "2023-01", type = "String", pattern = "YYYYMM")
     val periode: YearMonth,
 
     @Schema(description = "Summert inntekt for måneden", example = "50000")
@@ -40,11 +42,11 @@ data class SummertAarsinntekt(
     @Schema(description = "Summert inntekt for perioden, omgjort til årsinntekt", example = "600000")
     val sumInntekt: BigDecimal,
 
-    @Schema(description = "Periode (YYYYMM) som inntekten gjelder fra", example = "2023-01")
-    val periodeFra: YearMonth,
+    @Schema(description = "Første måned (YYYYMM) i perioden inntekten gjelder for", example = "2023-01", type = "String", pattern = "YYYYMM")
+    val periodeFra: FomMåned,
 
-    @Schema(description = "Periode (YYYYMM) som inntekten gjelder til", example = "2023-12")
-    val periodeTil: YearMonth?,
+    @Schema(description = "Siste månded (YYYYMM) i perioden inntekten gjelder for", example = "2023-12", type = "string", pattern = "YYYYMM")
+    val periodeTom: TomMåned?,
 
     @Schema(description = "Liste over inntektsposter (generisk, avhengig av type) som utgjør grunnlaget for summert inntekt")
     val inntektPostListe: List<InntektPost>
