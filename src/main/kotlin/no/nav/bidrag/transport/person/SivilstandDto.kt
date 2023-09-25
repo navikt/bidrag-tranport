@@ -18,5 +18,5 @@ data class SivilstandDto(
     val gyldigFraOgMed: FomDato?,
     val bekreftelsesdato: Bekreftelsesdato?,
     val master: String?,
-    val registrert: LocalDateTime?,
+    val registrert: LocalDateTime?
 )
