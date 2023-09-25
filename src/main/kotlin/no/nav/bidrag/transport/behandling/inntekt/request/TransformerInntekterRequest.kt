@@ -5,10 +5,6 @@ import no.nav.bidrag.transport.behandling.grunnlag.response.SkattegrunnlagspostD
 import java.math.BigDecimal
 import java.time.LocalDate
 
-// TODO Legge til swagger-doc, default-verdier
-// TODO Legge til evt. manuelle inntekter
-// TODO Hva gjør vi med inntekter som ikke er i bruk?
-
 data class TransformerInntekterRequest(
     @Schema(description = "Periodisert liste over inntekter fra Ainntekt")
     val ainntektsposter: List<Ainntektspost> = emptyList(),
