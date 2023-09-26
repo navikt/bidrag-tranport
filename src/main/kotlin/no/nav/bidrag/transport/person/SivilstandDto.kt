@@ -19,4 +19,5 @@ data class SivilstandDto(
     val bekreftelsesdato: Bekreftelsesdato?,
     val master: String?,
     val registrert: LocalDateTime?,
+    val historisk: Boolean?
 )
