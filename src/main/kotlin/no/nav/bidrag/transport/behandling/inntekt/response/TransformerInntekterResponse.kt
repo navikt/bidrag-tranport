@@ -31,7 +31,7 @@ data class SummertMaanedsinntekt(
 
 data class SummertAarsinntekt(
     @Schema(description = "Type inntektrapportering", example = "AINNTEKT")
-    val inntektKategori: InntektRapportering,
+    val inntektRapportering: InntektRapportering,
 
     @Schema(description = "Visningsnavn for inntekt", example = "Lønn og trekk 2022")
     val visningsnavn: String,
