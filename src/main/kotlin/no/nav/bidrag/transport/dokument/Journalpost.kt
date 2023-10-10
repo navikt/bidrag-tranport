@@ -198,17 +198,20 @@ data class DokumentDto(
 
 @Schema(description = "Journalposten ble mottatt/sendt ut i kanal")
 enum class Kanal {
+    @Schema(description = "Ditt NAV")
+    NAV_NO,
+
     @Schema(description = "Ditt NAV (Innsending bidrag)")
     NAV_NO_BID,
 
     @Schema(description = "Skanning Bidrag")
     SKAN_BID,
 
-    @Schema(description = "Ditt NAV")
-    NAV_NO,
-
     @Schema(description = "Skanning Nets")
     SKAN_NETS,
+
+    @Schema(description = "Skanning Iron mountain")
+    SKAN_IM,
 
     @Schema(description = "Lokal utskrift. Gjelder utgående journalposter som er printet og sendt ut manuelt")
     LOKAL_UTSKRIFT,
@@ -220,7 +223,16 @@ enum class Kanal {
     SDP,
 
     @Schema(description = "Ingen distribusjon av journalpost. Mottaker har ingen gyldig adresse å sende til.")
-    INGEN_DISTRIBUSJON
+    INGEN_DISTRIBUSJON,
+
+    @Schema(description = "Registrert av Nav-ansatt")
+    INNSENDT_NAV_ANSATT,
+
+    @Schema(description = "Nav.no uten ID-porten-pålogging")
+    NAV_NO_UINNLOGGET,
+
+    @Schema(description = "Innlogget samtale")
+    NAV_NO_CHAT
 }
 
 @Schema(description = "Metadata for kode vs dekode i et kodeobjekt")
@@ -264,12 +276,15 @@ object Fagomrade {
     
     LOKAL_UTSKRIFT - Skal settes hvis utgående journalpost er sendt via lokal utskrift. 
     Kanal for utgående journalposter blir ellers satt av dokumentdistribusjons løsningen.
+    
+    INGEN_DISTRIBUSJON - Skal settes hvis mottaker vil motta forsendelse via posten og ikke har noen gyldig adresse
 """
 )
 enum class MottakUtsendingKanal {
     DIGITALT,
     SKANNING_BIDRAG,
-    LOKAL_UTSKRIFT
+    LOKAL_UTSKRIFT,
+    INGEN_DISTRIBUSJON
 }
 
 val BID_JP_RANGE = (18900000L..40000000L)
