@@ -36,7 +36,7 @@ data class OpprettJournalpostRequest(
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Schema(description = "Dato når selve dokumentet ble opprettet")
     val datoDokument: LocalDateTime? = null,
-    @Schema(description = "Type kanal som benyttes ved mottak/utsending av journalpost")
+    @Schema(description = "Type kanal som benyttes ved mottak/utsending av journalpost", enumAsRef = true)
     val kanal: MottakUtsendingKanal? = null,
     @Schema(description = "Tema (Gyldige verdier er FAR og BID). Hvis det ikke settes opprettes journalpost med tema BID", defaultValue = "BID")
     val tema: String = "BID",
