@@ -79,6 +79,9 @@ data class Kontantstotte(
 
 data class UtvidetBarnetrygdOgSmaabarnstillegg(
 
+    @Schema(description = "Type stønad, utvidet barnetrygd eller småbarnstillegg")
+    val type: String,
+
     @Schema(description = "Periode fra-dato")
     val periodeFra: LocalDate,
 
