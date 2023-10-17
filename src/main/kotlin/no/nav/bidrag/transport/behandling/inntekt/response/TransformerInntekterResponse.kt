@@ -48,6 +48,9 @@ data class SummertAarsinntekt(
     @Schema(description = "Siste månded (YYYYMM) i perioden inntekten gjelder for", example = "2023-12", type = "string", pattern = "YYYYMM")
     val periodeTom: TomMåned?,
 
+    @Schema(description = "Id til barnet kontantstøtten mottas for, brukes kun for kontantstøtte", example = "12345678910")
+    val gjelderBarnPersonId: String = "",
+
     @Schema(description = "Liste over inntektsposter (generisk, avhengig av type) som utgjør grunnlaget for summert inntekt")
     val inntektPostListe: List<InntektPost>
 )
