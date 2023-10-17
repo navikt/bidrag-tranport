@@ -227,7 +227,7 @@ data class KontantstotteDto(
     @Schema(description = "Id til personen som mottar kontantstøtten")
     val partPersonId: String,
 
-    @Schema(description = "Id til barnet kontantstøtten er for")
+    @Schema(description = "Id til barnet kontantstøtten mottas for")
     val barnPersonId: String,
 
     @Schema(description = "Periode fra-dato")
