@@ -15,15 +15,15 @@
     <sha1/>
     <changelist>-SNAPSHOT</changelist>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <bidrag-domain.version>20231024145403_56ea09b</bidrag-domain.version>
-    <kotlin.version>1.8.0</kotlin.version>
+    <bidrag-domain.version>20231017090044_257a419</bidrag-domain.version>
+    <kotlin.version>1.9.10</kotlin.version>
     <kotlin.code.style>official</kotlin.code.style>
     <jackson.version>2.14.2</jackson.version>
-    <spring.version>6.0.9</spring.version>
+    <spring.version>6.0.13</spring.version>
     <jakarta.version>3.0.2</jakarta.version>
     <swagger.version>2.2.16</swagger.version>
     <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
-    <kotest.version>5.5.4</kotest.version>
+    <kotest.version>5.7.2</kotest.version>
     <java.version>1.8</java.version>
   </properties>
 
@@ -160,7 +160,7 @@
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-deploy-plugin</artifactId>
-              <version>2.8.2</version>
+              <version>3.1.1</version>
             </plugin>
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
@@ -289,7 +289,7 @@
           <dependency>
             <groupId>com.pinterest</groupId>
             <artifactId>ktlint</artifactId>
-            <version>0.47.1</version>
+            <version>0.50.0</version>
           </dependency>
           <!-- additional 3rd party ruleset(s) can be specified here -->
         </dependencies>
