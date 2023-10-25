@@ -44,10 +44,7 @@ data class HentGrunnlagspakkeDto(
     val sivilstandListe: List<SivilstandDto>,
 
     @Schema(description = "Periodisert liste over innhentet barnetilsyn")
-    val barnetilsynListe: List<BarnetilsynDto>,
-
-    @Schema(description = "Periodisert liste over innhentet overgangsstønad")
-    val overgangsstonadListe: List<OvergangsstonadDto>
+    val barnetilsynListe: List<BarnetilsynDto>
 
 )
 
@@ -350,33 +347,6 @@ data class BarnetilsynDto(
 
     @Schema(description = "Angir om barnet er over eller under skolealder")
     val skolealder: Skolealder?,
-
-    @Schema(description = "Hentet tidspunkt")
-    val hentetTidspunkt: LocalDateTime
-)
-
-data class OvergangsstonadDto(
-
-    @Schema(description = "Id til personen som mottar overgangsstønaden")
-    val partPersonId: String,
-
-    @Schema(description = "Periode fra-dato")
-    val periodeFra: LocalDate,
-
-    @Schema(description = "Periode til-dato")
-    val periodeTil: LocalDate?,
-
-    @Schema(description = "Angir om en inntektsopplysning er aktiv")
-    val aktiv: Boolean,
-
-    @Schema(description = "Tidspunkt inntekten tas i bruk")
-    val brukFra: LocalDateTime,
-
-    @Schema(description = "Tidspunkt inntekten ikke lenger aktiv som grunnlag. Null betyr at inntekten er aktiv")
-    val brukTil: LocalDateTime?,
-
-    @Schema(description = "Beløp overgangsstønad")
-    val belop: Int,
 
     @Schema(description = "Hentet tidspunkt")
     val hentetTidspunkt: LocalDateTime
