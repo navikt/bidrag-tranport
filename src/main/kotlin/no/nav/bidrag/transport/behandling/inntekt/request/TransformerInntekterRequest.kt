@@ -12,9 +12,6 @@ data class TransformerInntekterRequest(
     @Schema(description = "Periodisert liste over inntekter fra Sigrun")
     val skattegrunnlagsliste: List<SkattegrunnlagForLigningsår> = emptyList(),
 
-    @Schema(description = "Periodisert liste over overgangsstønad")
-    val overgangsstonadsliste: List<Overgangsstonad> = emptyList(),
-
     @Schema(description = "Periodisert liste over kontantstøtte, MERK: én liste per barn")
     val kontantstotteliste: List<Kontantstotte> = emptyList(),
 
@@ -49,18 +46,6 @@ data class Ainntektspost(
     val belop: BigDecimal
 )
 
-data class Overgangsstonad(
-
-    @Schema(description = "Periode fra-dato")
-    val periodeFra: LocalDate,
-
-    @Schema(description = "Periode til-dato")
-    val periodeTil: LocalDate?,
-
-    @Schema(description = "Beløp overgangsstønad")
-    val belop: BigDecimal
-)
-
 data class Kontantstotte(
 
     @Schema(description = "Periode fra-dato")
@@ -69,10 +54,10 @@ data class Kontantstotte(
     @Schema(description = "Periode til-dato")
     val periodeTil: LocalDate?,
 
-    @Schema(description = "Beløp overgangsstønad")
+    @Schema(description = "Beløp kontantstøtte")
     val belop: BigDecimal,
 
-    @Schema(description = "Id til barnet kontantstøtten er for")
+    @Schema(description = "Id til barnet kontantstøtten mottas for")
     val barnPersonId: String
 
 )
@@ -88,7 +73,7 @@ data class UtvidetBarnetrygdOgSmaabarnstillegg(
     @Schema(description = "Periode til-dato")
     val periodeTil: LocalDate?,
 
-    @Schema(description = "Beløp overgangsstønad")
+    @Schema(description = "Beløp utvidet barnetrygd eller småbarnstillegg")
     val belop: BigDecimal
 
 )
