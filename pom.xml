@@ -19,7 +19,7 @@
     <kotlin.version>1.9.10</kotlin.version>
     <kotlin.code.style>official</kotlin.code.style>
     <jackson.version>2.14.2</jackson.version>
-    <spring.version>6.0.9</spring.version>
+    <spring.version>6.0.13</spring.version>
     <jakarta.version>3.0.2</jakarta.version>
     <swagger.version>2.2.16</swagger.version>
     <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
