@@ -23,7 +23,7 @@
     <jakarta.version>3.0.2</jakarta.version>
     <swagger.version>2.2.16</swagger.version>
     <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
-    <kotest.version>5.5.4</kotest.version>
+    <kotest.version>5.7.2</kotest.version>
     <java.version>1.8</java.version>
   </properties>
 
