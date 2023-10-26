@@ -24,7 +24,7 @@ data class OpprettJournalpostRequest(
     Dokumenter som skal knyttes til journalpost. 
     En journalpost må minst ha et dokument. 
     Det første dokument i meldingen blir tilknyttet som hoveddokument på journalposten.""",
-        required = true
+        required = true,
     )
     val dokumenter: List<OpprettDokumentDto> = emptyList(),
     @Schema(description = "Saksnummer til bidragsaker som journalpost skal tilknyttes")
@@ -50,5 +50,5 @@ data class OpprettJournalpostRequest(
     @Schema(description = "NAV-enheten som oppretter journalposten")
     val journalførendeEnhet: String? = null,
     @Schema(description = "Ident til saksbehandler som oppretter journalpost. Dette vil prioriteres over ident som tilhører tokenet til kallet.")
-    val saksbehandlerIdent: String? = null
+    val saksbehandlerIdent: String? = null,
 )

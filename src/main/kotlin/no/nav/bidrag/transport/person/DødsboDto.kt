@@ -18,7 +18,7 @@ data class DødsboDto(
     @Schema(description = "Kontaktadresse i Norge eller utlandet for person, advokat eller oganisasjon.")
     val kontaktadresse: DødsboKontaktadresse,
     @Schema(description = "Navn på kontaktperson for dødsboet. Dette kan være en person, advokat eller oganisasjon.")
-    val kontaktperson: Kontaktperson
+    val kontaktperson: Kontaktperson,
 )
 
 data class DødsboKontaktadresse(
@@ -31,5 +31,5 @@ data class DødsboKontaktadresse(
     @Schema(description = "Poststed")
     val poststed: Poststed,
     @Schema(description = "Landkode 3 siffer.")
-    val land3: Landkode3?
+    val land3: Landkode3?,
 )

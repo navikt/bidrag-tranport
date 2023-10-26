@@ -5,7 +5,7 @@ enum class DokumentArkivSystemDto {
     MIDLERTIDLIG_BREVLAGER,
     UKJENT,
     BIDRAG,
-    FORSENDELSE
+    FORSENDELSE,
 }
 
 /**
@@ -37,5 +37,5 @@ enum class DokumentStatusDto {
     /**
      Dokumentet ble opprettet, men ble avbrutt under redigering. Benyttes for redigerbare brev.
      */
-    AVBRUTT
+    AVBRUTT,
 }

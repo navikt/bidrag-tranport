@@ -11,7 +11,7 @@ import no.nav.bidrag.domain.string.Valutakode
 
 @Schema(
     description = "Representerer kontonummer for en samhandler. For norske kontonummer " +
-        "er det kun norskKontornr som er utfyllt, ellers benyttes de andre feltene for utlandske kontonummer."
+        "er det kun norskKontornr som er utfyllt, ellers benyttes de andre feltene for utlandske kontonummer.",
 )
 data class KontonummerDto(
     @Schema(description = "Norsk kontonummer, 11 siffer.")
@@ -27,5 +27,5 @@ data class KontonummerDto(
     @Schema(description = "BankCode. Format varierer.")
     val bankCode: Bankkode? = null,
     @Schema(description = "Kontoens valuta.")
-    val valutakode: Valutakode? = null
+    val valutakode: Valutakode? = null,
 )

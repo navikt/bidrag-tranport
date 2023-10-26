@@ -9,11 +9,11 @@ data class MotpartBarnRelasjonDto(
     @Schema(description = "Identen til personen")
     val person: PersonDto,
     @Schema(description = "Familieenheter til personen")
-    val personensMotpartBarnRelasjon: List<MotpartBarnRelasjon> = emptyList()
+    val personensMotpartBarnRelasjon: List<MotpartBarnRelasjon> = emptyList(),
 )
 
 data class MotpartBarnRelasjon(
     val forelderrolleMotpart: Familierelasjon,
     val motpart: PersonDto?,
-    val fellesBarn: List<PersonDto> = emptyList()
+    val fellesBarn: List<PersonDto> = emptyList(),
 )

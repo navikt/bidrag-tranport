@@ -10,7 +10,7 @@ import no.nav.bidrag.domain.tid.Fødselsdato
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class NavnFødselDødDto(
     @Schema(
-        description = "Gir navn, fødselsdato og fødselsår for angitt person. Fødselsår finnes for alle i PDL, mens noen ikke har utfyllt fødselsdato"
+        description = "Gir navn, fødselsdato og fødselsår for angitt person. Fødselsår finnes for alle i PDL, mens noen ikke har utfyllt fødselsdato",
     )
     val navn: FulltNavn,
     val fødselsdato: Fødselsdato?,
@@ -25,5 +25,5 @@ data class NavnFødselDødDto(
     val foedselsaar: Fødselsår = fødselsår,
     @Schema(description = "Eventuell dødsdato til personen", deprecated = true)
     @Deprecated("Skrivefeil", ReplaceWith("dødsdato"))
-    val doedsdato: Dødsdato? = dødsdato
+    val doedsdato: Dødsdato? = dødsdato,
 )

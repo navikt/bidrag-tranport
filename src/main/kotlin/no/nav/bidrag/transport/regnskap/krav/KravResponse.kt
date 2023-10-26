@@ -9,5 +9,5 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class KravResponse(
 
     @JsonProperty("BatchUid")
-    val batchUid: String
+    val batchUid: String,
 )

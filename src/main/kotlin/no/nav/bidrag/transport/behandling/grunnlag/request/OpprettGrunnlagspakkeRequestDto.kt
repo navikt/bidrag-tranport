@@ -12,5 +12,5 @@ data class OpprettGrunnlagspakkeRequestDto(
 
     @Schema(description = "opprettet av")
     @field:NotBlank(message = "Kan ikke være null eller blank.")
-    val opprettetAv: String
+    val opprettetAv: String,
 )

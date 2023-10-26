@@ -8,5 +8,5 @@ data class Graderingsinfo(
     @Schema(description = "Map med ident til gradering.")
     val identerTilGradering: Map<PersonIdent, Gradering?>,
     @Schema(description = "Hvor vidt hovedident fra GraderingQuery er skjerment.")
-    val identerTilSkjerming: Map<PersonIdent, Boolean>
+    val identerTilSkjerming: Map<PersonIdent, Boolean>,
 )

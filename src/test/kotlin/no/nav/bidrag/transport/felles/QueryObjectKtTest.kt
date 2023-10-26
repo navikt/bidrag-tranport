@@ -19,7 +19,7 @@ internal class QueryObjectKtTest {
             boolean = true,
             date = LocalDate.of(2012, 5, 17),
             dateTime = LocalDateTime.of(2012, 5, 17, 8, 0, 0),
-            list = listOf("string1", "string2", "string3")
+            list = listOf("string1", "string2", "string3"),
 
         )
 
@@ -41,7 +41,7 @@ internal class QueryObjectKtTest {
             boolean = null,
             date = null,
             dateTime = null,
-            list = null
+            list = null,
         )
 
         val multiValueMap = søkSamhandlerQuery.toQueryParams()
@@ -62,7 +62,7 @@ internal class QueryObjectKtTest {
             boolean = null,
             date = null,
             dateTime = null,
-            list = listOf()
+            list = listOf(),
         )
 
         val multiValueMap = søkSamhandlerQuery.toQueryParams()
@@ -75,7 +75,7 @@ internal class QueryObjectKtTest {
         val søkSamhandlerQuery = SøkSamhandlerQuery(
             FulltNavn("navn"),
             Postnummer("postnummer"),
-            Område("område")
+            Område("område"),
         )
 
         val multiValueMap = søkSamhandlerQuery.toQueryParams()
@@ -90,6 +90,6 @@ internal class QueryObjectKtTest {
         val boolean: Boolean?,
         val date: LocalDate?,
         val dateTime: LocalDateTime?,
-        val list: List<String>?
+        val list: List<String>?,
     ) : QueryObject
 }

@@ -19,5 +19,5 @@ data class HentStonadHistoriskRequest(
     val kravhaverId: String,
 
     @Schema(description = "Tidspunkt som det ønskes å hente gyldige perioder for")
-    val gyldigTidspunkt: LocalDateTime
+    val gyldigTidspunkt: LocalDateTime,
 )

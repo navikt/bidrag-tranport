@@ -8,13 +8,13 @@ import java.time.LocalDateTime
 data class DistribuerJournalpostRequest(
     @Schema(description = "Identifiserer batch som forsendelsen inngår i. Brukes for sporing") val batchId: String? = null,
     @Schema(description = "Forsendelsen er skrevet ut og distribuert lokalt. Distribusjon registreres men ingen distribusjon bestilles.") val lokalUtskrift: Boolean = false,
-    @Schema(description = "Adresse for hvor brev sendes ved sentral print") val adresse: DistribuerTilAdresse? = null
+    @Schema(description = "Adresse for hvor brev sendes ved sentral print") val adresse: DistribuerTilAdresse? = null,
 )
 
 @Schema(description = "Respons etter bestilt distribusjon")
 data class DistribuerJournalpostResponse(
     @Schema(description = "Journalpostid for dokument som det ble bestilt distribusjon for") val journalpostId: String,
-    @Schema(description = "Bestillingid som unikt identifiserer distribusjonsbestillingen. Vil være null hvis ingen distribusjon er bestilt.") val bestillingsId: String?
+    @Schema(description = "Bestillingid som unikt identifiserer distribusjonsbestillingen. Vil være null hvis ingen distribusjon er bestilt.") val bestillingsId: String?,
 )
 
 @Schema(description = "Adresse for hvor brev sendes ved sentral print")
@@ -25,7 +25,7 @@ data class DistribuerTilAdresse(
     @Schema(description = "ISO 3166-1 alpha-2 to-bokstavers landkode")
     val land: String? = null,
     val postnummer: String? = null,
-    val poststed: String? = null
+    val poststed: String? = null,
 )
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -37,7 +37,7 @@ data class DistribusjonInfoDto(
     val utsendingsinfo: UtsendingsInfoDto? = null,
     val distribuertDato: LocalDateTime? = null,
     val distribuertAvIdent: String? = null,
-    val bestillingId: String? = null
+    val bestillingId: String? = null,
 )
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -46,12 +46,12 @@ data class UtsendingsInfoDto(
     val varseltype: UtsendingsInfoVarselTypeDto? = null,
     val adresse: String? = null,
     val tittel: String? = null,
-    val varslingstekst: String? = null
+    val varslingstekst: String? = null,
 )
 
 enum class UtsendingsInfoVarselTypeDto {
     EPOST,
     SMS,
     DIGIPOST,
-    FYSISK_POST
+    FYSISK_POST,
 }

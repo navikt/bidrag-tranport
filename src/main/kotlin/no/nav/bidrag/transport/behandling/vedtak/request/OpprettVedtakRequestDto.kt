@@ -14,6 +14,13 @@ import no.nav.bidrag.domain.enums.Innkreving
 import no.nav.bidrag.domain.enums.StonadType
 import no.nav.bidrag.domain.enums.VedtakKilde
 import no.nav.bidrag.domain.enums.VedtakType
+import no.nav.bidrag.domain.ident.PersonIdent
+import no.nav.bidrag.domain.string.Enhetsnummer
+import no.nav.bidrag.domain.string.Landkode
+import no.nav.bidrag.domain.string.Saksnummer
+import no.nav.bidrag.domain.string.Valutakode
+import no.nav.bidrag.domain.tid.PeriodeFom
+import no.nav.bidrag.domain.tid.PeriodeTil
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -31,18 +38,21 @@ data class OpprettVedtakRequestDto(
     @Size(min = 5)
     val opprettetAv: String,
 
-    @Schema(description = "Saksbehandlers navn")
+    @Schema(description = "Saksbehandlers navn eller navn på applikasjon ved batchkjøring")
     val opprettetAvNavn: String?,
 
     @Schema(description = "Tidspunkt/timestamp når vedtaket er fattet")
-    val vedtakTidspunkt: LocalDateTime,
+    val vedtakstidspunkt: LocalDateTime,
 
-    @Schema(description = "Id til enheten som er ansvarlig for vedtaket")
+    @Schema(description = "Enheten som er ansvarlig for vedtaket")
     @NotBlank
-    val enhetId: String,
+    val enhetsnummer: Enhetsnummer,
 
     @Schema(description = "Settes hvis overføring til Elin skal utsettes")
-    val utsattTilDato: LocalDate?,
+    val innkrevingUtsattTilDato: LocalDate?,
+
+    @Schema(description = "Settes hvis vedtaket er fastsatt i utlandet")
+    val fastsattILand: Landkode?,
 
     @Schema(description = "Liste over alle grunnlag som inngår i vedtaket")
     @field:Valid
@@ -50,15 +60,15 @@ data class OpprettVedtakRequestDto(
 
     @Schema(description = "Liste over alle stønadsendringer som inngår i vedtaket")
     @field:Valid
-    val stonadsendringListe: List<OpprettStonadsendringRequestDto>?,
+    val stønadsendringListe: List<OpprettStønadsendringRequestDto>?,
 
     @Schema(description = "Liste over alle engangsbeløp som inngår i vedtaket")
     @field:Valid
-    val engangsbelopListe: List<OpprettEngangsbelopRequestDto>?,
+    val engangsbeløpListe: List<OpprettEngangsbeløpRequestDto>?,
 
     @Schema(description = "Liste med referanser til alle behandlinger som ligger som grunnlag til vedtaket")
     @field:Valid
-    val behandlingsreferanseListe: List<OpprettBehandlingsreferanseRequestDto>?
+    val behandlingsreferanseListe: List<OpprettBehandlingsreferanseRequestDto>?,
 )
 
 @Schema
@@ -74,30 +84,30 @@ data class OpprettGrunnlagRequestDto(
 
     @Schema(description = "Innholdet i grunnlaget")
     @NotBlank
-    val innhold: JsonNode
+    val innhold: JsonNode,
 )
 
 @Schema
-data class OpprettStonadsendringRequestDto(
+data class OpprettStønadsendringRequestDto(
 
     @Schema(description = "Stønadstype")
     @NotBlank
     val type: StonadType,
 
     @Schema(description = "Referanse til sak")
-    val sakId: String,
+    val sak: Saksnummer,
 
     @Schema(description = "Id til den som skal betale bidraget")
-    val skyldnerId: String,
+    val skyldner: PersonIdent,
 
     @Schema(description = "Id til den som krever bidraget")
-    val kravhaverId: String,
+    val kravhaver: PersonIdent,
 
     @Schema(description = "Id til den som mottar bidraget")
-    val mottakerId: String,
+    val mottaker: PersonIdent,
 
     @Schema(description = "Angir første år en stønad skal indeksreguleres")
-    val indeksreguleringAar: String?,
+    val førsteIndeksreguleringsår: Int?,
 
     @Schema(description = "Angir om stønaden skal innkreves")
     val innkreving: Innkreving,
@@ -105,43 +115,43 @@ data class OpprettStonadsendringRequestDto(
     @Schema(description = "Angir om en stønad skal endres som følge av vedtaket")
     val endring: Boolean,
 
-    @Schema(description = "VedtakId for vedtaket det er klaget på")
-    val omgjorVedtakId: Int?,
+    @Schema(description = "Id for vedtaket det er klaget på")
+    val omgjørVedtakId: Int?,
 
     @Schema(description = "Referanse som brukes i utlandssaker")
     val eksternReferanse: String?,
 
     @Schema(description = "Liste over alle perioder som inngår i stønadsendringen")
     @field:Valid
-    val periodeListe: List<OpprettVedtakPeriodeRequestDto>
+    val periodeListe: List<OpprettVedtakPeriodeRequestDto>,
 )
 
 @Schema
-data class OpprettEngangsbelopRequestDto(
+data class OpprettEngangsbeløpRequestDto(
 
     @Schema(description = "Beløpstype. Saertilskudd, gebyr m.m.")
     @NotBlank
     val type: EngangsbelopType,
 
     @Schema(description = "Referanse til sak")
-    val sakId: String,
+    val sak: Saksnummer,
 
     @Schema(description = "Id til den som skal betale engangsbeløpet")
-    val skyldnerId: String,
+    val skyldner: PersonIdent,
 
     @Schema(description = "Id til den som krever engangsbeløpet")
-    val kravhaverId: String,
+    val kravhaver: PersonIdent,
 
     @Schema(description = "Id til den som mottar engangsbeløpet")
-    val mottakerId: String,
+    val mottaker: PersonIdent,
 
     @Schema(description = "Beregnet engangsbeløp")
     @Min(0)
-    val belop: BigDecimal?,
+    val beløp: BigDecimal?,
 
     @Schema(description = "Valutakoden tilhørende engangsbeløpet")
     @NotBlank
-    val valutakode: String?,
+    val valutakode: Valutakode?,
 
     @Schema(description = "Resultatkoden tilhørende engangsbeløpet")
     @NotBlank
@@ -153,10 +163,10 @@ data class OpprettEngangsbelopRequestDto(
     @Schema(description = "Angir om et engangsbeløp skal endres som følge av vedtaket")
     val endring: Boolean,
 
-    @Schema(description = "VedtakId for vedtaket det er klaget på. Utgjør sammen med referanse en unik id for et engangsbeløp")
-    val omgjorVedtakId: Int?,
+    @Schema(description = "Id for vedtaket det er klaget på. Utgjør sammen med referanse en unik id for et engangsbeløp")
+    val omgjørVedtakId: Int?,
 
-    @Schema(description = "Referanse, brukes for å kunne omgjøre engangsbeløp senere i et klagevedtak. Unik innenfor et vedtak")
+    @Schema(description = "Referanse til engangsbeløp, brukes for å kunne omgjøre engangsbeløp senere i et klagevedtak. Unik innenfor et vedtak")
     val referanse: String,
 
     @Schema(description = "Referanse - delytelsesId/beslutningslinjeId -> bidrag-regnskap. Skal fjernes senere")
@@ -167,7 +177,7 @@ data class OpprettEngangsbelopRequestDto(
 
     @Schema(description = "Liste over alle grunnlag som inngår i engangsbeløpet")
     @NotEmpty
-    val grunnlagReferanseListe: List<String>
+    val grunnlagReferanseListe: List<String>,
 )
 
 @Schema
@@ -179,34 +189,34 @@ data class OpprettBehandlingsreferanseRequestDto(
 
     @Schema(description = "Kildesystemets referanse til behandlingen")
     @NotBlank
-    val referanse: String
+    val referanse: String,
 )
 
 @Schema
 data class OpprettVedtakPeriodeRequestDto(
 
     @Schema(description = "Periode fra-og-med-dato")
-    val fomDato: LocalDate,
+    val periodeFom: PeriodeFom,
 
     @Schema(description = "Periode til-dato")
-    val tilDato: LocalDate?,
+    val periodeTil: PeriodeTil?,
 
     @Schema(description = "Beregnet stønadsbeløp")
     @Min(0)
-    val belop: BigDecimal?,
+    val beløp: BigDecimal?,
 
     @Schema(description = "Valutakoden tilhørende stønadsbeløpet")
     @NotBlank
-    val valutakode: String?,
+    val valutakode: Valutakode?,
 
     @Schema(description = "Resultatkoden tilhørende stønadsbeløpet")
     @NotBlank
     val resultatkode: String,
 
-    @Schema(description = "Referanse - delytelsesId/beslutningslinjeId -> bidrag-regnskap. Skal fjernes senere")
+    @Schema(description = "Referanse - delytelseId/beslutningslinjeId -> bidrag-regnskap. Skal fjernes senere")
     val delytelseId: String?,
 
     @Schema(description = "Liste over alle grunnlag som inngår i perioden")
     @NotEmpty
-    val grunnlagReferanseListe: List<String>
+    val grunnlagReferanseListe: List<String>,
 )

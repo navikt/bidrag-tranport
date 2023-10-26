@@ -22,7 +22,7 @@ data class VedtakHendelse(
     val stonadsendringListe: List<Stonadsendring>?,
     val engangsbelopListe: List<Engangsbelop>?,
     val behandlingsreferanseListe: List<Behandlingsreferanse>?,
-    val sporingsdata: Sporingsdata
+    val sporingsdata: Sporingsdata,
 )
 
 data class Sporingsdata(val correlationId: String) {
@@ -44,7 +44,7 @@ data class Stonadsendring(
     val endring: Boolean,
     val omgjorVedtakId: Int?,
     val eksternReferanse: String?,
-    val periodeListe: List<Periode>
+    val periodeListe: List<Periode>,
 )
 
 data class Engangsbelop(
@@ -61,7 +61,7 @@ data class Engangsbelop(
     val omgjorVedtakId: Int?,
     val referanse: String,
     val delytelseId: String?,
-    val eksternReferanse: String?
+    val eksternReferanse: String?,
 )
 
 data class Periode(
@@ -70,9 +70,9 @@ data class Periode(
     val belop: BigDecimal?,
     val valutakode: String?,
     val resultatkode: String,
-    val delytelseId: String?
+    val delytelseId: String?,
 )
 data class Behandlingsreferanse(
     val kilde: String,
-    val referanse: String
+    val referanse: String,
 )

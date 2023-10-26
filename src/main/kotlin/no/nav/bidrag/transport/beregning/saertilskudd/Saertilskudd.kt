@@ -37,7 +37,7 @@ open class InntektBase(
     datoTil: LocalDate,
     val rolle: Rolle,
     val inntektType: String?,
-    val belop: BigDecimal?
+    val belop: BigDecimal?,
 ) : BasePeriode(datoFom, datoTil)
 
 class BPInntekt(
@@ -45,7 +45,7 @@ class BPInntekt(
     datoTil: LocalDate,
     rolle: Rolle,
     inntektType: String?,
-    belop: BigDecimal?
+    belop: BigDecimal?,
 ) : InntektBase(datoFom, datoTil, rolle, inntektType, belop)
 
 class BMInntekt(
@@ -55,7 +55,7 @@ class BMInntekt(
     belop: BigDecimal?,
     rolle: Rolle,
     val deltFordel: Boolean?,
-    val skatteklasse2: Boolean?
+    val skatteklasse2: Boolean?,
 ) : InntektBase(datoFom, datoTil, rolle, inntektType, belop)
 
 class SBInntekt(
@@ -64,37 +64,37 @@ class SBInntekt(
     rolle: Rolle,
     inntektType: String?,
     belop: BigDecimal?,
-    val soknadsbarnId: Int?
+    val soknadsbarnId: Int?,
 ) : InntektBase(datoFom, datoTil, rolle, inntektType, belop)
 
 class BarnIHusstand(
     datoFom: LocalDate,
     datoTil: LocalDate,
-    val antall: Double?
+    val antall: Double?,
 ) : BasePeriode(datoFom, datoTil)
 
 class Bostatus(
     datoFom: LocalDate,
     datoTil: LocalDate,
-    val bostatusKode: String?
+    val bostatusKode: String?,
 ) : BasePeriode(datoFom, datoTil)
 
 class Saerfradrag(
     datoFom: LocalDate,
     datoTil: LocalDate,
-    val saerfradragKode: String?
+    val saerfradragKode: String?,
 ) : BasePeriode(datoFom, datoTil)
 
 class Skatteklasse(
     datoFom: LocalDate,
     datoTil: LocalDate,
-    val skatteklasseId: Int?
+    val skatteklasseId: Int?,
 ) : BasePeriode(datoFom, datoTil)
 
 class NettoSaertilskudd(
     datoFom: LocalDate,
     datoTil: LocalDate,
-    val nettoSaertilskuddBelop: BigDecimal?
+    val nettoSaertilskuddBelop: BigDecimal?,
 ) : BasePeriode(datoFom, datoTil)
 
 class Samvaersklasse(
@@ -105,7 +105,7 @@ class Samvaersklasse(
     @JsonDeserialize(using = LocalDateDeserializer::class)
     @JsonSerialize(using = LocalDateSerializer::class)
     val soknadsbarnFodselsdato: LocalDate?,
-    val samvaersklasseId: String?
+    val samvaersklasseId: String?,
 ) : BasePeriode(datoFom, datoTil)
 
 class LopendeBidrag(
@@ -115,12 +115,12 @@ class LopendeBidrag(
     val belop: BigDecimal?,
     val opprinneligBPAndelUnderholdskostnadBelop: BigDecimal?,
     val opprinneligBidragBelop: BigDecimal?,
-    val opprinneligSamvaersfradragBelop: BigDecimal?
+    val opprinneligSamvaersfradragBelop: BigDecimal?,
 ) : BasePeriode(datoFom, datoTil)
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class InntektRolle(
-    val rolle: Rolle
+    val rolle: Rolle,
 )
 
 data class SoknadsBarnInfo(
@@ -128,13 +128,13 @@ data class SoknadsBarnInfo(
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @JsonDeserialize(using = LocalDateDeserializer::class)
     @JsonSerialize(using = LocalDateSerializer::class)
-    val fodselsdato: LocalDate
+    val fodselsdato: LocalDate,
 )
 
 // Resultat
 data class BeregnetTotalSaertilskuddResultat(
     @Schema(description = "Periodisert liste over resultat av særtilskuddsberegning") var beregnetSaertilskuddPeriodeListe: List<ResultatPeriode> = emptyList(),
-    @Schema(description = "Liste over grunnlag brukt i beregning") var grunnlagListe: List<Grunnlag> = emptyList()
+    @Schema(description = "Liste over grunnlag brukt i beregning") var grunnlagListe: List<Grunnlag> = emptyList(),
 )
 
 @Schema(description = "Resultatet av en beregning for en gitt periode")
@@ -142,13 +142,13 @@ data class ResultatPeriode(
     @Schema(description = "Søknadsbarn") var barn: Int = 0,
     @Schema(description = "Beregnet resultat periode") var periode: Periode,
     @Schema(description = "Beregnet resultat innhold") var resultat: ResultatBeregning,
-    @Schema(description = "Beregnet grunnlag innhold") var grunnlagReferanseListe: List<String>
+    @Schema(description = "Beregnet grunnlag innhold") var grunnlagReferanseListe: List<String>,
 )
 
 @Schema(description = "Resultatet av en beregning")
 data class ResultatBeregning(
     @Schema(description = "Resultat beløp") var belop: BigDecimal,
-    @Schema(description = "Resultat kode") var kode: ResultatKodeSaertilskudd
+    @Schema(description = "Resultat kode") var kode: ResultatKodeSaertilskudd,
 )
 
 // Resultat
@@ -156,7 +156,7 @@ class BidragsevneResultatPeriode(
     datoFom: LocalDate,
     datoTil: LocalDate,
     val belop: BigDecimal,
-    val grunnlagReferanseListe: List<String>
+    val grunnlagReferanseListe: List<String>,
 ) :
     BasePeriode(datoFom, datoTil)
 
@@ -166,7 +166,7 @@ class BPsAndelSaertilskuddResultatPeriode(
     val belop: BigDecimal,
     val prosent: BigDecimal,
     val selvforsorget: Boolean,
-    val grunnlagReferanseListe: List<String>
+    val grunnlagReferanseListe: List<String>,
 ) : BasePeriode(datoFom, datoTil)
 
 class SamvaersfradragResultatPeriode(
@@ -174,12 +174,12 @@ class SamvaersfradragResultatPeriode(
     datoTil: LocalDate,
     val belop: BigDecimal,
     val barn: Int,
-    val grunnlagReferanseListe: List<String>
+    val grunnlagReferanseListe: List<String>,
 ) : BasePeriode(datoFom, datoTil)
 
 class SjablonResultatPeriode(
     datoFom: LocalDate,
     datoTil: LocalDate,
     val sjablonNavn: String,
-    val sjablonVerdi: Int
+    val sjablonVerdi: Int,
 ) : BasePeriode(datoFom, datoTil)

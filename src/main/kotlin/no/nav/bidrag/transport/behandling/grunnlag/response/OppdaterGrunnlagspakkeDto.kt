@@ -11,7 +11,7 @@ data class OppdaterGrunnlagspakkeDto(
     val grunnlagspakkeId: Int,
 
     @Schema(description = "Liste over grunnlagene som er hentet inn med person-id og status")
-    val grunnlagTypeResponsListe: List<OppdaterGrunnlagDto>
+    val grunnlagTypeResponsListe: List<OppdaterGrunnlagDto>,
 )
 
 data class OppdaterGrunnlagDto(
@@ -26,6 +26,6 @@ data class OppdaterGrunnlagDto(
     val status: GrunnlagsRequestStatus,
 
     @Schema(description = "Statusmelding for utført kall")
-    val statusMelding: String
+    val statusMelding: String,
 
 )

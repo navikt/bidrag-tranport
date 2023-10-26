@@ -29,7 +29,8 @@ enum class JournalpostStatus(val kode: String) {
     UNDER_OPPRETTELSE("UO"),
     TIL_LAGRING("T"),
     OPPRETTET("O"),
-    UNDER_PRODUKSJON("D");
+    UNDER_PRODUKSJON("D"),
+    ;
     companion object {
         fun fraKode(kode: String?): JournalpostStatus? {
             return try {

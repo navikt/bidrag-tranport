@@ -45,7 +45,7 @@ data class StonadDto(
     val endretTidspunkt: LocalDateTime?,
 
     @Schema(description = "Liste over alle perioder som inngår i stønaden")
-    val periodeListe: List<StonadPeriodeDto>
+    val periodeListe: List<StonadPeriodeDto>,
 )
 
 data class StonadPeriodeDto(
@@ -81,5 +81,5 @@ data class StonadPeriodeDto(
     val valutakode: String?,
 
     @Schema(description = "Resultatkode for stønaden")
-    val resultatkode: String
+    val resultatkode: String,
 )

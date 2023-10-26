@@ -67,9 +67,9 @@ data class JournalpostDto(
     val opprettetAvIdent: String? = null,
     @Schema(
         description = "Referanse til originale kilden til journalposten. Kan være referanse til forsendelse " +
-            "eller bidrag journalpost med prefiks. Feks BID_12323 eller BIF_123213"
+            "eller bidrag journalpost med prefiks. Feks BID_12323 eller BIF_123213",
     )
-    val eksternReferanseId: String? = null
+    val eksternReferanseId: String? = null,
 ) {
     fun hentHoveddokument() = dokumenter.firstOrNull()
     fun hentTittel() = hentHoveddokument()?.tittel ?: innhold
@@ -79,7 +79,7 @@ data class JournalpostDto(
 @Schema(
     description = """
 Avsender journalposten ble sendt fra hvis utgående.
-Mottaker journalposten skal sendes til hvis inngående."""
+Mottaker journalposten skal sendes til hvis inngående.""",
 )
 data class AvsenderMottakerDto(
     @Schema(description = "Avsenders/Mottakers navn (med eventuelt fornavn bak komma). Skal ikke oppgis hvis ident er en FNR")
@@ -89,7 +89,7 @@ data class AvsenderMottakerDto(
     @Schema(description = "Identtype", enumAsRef = true)
     val type: AvsenderMottakerDtoIdType = AvsenderMottakerDtoIdType.FNR,
     @Schema(description = "Adresse til mottaker hvis dokumentet skal sendes/er sendt gjennom sentral print")
-    val adresse: MottakerAdresseTo? = null
+    val adresse: MottakerAdresseTo? = null,
 )
 
 enum class AvsenderMottakerDtoIdType {
@@ -97,7 +97,7 @@ enum class AvsenderMottakerDtoIdType {
     SAMHANDLER,
     ORGNR,
     UTENLANDSK_ORGNR,
-    UKJENT
+    UKJENT,
 }
 
 data class MottakerAdresseTo(
@@ -116,7 +116,7 @@ data class MottakerAdresseTo(
 
     val postnummer: String? = null,
 
-    val poststed: String? = null
+    val poststed: String? = null,
 )
 
 @Schema(description = "Metadata for retur detaljer")
@@ -126,7 +126,7 @@ data class ReturDetaljer(
     @Schema(description = "Totalt antall returer")
     val antall: Int? = null,
     @Schema(description = "Liste med logg av alle registrerte returer")
-    val logg: List<ReturDetaljerLog> = emptyList()
+    val logg: List<ReturDetaljerLog> = emptyList(),
 )
 
 @Schema(description = "Metadata for retur detaljer log")
@@ -136,7 +136,7 @@ data class ReturDetaljerLog(
     @Schema(description = "Beskrivelse av retur (eks. addresse forsøkt sendt)")
     val beskrivelse: String? = null,
     @Schema(description = "Returdetalje er låst for endring. Dette blir satt etter en ny distribusjon er bestilt")
-    val locked: Boolean? = false
+    val locked: Boolean? = false,
 )
 
 @Schema(description = "Metadata om en aktør")
@@ -144,7 +144,7 @@ data class AktorDto(
     @Schema(description = "Identifaktor til aktøren")
     val ident: String = "",
     @Schema(description = "Hvilken identtype som skal brukes", enumAsRef = true)
-    val type: IdentType? = null
+    val type: IdentType? = null,
 )
 
 @Schema(description = "Identtypene til en aktør")
@@ -156,7 +156,7 @@ enum class IdentType {
     FNR,
 
     @Schema(description = "Organisasjonsnummer ")
-    ORGNR
+    ORGNR,
 }
 
 @Schema(description = "Metadata for et dokument")
@@ -165,7 +165,7 @@ data class DokumentDto(
     val dokumentreferanse: String? = null,
     @Schema(
         description = "Journalpost hvor dokumentet er arkivert. Dette brukes hvis dokumentet er arkivert i annen arkivsystem " +
-            "enn det som er sendt med i forespørsel."
+            "enn det som er sendt med i forespørsel.",
     )
     val journalpostId: String? = null,
     @Schema(description = "Inngående (I), utgående (U) dokument, (X) internt notat", deprecated = true)
@@ -176,7 +176,7 @@ data class DokumentDto(
     val dokument: String? = null,
     @Schema(
         description = "Typen dokument. Brevkoden sier noe om dokumentets innhold og oppbygning. Erstattes av dokumentmalId",
-        deprecated = true
+        deprecated = true,
     )
     @Deprecated("Bruk dokumentmalId", ReplaceWith("dokumentmalId"))
     val brevkode: String? = null,
@@ -187,7 +187,7 @@ data class DokumentDto(
     @Schema(description = "Arkivsystem hvor dokumentet er produsert og lagret", enumAsRef = true)
     val arkivSystem: DokumentArkivSystemDto? = null,
     @Schema(description = "Metadata om dokumentet")
-    val metadata: Map<String, String> = emptyMap()
+    val metadata: Map<String, String> = emptyMap(),
 ) {
     override fun toString(): String {
         return "(dokumentreferanse=$dokumentreferanse,journalpostId=$journalpostId, dokumentType=$dokumentType, " +
@@ -232,7 +232,7 @@ enum class Kanal {
     NAV_NO_UINNLOGGET,
 
     @Schema(description = "Innlogget samtale")
-    NAV_NO_CHAT
+    NAV_NO_CHAT,
 }
 
 @Schema(description = "Metadata for kode vs dekode i et kodeobjekt")
@@ -242,7 +242,7 @@ data class KodeDto(
     @Schema(description = "Dekode (kodebeskrivelse)")
     val dekode: String? = null,
     @Schema(description = "Om kodeobjektet inneholder en gyldig verdi")
-    val erGyldig: Boolean = true
+    val erGyldig: Boolean = true,
 )
 
 enum class JournalpostType {
@@ -252,7 +252,7 @@ enum class JournalpostType {
     @Deprecated("Bruk UTGÅENDE istedenfor", ReplaceWith("UTGÅENDE"))
     UTGAAENDE,
     UTGÅENDE,
-    NOTAT
+    NOTAT,
 }
 
 object DokumentType {
@@ -278,13 +278,13 @@ object Fagomrade {
     Kanal for utgående journalposter blir ellers satt av dokumentdistribusjons løsningen.
     
     INGEN_DISTRIBUSJON - Skal settes hvis mottaker vil motta forsendelse via posten og ikke har noen gyldig adresse
-"""
+""",
 )
 enum class MottakUtsendingKanal {
     DIGITALT,
     SKANNING_BIDRAG,
     LOKAL_UTSKRIFT,
-    INGEN_DISTRIBUSJON
+    INGEN_DISTRIBUSJON,
 }
 
 val BID_JP_RANGE = (18900000L..40000000L)
@@ -299,29 +299,23 @@ val String.numeric get() = this.replace("\\D".toRegex(), "").toLong()
 val String.isNumeric get() = this.all { char -> char.isDigit() }
 
 object JournalpostSystemPrefix {
-    const
-    val JOARK = "JOARK"
+    const val JOARK = "JOARK"
 
-    const
-    val MIDLERTIDLIG_BREVLAGER = "BID"
+    const val MIDLERTIDLIG_BREVLAGER = "BID"
 
-    const
-    val FORSENDELSE = "BIF"
+    const val FORSENDELSE = "BIF"
 
-    const
-    val UKJENT = "UKJENT"
+    const val UKJENT = "UKJENT"
 }
 
 typealias JournalpostSystem = String
 
 class JournalpostId(
     val id: String?,
-    private
-    val defaultSystem: JournalpostSystem? = null
+    private val defaultSystem: JournalpostSystem? = null,
 ) {
 
-    private
-    val system: JournalpostSystem
+    private val system: JournalpostSystem
 
     val idNumerisk get() = id?.numeric
 

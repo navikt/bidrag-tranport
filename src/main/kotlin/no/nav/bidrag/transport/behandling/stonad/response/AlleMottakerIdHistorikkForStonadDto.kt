@@ -7,7 +7,7 @@ import java.time.LocalDateTime
 data class AlleMottakerIdHistorikkForStonadDto(
 
     @Schema(description = "Alle forekomster på mottaker-id-historikk for en stønad")
-    val alleMottakerIdHistorikkForStonad: List<MottakerIdHistorikkDto>?
+    val alleMottakerIdHistorikkForStonad: List<MottakerIdHistorikkDto>?,
 )
 
 data class MottakerIdHistorikkDto(
@@ -25,5 +25,5 @@ data class MottakerIdHistorikkDto(
     val opprettetAv: String,
 
     @Schema(description = "Opprettet tidspunkt")
-    val opprettetTidspunkt: LocalDateTime
+    val opprettetTidspunkt: LocalDateTime,
 )

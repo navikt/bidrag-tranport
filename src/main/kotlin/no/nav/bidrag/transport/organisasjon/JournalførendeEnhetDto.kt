@@ -13,5 +13,5 @@ data class JournalførendeEnhetDto(
     @Deprecated("bruk navn", ReplaceWith("navn"))
     val enhetNavn: Enhetsnavn? = navn,
     @Deprecated("bruk type", ReplaceWith("type"))
-    val enhetType: Enhetstype? = type
+    val enhetType: Enhetstype? = type,
 )

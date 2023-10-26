@@ -6,5 +6,5 @@ import no.nav.bidrag.domain.tid.Fødselsdato
 
 data class Fødselsdatoer(
     @Schema(description = "Map med ident til fødselsdato-elementer.")
-    val identerTilDatoer: Map<PersonIdent, Fødselsdato?>
+    val identerTilDatoer: Map<PersonIdent, Fødselsdato?>,
 )

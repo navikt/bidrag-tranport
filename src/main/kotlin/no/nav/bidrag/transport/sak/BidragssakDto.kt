@@ -30,5 +30,5 @@ data class BidragssakDto(
     @Schema(description = "Hvor vidt en av partene i saken er ukjent")
     val ukjentPart: UkjentPart,
     @Schema(description = "Rollene som saken inneholder")
-    val roller: List<RolleDto> = emptyList()
+    val roller: List<RolleDto> = emptyList(),
 )

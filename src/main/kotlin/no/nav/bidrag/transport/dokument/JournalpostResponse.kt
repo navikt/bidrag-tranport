@@ -7,5 +7,5 @@ data class JournalpostResponse(
     @Schema(description = "journalposten som er etterspurt")
     val journalpost: JournalpostDto? = null,
     @Schema(description = "alle saker som journalposten er tilknyttet")
-    val sakstilknytninger: List<String> = emptyList()
+    val sakstilknytninger: List<String> = emptyList(),
 )

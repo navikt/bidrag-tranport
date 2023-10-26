@@ -12,5 +12,5 @@ data class OpprettVedtakPeriodeGrunnlagRequestDto(
 
     @Schema(description = "grunnlag-id")
     @Min(0)
-    val grunnlagId: Int
+    val grunnlagId: Int,
 )

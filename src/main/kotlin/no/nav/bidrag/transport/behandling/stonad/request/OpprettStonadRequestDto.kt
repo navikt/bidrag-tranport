@@ -35,7 +35,7 @@ data class OpprettStonadRequestDto(
     val opprettetAv: String,
 
     @Schema(description = "Liste over alle perioder som inngår i stønaden")
-    val periodeListe: List<OpprettStonadPeriodeRequestDto>
+    val periodeListe: List<OpprettStonadPeriodeRequestDto>,
 )
 
 @Schema(description = "Egenskaper ved en periode")
@@ -66,6 +66,6 @@ data class OpprettStonadPeriodeRequestDto(
     val valutakode: String?,
 
     @Schema(description = "Resultatkoden tilhørende stønadsbeløpet")
-    val resultatkode: String
+    val resultatkode: String,
 
 )

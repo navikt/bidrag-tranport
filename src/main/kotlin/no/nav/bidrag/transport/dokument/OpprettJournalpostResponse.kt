@@ -9,5 +9,5 @@ data class OpprettJournalpostResponse(
     @Schema(description = "Journalpostid på journalpost som ble opprettet")
     val journalpostId: String? = null,
     @Schema(description = "Liste med dokumenter som er knyttet til journalposten")
-    val dokumenter: List<OpprettDokumentDto> = emptyList()
+    val dokumenter: List<OpprettDokumentDto> = emptyList(),
 )

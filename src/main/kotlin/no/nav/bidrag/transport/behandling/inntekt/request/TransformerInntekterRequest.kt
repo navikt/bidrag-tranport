@@ -16,7 +16,7 @@ data class TransformerInntekterRequest(
     val kontantstotteliste: List<Kontantstotte> = emptyList(),
 
     @Schema(description = "Periodisert liste over utvidet barnetrygd og småbarnstillegg")
-    val utvidetBarnetrygdOgSmaabarnstilleggliste: List<UtvidetBarnetrygdOgSmaabarnstillegg> = emptyList()
+    val utvidetBarnetrygdOgSmaabarnstilleggliste: List<UtvidetBarnetrygdOgSmaabarnstillegg> = emptyList(),
 )
 
 data class SkattegrunnlagForLigningsår(
@@ -25,7 +25,7 @@ data class SkattegrunnlagForLigningsår(
     val ligningsår: Int,
 
     @Schema(description = "Poster med skattegrunnlag")
-    val skattegrunnlagsposter: List<SkattegrunnlagspostDto>
+    val skattegrunnlagsposter: List<SkattegrunnlagspostDto>,
 )
 
 data class Ainntektspost(
@@ -43,7 +43,7 @@ data class Ainntektspost(
     val beskrivelse: String?,
 
     @Schema(description = "Belop")
-    val belop: BigDecimal
+    val belop: BigDecimal,
 )
 
 data class Kontantstotte(
@@ -58,7 +58,7 @@ data class Kontantstotte(
     val belop: BigDecimal,
 
     @Schema(description = "Id til barnet kontantstøtten mottas for")
-    val barnPersonId: String
+    val barnPersonId: String,
 
 )
 
@@ -74,6 +74,6 @@ data class UtvidetBarnetrygdOgSmaabarnstillegg(
     val periodeTil: LocalDate?,
 
     @Schema(description = "Beløp utvidet barnetrygd eller småbarnstillegg")
-    val belop: BigDecimal
+    val belop: BigDecimal,
 
 )

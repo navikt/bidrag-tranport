@@ -20,7 +20,7 @@ import no.nav.bidrag.domain.tid.TomDato
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class HusstandsmedlemmerDto(
     @Schema(description = "Periodiser liste over husstander og dens medlemmer i perioden")
-    val husstandListe: List<Husstand> = emptyList()
+    val husstandListe: List<Husstand> = emptyList(),
 )
 
 data class Husstand(
@@ -34,7 +34,7 @@ data class Husstand(
     val bydelsnummer: Bydelsnummer? = null,
     val kommunenummer: Kommunenummer? = null,
     val matrikkelId: MatrikkelId? = null,
-    val husstandsmedlemListe: List<Husstandsmedlem>
+    val husstandsmedlemListe: List<Husstandsmedlem>,
 )
 
 data class Husstandsmedlem(
@@ -49,5 +49,5 @@ data class Husstandsmedlem(
     val foedselsdato: Fødselsdato? = fødselsdato,
     @Schema(deprecated = true)
     @Deprecated("Skrivefeil", ReplaceWith("dødsdato"))
-    val doedsdato: Dødsdato? = dødsdato
+    val doedsdato: Dødsdato? = dødsdato,
 )

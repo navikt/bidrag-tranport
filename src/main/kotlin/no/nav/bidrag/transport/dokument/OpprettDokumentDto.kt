@@ -19,7 +19,7 @@ data class OpprettDokumentDto(
     @Deprecated("Erstatt med fysiskDokument", ReplaceWith("fysiskDokument"))
     val dokument: String? = null,
     @Schema(description = "Selve PDF dokumentet formatert som Base64")
-    val fysiskDokument: ByteArray? = dokument?.toByteArray()
+    val fysiskDokument: ByteArray? = dokument?.toByteArray(),
 ) {
     override fun toString(): String {
         return "(tittel=$tittel, brevkode=$brevkode, dokumentmalId=$dokumentmalId, dokumentreferanse=$dokumentreferanse, " +

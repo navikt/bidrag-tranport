@@ -15,7 +15,7 @@ data class TransformerInntekterResponse(
     val summertMaanedsinntektListe: List<SummertMaanedsinntekt> = emptyList(),
 
     @Schema(description = "Liste over summerte årsinntekter (Ainntekt + Sigrun ++)")
-    val summertAarsinntektListe: List<SummertAarsinntekt> = emptyList()
+    val summertAarsinntektListe: List<SummertAarsinntekt> = emptyList(),
 )
 
 data class SummertMaanedsinntekt(
@@ -26,7 +26,7 @@ data class SummertMaanedsinntekt(
     val sumInntekt: BigDecimal,
 
     @Schema(description = "Liste over inntektsposter som utgjør grunnlaget for summert inntekt")
-    val inntektPostListe: List<InntektPost>
+    val inntektPostListe: List<InntektPost>,
 )
 
 data class SummertAarsinntekt(
@@ -52,7 +52,7 @@ data class SummertAarsinntekt(
     val gjelderBarnPersonId: String = "",
 
     @Schema(description = "Liste over inntektsposter (generisk, avhengig av type) som utgjør grunnlaget for summert inntekt")
-    val inntektPostListe: List<InntektPost>
+    val inntektPostListe: List<InntektPost>,
 )
 data class InntektPost(
     @Schema(description = "Kode for inntektspost", example = "bonus")
@@ -62,5 +62,5 @@ data class InntektPost(
     val visningsnavn: String,
 
     @Schema(description = "Beløp som utgør inntektsposten", example = "60000")
-    val beløp: BigDecimal
+    val beløp: BigDecimal,
 )

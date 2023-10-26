@@ -15,5 +15,5 @@ data class HentStonadRequest(
     val skyldnerId: String,
 
     @Schema(description = "Id til den som krever stønadem")
-    val kravhaverId: String
+    val kravhaverId: String,
 )

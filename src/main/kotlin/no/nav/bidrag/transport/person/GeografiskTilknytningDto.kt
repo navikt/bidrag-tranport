@@ -19,9 +19,9 @@ data class GeografiskTilknytningDto(
     val geografiskTilknytning: GeografiskTilknytning? = null,
     @Schema(
         description = "Om geografisk tilknytning til personen er utlandet. " +
-            "Geografisktilknytning feltet vil da ha landkode istedenfor kommune/bydel nummer"
+            "Geografisktilknytning feltet vil da ha landkode istedenfor kommune/bydel nummer",
     )
     val erUtland: Utland = Utland(false),
     @Schema(description = "Diskresjonskode (personvern)")
-    val diskresjonskode: Diskresjonskode? = null
+    val diskresjonskode: Diskresjonskode? = null,
 )

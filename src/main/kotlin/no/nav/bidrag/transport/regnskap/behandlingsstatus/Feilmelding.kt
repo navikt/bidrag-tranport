@@ -10,5 +10,5 @@ data class Feilmelding(
     val transaksjonskode: Transaksjonskode?,
     val delytelseId: String?,
     val periode: String?,
-    val feilmelding: String
+    val feilmelding: String,
 )

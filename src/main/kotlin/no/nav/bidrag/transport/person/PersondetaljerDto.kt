@@ -6,7 +6,7 @@ import no.nav.bidrag.domain.string.Språkkode
 
 @Schema(
     description = "Representerer en person med tilhørende informasjon om navn, " +
-        "fødselsdato, adresse, gradering, språk, dødsdato, dødsbo og tidligere identer"
+        "fødselsdato, adresse, gradering, språk, dødsdato, dødsbo og tidligere identer",
 )
 data class PersondetaljerDto(
     val person: PersonDto,
@@ -16,5 +16,5 @@ data class PersondetaljerDto(
     val språk: Språkkode?,
 
     @Schema(description = "Liste over tidligere identer personen har hatt.")
-    val tidligereIdenter: List<PersonIdent>?
+    val tidligereIdenter: List<PersonIdent>?,
 )

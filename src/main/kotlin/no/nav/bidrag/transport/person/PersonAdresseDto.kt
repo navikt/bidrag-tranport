@@ -31,5 +31,5 @@ data class PersonAdresseDto(
     @Schema(description = "To-bokstavers landkode ihht iso3166-1 alfa-2")
     val land: Landkode2,
     @Schema(description = "Trebokstavs landkode ihht iso3166-1 alfa-3")
-    val land3: Landkode3
+    val land3: Landkode3,
 )

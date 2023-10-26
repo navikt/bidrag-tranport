@@ -30,5 +30,5 @@ data class OppdaterSakResponse(
     val konvensjonskode: Konvensjon?,
     val konvensjonsdato: Konvensjonsdato?,
     val ffuReferansenr: FfuReferansenr?,
-    val roller: Collection<RolleDto> = setOf()
+    val roller: Collection<RolleDto> = setOf(),
 )

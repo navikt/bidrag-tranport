@@ -28,5 +28,5 @@ data class OppdaterSakRequest(
     val konvensjonskode: Konvensjon? = null,
     val konvensjonsdato: Konvensjonsdato? = null,
     val ffuReferansenr: FfuReferansenr? = null,
-    val roller: Set<RolleDto> = setOf()
+    val roller: Set<RolleDto> = setOf(),
 )

@@ -7,5 +7,5 @@ import no.nav.bidrag.domain.bool.FlereForekomster
 data class SamhandlersøkeresultatDto(
     val samhandlere: List<SamhandlerDto>,
     @Schema(description = "True hvis det finnes flere forekomster enn det som er returnert i dette objektet.")
-    val flereForekomster: FlereForekomster
+    val flereForekomster: FlereForekomster,
 )

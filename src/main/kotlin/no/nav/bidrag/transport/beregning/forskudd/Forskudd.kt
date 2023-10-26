@@ -10,19 +10,19 @@ import java.math.BigDecimal
 @Schema(description = "Resultatet av en forskuddsberegning")
 data class BeregnetForskuddResultat(
     @Schema(description = "Periodisert liste over resultat av forskuddsberegning") var beregnetForskuddPeriodeListe: List<ResultatPeriode> = emptyList(),
-    @Schema(description = "Liste over grunnlag brukt i beregning") var grunnlagListe: List<Grunnlag> = emptyList()
+    @Schema(description = "Liste over grunnlag brukt i beregning") var grunnlagListe: List<Grunnlag> = emptyList(),
 )
 
 @Schema(description = "Resultatet av en beregning for en gitt periode")
 data class ResultatPeriode(
     @Schema(description = "Beregnet resultat periode") var periode: Periode,
     @Schema(description = "Beregnet resultat innhold") var resultat: ResultatBeregning,
-    @Schema(description = "Beregnet grunnlag innhold") var grunnlagReferanseListe: List<String>
+    @Schema(description = "Beregnet grunnlag innhold") var grunnlagReferanseListe: List<String>,
 )
 
 @Schema(description = "Resultatet av en beregning")
 data class ResultatBeregning(
     @Schema(description = "Resultat beløp") var belop: BigDecimal,
     @Schema(description = "Resultat kode") var kode: ResultatKodeForskudd,
-    @Schema(description = "Resultat regel") var regel: String
+    @Schema(description = "Resultat regel") var regel: String,
 )

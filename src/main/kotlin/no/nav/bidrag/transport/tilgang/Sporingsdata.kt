@@ -9,5 +9,5 @@ class Sporingsdata(
     @Schema(description = "Hvor vist personen som gjør oppslaget har tilgang til å gjøre oppslaget.")
     val tilgang: Boolean,
     @Schema(description = """Ekstrainformasjonsfelter. Navn og verdi. Eksempelvis mapOf("saksnummer" to "2302845")""")
-    val ekstrafelter: List<Pair<String, String>> = listOf()
+    val ekstrafelter: List<Pair<String, String>> = listOf(),
 )
