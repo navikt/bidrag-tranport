@@ -47,7 +47,7 @@ data class HentGrunnlagspakkeDto(
     val barnetilsynListe: List<BarnetilsynDto>,
 
     @Deprecated(message = "Grunnlaget skal ikke lenger hentes inn, bruk ainntekt i stedet")
-    val overgangsstonadListe: List<OvergangsstonadDto>,
+    val overgangsstonadListe: List<OvergangsstonadDto> = emptyList(),
 
 )
 
