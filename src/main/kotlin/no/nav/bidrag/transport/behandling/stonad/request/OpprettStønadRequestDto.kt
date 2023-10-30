@@ -6,7 +6,9 @@ import no.nav.bidrag.domain.enums.StønadType
 import no.nav.bidrag.domain.ident.PersonIdent
 import no.nav.bidrag.domain.string.Saksnummer
 import no.nav.bidrag.domain.string.Valutakode
+import no.nav.bidrag.domain.tid.FomDato
 import no.nav.bidrag.domain.tid.Periode
+import no.nav.bidrag.domain.tid.TilDato
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -45,11 +47,11 @@ data class OpprettStønadRequestDto(
 @Schema(description = "Egenskaper ved en periode")
 data class OpprettStønadPeriodeRequestDto(
 
-    @Schema(description = "Periode fra-og-med-dato")
-    val fom: Periode<LocalDate>,
+    @Schema(description = "Fra-og-med-dato")
+    val fom: FomDato,
 
-    @Schema(description = "Periode til-dato")
-    val til: Periode<LocalDate>?,
+    @Schema(description = "Til-dato")
+    val til: TilDato?,
 
     @Schema(description = "Vedtaksid")
     val vedtaksid: Int,

@@ -16,10 +16,12 @@ import no.nav.bidrag.domain.string.Enhetsnummer
 import no.nav.bidrag.domain.string.Landkode
 import no.nav.bidrag.domain.string.Saksnummer
 import no.nav.bidrag.domain.string.Valutakode
+import no.nav.bidrag.domain.tid.FomDato
 import no.nav.bidrag.domain.tid.OpprettetTidspunkt
 import no.nav.bidrag.domain.tid.Periode
 import no.nav.bidrag.domain.tid.PeriodeFom
 import no.nav.bidrag.domain.tid.PeriodeTil
+import no.nav.bidrag.domain.tid.TilDato
 import no.nav.bidrag.domain.tid.Vedtakstidspunkt
 import java.math.BigDecimal
 import java.time.LocalDate
@@ -122,11 +124,11 @@ data class StønadsendringDto(
 @Schema
 data class VedtakPeriodeDto(
 
-    @Schema(description = "Periode fra-og-med-dato")
-    val fom: Periode<LocalDate>,
+    @Schema(description = "Fra-og-med-dato")
+    val fom: FomDato,
 
-    @Schema(description = "Periode til-dato")
-    val til: Periode<LocalDate>?,
+    @Schema(description = "Til-dato")
+    val til: TilDato?,
 
     @Schema(description = "Beregnet stønadsbeløp")
     @Min(0)

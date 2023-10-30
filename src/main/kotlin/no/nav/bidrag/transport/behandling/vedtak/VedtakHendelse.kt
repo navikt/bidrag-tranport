@@ -10,6 +10,8 @@ import no.nav.bidrag.domain.string.Enhetsnummer
 import no.nav.bidrag.domain.string.Landkode
 import no.nav.bidrag.domain.string.Saksnummer
 import no.nav.bidrag.domain.string.Valutakode
+import no.nav.bidrag.domain.tid.FomDato
+import no.nav.bidrag.domain.tid.TilDato
 import no.nav.bidrag.domain.tid.Vedtakstidspunkt
 import java.math.BigDecimal
 import java.time.LocalDate
@@ -21,7 +23,7 @@ data class VedtakHendelse(
     val id: Int,
     val vedtakTidspunkt: Vedtakstidspunkt,
     val enhetsnummer: Enhetsnummer,
-    val innkrevingUtsattTilDato: no.nav.bidrag.domain.tid.Periode<LocalDate>?,
+    val innkrevingUtsattTilDato: LocalDate?,
     val fastsattILand: Landkode?,
     val opprettetAv: String,
     val opprettetAvNavn: String?,
@@ -54,6 +56,15 @@ data class Stønadsendring(
     val periodeListe: List<Periode>,
 )
 
+data class Periode(
+    val fom: FomDato,
+    val til: TilDato?,
+    val beløp: BigDecimal?,
+    val valutakode: Valutakode?,
+    val resultatkode: String,
+    val delytelseId: String?,
+)
+
 data class Engangsbeløp(
     val type: EngangsbeløpType,
     val sak: Saksnummer,
@@ -71,14 +82,7 @@ data class Engangsbeløp(
     val eksternReferanse: String?,
 )
 
-data class Periode(
-    val fom: no.nav.bidrag.domain.tid.Periode<LocalDate>,
-    val til: no.nav.bidrag.domain.tid.Periode<LocalDate>?,
-    val beløp: BigDecimal?,
-    val valutakode: Valutakode?,
-    val resultatkode: String,
-    val delytelseId: String?,
-)
+
 data class Behandlingsreferanse(
     val kilde: String,
     val referanse: String,

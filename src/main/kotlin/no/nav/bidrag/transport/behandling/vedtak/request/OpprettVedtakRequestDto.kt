@@ -19,12 +19,11 @@ import no.nav.bidrag.domain.string.Enhetsnummer
 import no.nav.bidrag.domain.string.Landkode
 import no.nav.bidrag.domain.string.Saksnummer
 import no.nav.bidrag.domain.string.Valutakode
-import no.nav.bidrag.domain.tid.PeriodeFom
-import no.nav.bidrag.domain.tid.PeriodeTil
+import no.nav.bidrag.domain.tid.FomDato
+import no.nav.bidrag.domain.tid.TilDato
 import no.nav.bidrag.domain.tid.Vedtakstidspunkt
 import java.math.BigDecimal
 import java.time.LocalDate
-import java.time.LocalDateTime
 
 @Schema
 data class OpprettVedtakRequestDto(
@@ -127,6 +126,36 @@ data class OpprettStønadsendringRequestDto(
     val periodeListe: List<OpprettVedtakPeriodeRequestDto>,
 )
 
+
+@Schema
+data class OpprettVedtakPeriodeRequestDto(
+
+    @Schema(description = "Fra-og-med-dato")
+    val fom: FomDato,
+
+    @Schema(description = "Til-dato")
+    val til: TilDato?,
+
+    @Schema(description = "Beregnet stønadsbeløp")
+    @Min(0)
+    val beløp: BigDecimal?,
+
+    @Schema(description = "Valutakoden tilhørende stønadsbeløpet")
+    @NotBlank
+    val valutakode: Valutakode?,
+
+    @Schema(description = "Resultatkoden tilhørende stønadsbeløpet")
+    @NotBlank
+    val resultatkode: String,
+
+    @Schema(description = "Referanse - delytelseId/beslutningslinjeId -> bidrag-regnskap. Skal fjernes senere")
+    val delytelseId: String?,
+
+    @Schema(description = "Liste over alle grunnlag som inngår i perioden")
+    @NotEmpty
+    val grunnlagReferanseListe: List<String>,
+)
+
 @Schema
 data class OpprettEngangsbeløpRequestDto(
 
@@ -193,31 +222,3 @@ data class OpprettBehandlingsreferanseRequestDto(
     val referanse: String,
 )
 
-@Schema
-data class OpprettVedtakPeriodeRequestDto(
-
-    @Schema(description = "Periode fra-og-med-dato")
-    val periodeFom: PeriodeFom,
-
-    @Schema(description = "Periode til-dato")
-    val periodeTil: PeriodeTil?,
-
-    @Schema(description = "Beregnet stønadsbeløp")
-    @Min(0)
-    val beløp: BigDecimal?,
-
-    @Schema(description = "Valutakoden tilhørende stønadsbeløpet")
-    @NotBlank
-    val valutakode: Valutakode?,
-
-    @Schema(description = "Resultatkoden tilhørende stønadsbeløpet")
-    @NotBlank
-    val resultatkode: String,
-
-    @Schema(description = "Referanse - delytelseId/beslutningslinjeId -> bidrag-regnskap. Skal fjernes senere")
-    val delytelseId: String?,
-
-    @Schema(description = "Liste over alle grunnlag som inngår i perioden")
-    @NotEmpty
-    val grunnlagReferanseListe: List<String>,
-)
