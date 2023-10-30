@@ -8,10 +8,10 @@ import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.Size
 import no.nav.bidrag.domain.enums.BehandlingsrefKilde
-import no.nav.bidrag.domain.enums.EngangsbelopType
+import no.nav.bidrag.domain.enums.EngangsbeløpType
 import no.nav.bidrag.domain.enums.GrunnlagType
 import no.nav.bidrag.domain.enums.Innkreving
-import no.nav.bidrag.domain.enums.StonadType
+import no.nav.bidrag.domain.enums.StønadType
 import no.nav.bidrag.domain.enums.VedtakKilde
 import no.nav.bidrag.domain.enums.VedtakType
 import no.nav.bidrag.domain.ident.PersonIdent
@@ -21,6 +21,7 @@ import no.nav.bidrag.domain.string.Saksnummer
 import no.nav.bidrag.domain.string.Valutakode
 import no.nav.bidrag.domain.tid.PeriodeFom
 import no.nav.bidrag.domain.tid.PeriodeTil
+import no.nav.bidrag.domain.tid.Vedtakstidspunkt
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -42,7 +43,7 @@ data class OpprettVedtakRequestDto(
     val opprettetAvNavn: String?,
 
     @Schema(description = "Tidspunkt/timestamp når vedtaket er fattet")
-    val vedtakstidspunkt: LocalDateTime,
+    val vedtakstidspunkt: Vedtakstidspunkt,
 
     @Schema(description = "Enheten som er ansvarlig for vedtaket")
     @NotBlank
@@ -92,7 +93,7 @@ data class OpprettStønadsendringRequestDto(
 
     @Schema(description = "Stønadstype")
     @NotBlank
-    val type: StonadType,
+    val type: StønadType,
 
     @Schema(description = "Referanse til sak")
     val sak: Saksnummer,
@@ -131,7 +132,7 @@ data class OpprettEngangsbeløpRequestDto(
 
     @Schema(description = "Beløpstype. Saertilskudd, gebyr m.m.")
     @NotBlank
-    val type: EngangsbelopType,
+    val type: EngangsbeløpType,
 
     @Schema(description = "Referanse til sak")
     val sak: Saksnummer,

@@ -1,22 +1,24 @@
 package no.nav.bidrag.transport.behandling.stonad.request
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.enums.StonadType
+import no.nav.bidrag.domain.enums.StønadType
+import no.nav.bidrag.domain.ident.PersonIdent
+import no.nav.bidrag.domain.string.Saksnummer
 import java.time.LocalDateTime
 
 @Schema(description = "Request for å hente stønad og perioder som var gyldige på angitt tidspunkt")
-data class HentStonadHistoriskRequest(
+data class HentStønadHistoriskRequest(
     @Schema(description = "Stønadstype")
-    val type: StonadType,
+    val type: StønadType,
 
     @Schema(description = "Referanse til sak")
-    val sakId: String,
+    val sak: Saksnummer,
 
     @Schema(description = "Id til den som skal betale stønadem")
-    val skyldnerId: String,
+    val skyldner: PersonIdent,
 
     @Schema(description = "Id til den som krever stønadem")
-    val kravhaverId: String,
+    val kravhaver: PersonIdent,
 
     @Schema(description = "Tidspunkt som det ønskes å hente gyldige perioder for")
     val gyldigTidspunkt: LocalDateTime,

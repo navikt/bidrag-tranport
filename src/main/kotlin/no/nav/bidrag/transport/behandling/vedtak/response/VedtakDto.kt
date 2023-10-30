@@ -5,10 +5,10 @@ import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
 import no.nav.bidrag.domain.enums.BehandlingsrefKilde
-import no.nav.bidrag.domain.enums.EngangsbelopType
+import no.nav.bidrag.domain.enums.EngangsbeløpType
 import no.nav.bidrag.domain.enums.GrunnlagType
 import no.nav.bidrag.domain.enums.Innkreving
-import no.nav.bidrag.domain.enums.StonadType
+import no.nav.bidrag.domain.enums.StønadType
 import no.nav.bidrag.domain.enums.VedtakKilde
 import no.nav.bidrag.domain.enums.VedtakType
 import no.nav.bidrag.domain.ident.PersonIdent
@@ -17,11 +17,14 @@ import no.nav.bidrag.domain.string.Landkode
 import no.nav.bidrag.domain.string.Saksnummer
 import no.nav.bidrag.domain.string.Valutakode
 import no.nav.bidrag.domain.tid.OpprettetTidspunkt
+import no.nav.bidrag.domain.tid.Periode
 import no.nav.bidrag.domain.tid.PeriodeFom
 import no.nav.bidrag.domain.tid.PeriodeTil
+import no.nav.bidrag.domain.tid.Vedtakstidspunkt
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.YearMonth
 
 @Schema
 data class VedtakDto(
@@ -39,7 +42,7 @@ data class VedtakDto(
     val opprettetAvNavn: String?,
 
     @Schema(description = "Tidspunkt/timestamp når vedtaket er fattet")
-    val vedtakstidspunkt: LocalDateTime,
+    val vedtakstidspunkt: Vedtakstidspunkt,
 
     @Schema(description = "Enheten som er ansvarlig for vedtaket")
     val enhetsnummer: Enhetsnummer,
@@ -83,7 +86,7 @@ data class GrunnlagDto(
 data class StønadsendringDto(
 
     @Schema(description = "Stønadstype")
-    val type: StonadType,
+    val type: StønadType,
 
     @Schema(description = "Referanse til sak")
     val sak: Saksnummer,
@@ -120,10 +123,10 @@ data class StønadsendringDto(
 data class VedtakPeriodeDto(
 
     @Schema(description = "Periode fra-og-med-dato")
-    val periodeFom: PeriodeFom,
+    val fom: Periode<LocalDate>,
 
     @Schema(description = "Periode til-dato")
-    val periodeTil: PeriodeTil?,
+    val til: Periode<LocalDate>?,
 
     @Schema(description = "Beregnet stønadsbeløp")
     @Min(0)
@@ -146,7 +149,7 @@ data class VedtakPeriodeDto(
 data class EngangsbeløpDto(
 
     @Schema(description = "Type Engangsbeløp. Saertilskudd, gebyr m.m.")
-    val type: EngangsbelopType,
+    val type: EngangsbeløpType,
 
     @Schema(description = "Referanse til sak")
     val sak: Saksnummer,

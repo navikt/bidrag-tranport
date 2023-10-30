@@ -13,7 +13,7 @@ data class AlleMottakerIdHistorikkForStonadDto(
 data class MottakerIdHistorikkDto(
 
     @Schema(description = "stonad-id")
-    val stonadId: Int,
+    val stønadsid: Int,
 
     @Schema(description = "Utgått Mottaker-Id")
     val mottakerIdEndretFra: String,

@@ -2,32 +2,37 @@ package no.nav.bidrag.transport.behandling.stonad.response
 
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domain.enums.Innkreving
-import no.nav.bidrag.domain.enums.StonadType
+import no.nav.bidrag.domain.enums.StønadType
+import no.nav.bidrag.domain.ident.PersonIdent
+import no.nav.bidrag.domain.string.Saksnummer
+import no.nav.bidrag.domain.string.Valutakode
+import no.nav.bidrag.domain.tid.Periode
+import no.nav.bidrag.domain.tid.PeriodeTil
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
 
-data class StonadDto(
-    @Schema(description = "StønadId")
-    val stonadId: Int,
+data class StønadDto(
+    @Schema(description = "Stønadsid")
+    val stønadsid: Int,
 
     @Schema(description = "Stønadstype")
-    val type: StonadType,
+    val type: StønadType,
 
     @Schema(description = "Referanse til sak")
-    val sakId: String,
+    val sak: Saksnummer,
 
     @Schema(description = "Id til den som skal betale bidraget")
-    val skyldnerId: String,
+    val skyldner: PersonIdent,
 
     @Schema(description = "Id til den som krever bidraget")
-    val kravhaverId: String,
+    val kravhaver: PersonIdent,
 
     @Schema(description = "Id til den som mottar bidraget")
-    val mottakerId: String,
+    val mottaker: PersonIdent,
 
     @Schema(description = "Angir første år en stønad skal indeksreguleres")
-    val indeksreguleringAar: String?,
+    val førsteIndeksreguleringsår: Int?,
 
     @Schema(description = "Angir om stønaden skal innkreves")
     val innkreving: Innkreving,
@@ -45,25 +50,25 @@ data class StonadDto(
     val endretTidspunkt: LocalDateTime?,
 
     @Schema(description = "Liste over alle perioder som inngår i stønaden")
-    val periodeListe: List<StonadPeriodeDto>,
+    val periodeListe: List<StønadPeriodeDto>,
 )
 
-data class StonadPeriodeDto(
+data class StønadPeriodeDto(
 
-    @Schema(description = "Periode-id")
-    val periodeId: Int,
+    @Schema(description = "Periodeid")
+    val periodeid: Int,
 
     @Schema(description = "Periode fra-og-med-dato")
-    val periodeFom: LocalDate,
+    val fom: Periode<LocalDate>,
 
     @Schema(description = "Periode til-dato")
-    val periodeTil: LocalDate?,
+    val til: Periode<LocalDate>?,
 
-    @Schema(description = "Stonad-id")
-    val stonadId: Int,
+    @Schema(description = "Stønadsid")
+    val stønadsid: Int,
 
-    @Schema(description = "Vedtak-id")
-    val vedtakId: Int,
+    @Schema(description = "Vedtaksid")
+    val vedtaksid: Int,
 
     @Schema(description = "Perioden er gyldig fra angitt tidspunkt (vedtakstidspunkt)")
     val gyldigFra: LocalDateTime,
@@ -71,14 +76,14 @@ data class StonadPeriodeDto(
     @Schema(description = "Angir tidspunkt perioden eventuelt er ugyldig fra (tidspunkt for vedtak med periode som erstattet denne)")
     val gyldigTil: LocalDateTime?,
 
-    @Schema(description = "Periode-gjort-ugyldig-av-vedtak-id")
-    val periodeGjortUgyldigAvVedtakId: Int?,
+    @Schema(description = "Periode-gjort-ugyldig-av-vedtaksid")
+    val periodeGjortUgyldigAvVedtaksid: Int?,
 
     @Schema(description = "Beregnet stønadsbeløp")
-    val belop: BigDecimal?,
+    val beløp: BigDecimal?,
 
     @Schema(description = "Valutakoden tilhørende stønadsbeløpet")
-    val valutakode: String?,
+    val valutakode: Valutakode?,
 
     @Schema(description = "Resultatkode for stønaden")
     val resultatkode: String,
