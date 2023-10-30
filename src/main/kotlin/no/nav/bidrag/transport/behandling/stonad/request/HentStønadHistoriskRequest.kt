@@ -14,10 +14,10 @@ data class HentStønadHistoriskRequest(
     @Schema(description = "Referanse til sak")
     val sak: Saksnummer,
 
-    @Schema(description = "Id til den som skal betale stønadem")
+    @Schema(description = "Personidenten til den som skal betale stønadem")
     val skyldner: PersonIdent,
 
-    @Schema(description = "Id til den som krever stønadem")
+    @Schema(description = "Personidenten til den som krever stønadem")
     val kravhaver: PersonIdent,
 
     @Schema(description = "Tidspunkt som det ønskes å hente gyldige perioder for")

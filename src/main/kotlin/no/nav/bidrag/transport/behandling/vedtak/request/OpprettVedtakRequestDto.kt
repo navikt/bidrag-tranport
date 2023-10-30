@@ -98,13 +98,13 @@ data class OpprettStønadsendringRequestDto(
     @Schema(description = "Referanse til sak")
     val sak: Saksnummer,
 
-    @Schema(description = "Id til den som skal betale bidraget")
+    @Schema(description = "Personidenten til den som skal betale bidraget")
     val skyldner: PersonIdent,
 
-    @Schema(description = "Id til den som krever bidraget")
+    @Schema(description = "Personidenten til den som krever bidraget")
     val kravhaver: PersonIdent,
 
-    @Schema(description = "Id til den som mottar bidraget")
+    @Schema(description = "Personidenten til den som mottar bidraget")
     val mottaker: PersonIdent,
 
     @Schema(description = "Angir første år en stønad skal indeksreguleres")
@@ -137,13 +137,13 @@ data class OpprettEngangsbeløpRequestDto(
     @Schema(description = "Referanse til sak")
     val sak: Saksnummer,
 
-    @Schema(description = "Id til den som skal betale engangsbeløpet")
+    @Schema(description = "Personidenten til den som skal betale engangsbeløpet")
     val skyldner: PersonIdent,
 
-    @Schema(description = "Id til den som krever engangsbeløpet")
+    @Schema(description = "Personidenten til den som krever engangsbeløpet")
     val kravhaver: PersonIdent,
 
-    @Schema(description = "Id til den som mottar engangsbeløpet")
+    @Schema(description = "Personidenten til den som mottar engangsbeløpet")
     val mottaker: PersonIdent,
 
     @Schema(description = "Beregnet engangsbeløp")

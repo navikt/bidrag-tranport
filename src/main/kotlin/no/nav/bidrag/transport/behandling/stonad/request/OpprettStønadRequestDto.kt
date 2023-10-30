@@ -20,13 +20,13 @@ data class OpprettStønadRequestDto(
     @Schema(description = "Referanse til sak")
     val sak: Saksnummer,
 
-    @Schema(description = "Id til den som skal betale bidraget")
+    @Schema(description = "Personidenten til den som skal betale bidraget")
     val skyldner: PersonIdent,
 
-    @Schema(description = "Id til den som krever bidraget")
+    @Schema(description = "Personidenten til den som krever bidraget")
     val kravhaver: PersonIdent,
 
-    @Schema(description = "Id til den som mottar bidraget")
+    @Schema(description = "Personidenten til den som mottar bidraget")
     val mottaker: PersonIdent,
 
     @Schema(description = "Angir første år en stønad skal indeksreguleres")
