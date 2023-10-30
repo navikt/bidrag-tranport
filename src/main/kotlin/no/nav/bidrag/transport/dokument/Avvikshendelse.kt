@@ -17,7 +17,7 @@ data class Avvikshendelse(
     @Schema(description = "Addresse som skal brukes ved bestilling av ny distribusjon av utgående journalpost. Benyttes ved avvik BESTILL_NY_DISTRIBUSJON")
     val adresse: DistribuerTilAdresse? = null,
     @Schema(description = "Dokumenter som brukes ved kopiering ny journalpost. Benyttes ved avvik KOPIER_FRA_ANNEN_FAGOMRADE")
-    val dokumenter: List<DokumentDto>? = emptyList()
+    val dokumenter: List<DokumentDto>? = emptyList(),
 ) {
 
     constructor(avvikType: String, enhetsnummer: String) :
@@ -31,7 +31,7 @@ data class Avvikshendelse(
         detaljer: Map<String, String> = mapOf(),
         saksnummer: String? = null,
         adresse: DistribuerTilAdresse? = null,
-        dokumenter: List<DokumentDto> = listOf()
+        dokumenter: List<DokumentDto> = listOf(),
     ) : this(avvikType.name, beskrivelse, detaljer, saksnummer, adresse, dokumenter)
 
     fun hent(): AvvikType? = AvvikType.values().firstOrNull { it.name == avvikType }
@@ -45,7 +45,7 @@ data class BehandleAvvikshendelseResponse(
     val oppgaveId: Long? = null,
     @Schema(description = "Enhetsnummer til enheten som oppgaven er tildelt") val tildeltEnhetsnr: String? = null,
     @Schema(description = "Oppgavens tema") val tema: String? = null,
-    @Schema(description = "Oppgavens type") val oppgavetype: String? = null
+    @Schema(description = "Oppgavens type") val oppgavetype: String? = null,
 ) {
     constructor() : this("avvik ikke angitt")
     constructor(avvikType: AvvikType) : this(avvikType.name)
@@ -70,5 +70,5 @@ enum class AvvikType {
     REGISTRER_RETUR,
     MANGLER_ADRESSE,
     BESTILL_NY_DISTRIBUSJON,
-    FARSKAP_UTELUKKET
+    FARSKAP_UTELUKKET,
 }

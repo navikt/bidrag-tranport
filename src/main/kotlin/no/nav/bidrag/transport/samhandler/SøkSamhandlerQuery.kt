@@ -14,5 +14,5 @@ data class SøkSamhandlerQuery(
     @JsonProperty("omrade")
     val område: Område? = null,
     @Schema(description = "Sidenummer med resultater man ønsker, hvis det finnes og man ønsker påfølgende resultater.")
-    val side: Int = 0
+    val side: Int = 0,
 ) : QueryObject

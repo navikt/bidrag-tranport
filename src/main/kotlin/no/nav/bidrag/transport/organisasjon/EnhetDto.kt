@@ -18,7 +18,7 @@ data class EnhetDto(
     val enhetIdent: Enhetsnummer = nummer,
     @Deprecated("bruk navn", ReplaceWith("navn"))
     val enhetNavn: Enhetsnavn? = navn,
-    val status: Enhetsstatus = Enhetsstatus.AKTIV
+    val status: Enhetsstatus = Enhetsstatus.AKTIV,
 )
 
 data class EnhetKontaktinfoDto(
@@ -29,7 +29,7 @@ data class EnhetKontaktinfoDto(
     @Deprecated("bruk navn", ReplaceWith("navn"))
     val enhetNavn: Enhetsnavn? = navn,
     val telefonnummer: Telefonnummer? = null,
-    val postadresse: EnhetspostadresseDto? = null
+    val postadresse: EnhetspostadresseDto? = null,
 
 ) {
 
@@ -43,8 +43,8 @@ data class EnhetKontaktinfoDto(
                 adresselinje1 = Adresselinje1("Postboks 6215 Etterstad"),
                 poststed = Poststed("Oslo"),
                 land = Landnavn("Norway"),
-                kommunenr = Kommunenummer("0301")
-            )
+                kommunenr = Kommunenummer("0301"),
+            ),
         )
     }
 }
@@ -55,5 +55,5 @@ data class EnhetspostadresseDto(
     val adresselinje2: Adresselinje2? = null,
     val poststed: Poststed? = null,
     val land: Landnavn? = null,
-    val kommunenr: Kommunenummer? = null
+    val kommunenr: Kommunenummer? = null,
 )

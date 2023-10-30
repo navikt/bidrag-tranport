@@ -14,7 +14,7 @@ import java.math.BigDecimal
         "\n" +
         "Personidenter for gjelderIdent, kravhaverIdent, mottakerIdent og skyldnerIdent angis med enten FNR eller DNR. (Håndtering av BNR og NPID er uavklart.) Aktoernummer kan benyttes i kravhaverIdent, mottakerIdent og skyldnerIdent. Aktoernummere er elleve siffer og starter med enten 8 eller 9.\n" +
         "\n" +
-        "I testmiljøene må Tenor-identer støttes i stedet for FNR/DNR. Disse identene har 8 eller 9 i tredje siffer."
+        "I testmiljøene må Tenor-identer støttes i stedet for FNR/DNR. Disse identene har 8 eller 9 i tredje siffer.",
 )
 data class Kravkontering(
 
@@ -35,13 +35,13 @@ data class Kravkontering(
             "| K2    |                 | Direkte oppgjør (innbetalt beløp)          |\n" +
             "| K3    |                 | Tilbakekreving ettergivelse                |\n",
         example = "B1",
-        required = true
+        required = true,
     ) val transaksjonskode: Transaksjonskode,
 
     @field:Schema(
         description = "Angir om det er en ny transaksjon eller en endring.",
         example = "NY",
-        required = true
+        required = true,
     ) val type: Type,
 
     @field:Schema(
@@ -53,46 +53,46 @@ data class Kravkontering(
             "| FABP | Benyttes for gebyr som gjelder BP.                                         |\n" +
             "| EN   | Alle andre typer endringer. Også førstegangsvedtak.                        |\n",
         example = "EN",
-        required = true
+        required = true,
     ) val soknadType: Søknadstype,
 
     @field:Schema(
         description = "Personident (FNR/DNR) til bidragsmottaker i bidragssaken. I saker der bidragsmottaker ikke er satt benyttes et dummynr 22222222226",
         example = "15878598161",
-        required = true
+        required = true,
     ) val gjelderIdent: String,
 
     @field:Schema(
         description = "Personident (FNR/DNR) eller aktoernummer (TSS-ident/samhandler) til kravhaver." +
             "\n\nKravhaver angis ikke for gebyr.",
         example = "14871298182",
-        required = false
+        required = false,
     ) val kravhaverIdent: String?,
 
     @field:Schema(
         description = "Personident (FNR/DNR) eller aktoernummer (TSS-ident/samhandler) til mottaker av kravet." +
             "\n\nFor gebyr settes mottakerIdent til NAVs aktoernummer 80000345435.",
         example = "15878598161",
-        required = true
+        required = true,
     ) val mottakerIdent: String,
 
     @field:Schema(
         description = "Personident (FNR/DNR) eller aktoernummer (TSS-ident/samhandler) til skyldner. For Bidrag er dette BP i saken." +
             "\n\nFor forskudd settes skyldnerIdent til NAVs aktoernummer 80000345435.",
         example = "28848596401",
-        required = true
+        required = true,
     ) val skyldnerIdent: String,
 
     @field:Schema(
         description = "Konteringens beløp. Positive beløp og 0 regnes som tillegg, negative beløp som fradrag.",
         example = "2000.0",
-        required = true
+        required = true,
     ) val belop: BigDecimal,
 
     @field:Schema(
         description = "Valutakoden for beløpet.",
         example = "NOK",
-        required = true
+        required = true,
     ) val valuta: String,
 
     @field:Schema(
@@ -100,13 +100,13 @@ data class Kravkontering(
         type = "String",
         format = "yyyy-MM",
         example = "2022-04",
-        required = true
+        required = true,
     ) val periode: String,
 
     @field:Schema(
         description = "Datoen vedtaket er fattet",
         example = "2022-03-18",
-        required = true
+        required = true,
     ) val vedtaksdato: String,
 
     @field:Schema(
@@ -114,32 +114,32 @@ data class Kravkontering(
             "For direkteoverførte online-vedtak blir datoen sannsynligvis det samme som vedtaksdato. " +
             "For påløp blir datoen satt til dagen påløpet genereres.",
         example = "2022-03-18",
-        required = true
+        required = true,
     ) val kjoredato: String,
 
     @field:Schema(
         description = "NAVs brukerid for saksbehandler som har fattet vedtaket",
         example = "a123456",
-        required = true
+        required = true,
     ) val saksbehandlerId: String,
 
     @field:Schema(
         description = "NAVs brukerid for saksbehandler som har attestert vedtaket (sannsynligvis samme som saksbehandlerId over).",
         example = "a123456",
-        required = true
+        required = true,
     ) val attestantId: String,
 
     @field:Schema(
         description = "Felt hvor utlandsavdelingen legger inn referansenummer (ffu-ref). " +
             "Dette er et fritekstfelt som kan inneholde spesialtegn.",
         example = "VII W → 450 → 40 /11",
-        required = false
+        required = false,
     ) val tekst: String?,
 
     @field:Schema(
         description = "Bidragssakens saksnummer angitt som String.",
         example = "2201234",
-        required = true
+        required = true,
     ) val fagsystemId: String,
 
     @field:Schema(
@@ -147,6 +147,6 @@ data class Kravkontering(
             "I bidragssaken kan en oppdragsperiode strekke over flere måneder, og samme referanse blir da benyttet for alle månedene. " +
             "Samme referanse kan ikke benyttes to ganger for samme transaksjonskode i samme måned.",
         example = "123456789",
-        required = true
-    ) val delytelsesId: String
+        required = true,
+    ) val delytelsesId: String,
 )

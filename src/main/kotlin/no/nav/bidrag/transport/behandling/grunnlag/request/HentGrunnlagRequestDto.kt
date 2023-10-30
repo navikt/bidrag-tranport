@@ -9,5 +9,5 @@ data class HentGrunnlagRequestDto(
     @Schema(description = "Liste over hvilke typer grunnlag som skal hentes inn. På nivået under er personId og perioder angitt")
     @field:Valid
     @field:NotEmpty(message = "Listen kan ikke være null eller tom.")
-    val grunnlagRequestDtoListe: List<GrunnlagRequestDto>
+    val grunnlagRequestDtoListe: List<GrunnlagRequestDto>,
 )

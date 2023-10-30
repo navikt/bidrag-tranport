@@ -13,7 +13,7 @@ data class HentEnhetRequest(
     val tema: Tema = TEMA_BIDRAG,
     val behandlingstema: Behandlingstema? = null,
     val sakskategori: Sakskategori? = null,
-    val behandlingstype: Behandlingstype? = null
+    val behandlingstype: Behandlingstype? = null,
 
 ) {
 

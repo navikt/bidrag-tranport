@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 import java.time.YearMonth
 
 data class HentGrunnlagDto(
-    val arbeidsforholdListe: List<ArbeidsforholdDto>
+    val arbeidsforholdListe: List<ArbeidsforholdDto>,
 )
 
 data class ArbeidsforholdDto(
@@ -35,7 +35,7 @@ data class ArbeidsforholdDto(
     val permitteringer: List<Permittering>?,
 
     @Schema(description = "Hentet tidspunkt")
-    val hentetTidspunkt: LocalDateTime
+    val hentetTidspunkt: LocalDateTime,
 )
 
 data class Ansettelsesdetaljer(
@@ -68,7 +68,7 @@ data class Ansettelsesdetaljer(
     val sisteStillingsprosentendringDato: LocalDate?,
 
     @Schema(description = "Dato for forrige lønnsendring")
-    val sisteLønnsendringDato: LocalDate?
+    val sisteLønnsendringDato: LocalDate?,
 
 )
 
@@ -76,12 +76,12 @@ data class Permisjon(
     val startdato: LocalDate?,
     val sluttdato: LocalDate?,
     val beskrivelse: String?,
-    val prosent: Double?
+    val prosent: Double?,
 )
 
 data class Permittering(
     val startdato: LocalDate?,
     val sluttdato: LocalDate?,
     val beskrivelse: String?,
-    val prosent: Double?
+    val prosent: Double?,
 )

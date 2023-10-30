@@ -12,13 +12,13 @@ data class TransformerInntekterResponse(
     val versjon: String = "",
 
     @Schema(description = "Liste over summerte månedsinntekter (Ainntekt ++))")
-    val summertMaanedsinntektListe: List<SummertMaanedsinntekt> = emptyList(),
+    val summertMånedsinntektListe: List<SummertMånedsinntekt> = emptyList(),
 
     @Schema(description = "Liste over summerte årsinntekter (Ainntekt + Sigrun ++)")
-    val summertAarsinntektListe: List<SummertAarsinntekt> = emptyList()
+    val summertÅrsinntektListe: List<SummertÅrsinntekt> = emptyList(),
 )
 
-data class SummertMaanedsinntekt(
+data class SummertMånedsinntekt(
     @Schema(description = "Periode (YYYYMM)", example = "2023-01", type = "String", pattern = "YYYYMM")
     val periode: YearMonth,
 
@@ -26,10 +26,10 @@ data class SummertMaanedsinntekt(
     val sumInntekt: BigDecimal,
 
     @Schema(description = "Liste over inntektsposter som utgjør grunnlaget for summert inntekt")
-    val inntektPostListe: List<InntektPost>
+    val inntektPostListe: List<InntektPost>,
 )
 
-data class SummertAarsinntekt(
+data class SummertÅrsinntekt(
     @Schema(description = "Type inntektrapportering", example = "AINNTEKT")
     val inntektRapportering: InntektRapportering,
 
@@ -52,7 +52,7 @@ data class SummertAarsinntekt(
     val gjelderBarnPersonId: String = "",
 
     @Schema(description = "Liste over inntektsposter (generisk, avhengig av type) som utgjør grunnlaget for summert inntekt")
-    val inntektPostListe: List<InntektPost>
+    val inntektPostListe: List<InntektPost>,
 )
 data class InntektPost(
     @Schema(description = "Kode for inntektspost", example = "bonus")
@@ -62,5 +62,5 @@ data class InntektPost(
     val visningsnavn: String,
 
     @Schema(description = "Beløp som utgør inntektsposten", example = "60000")
-    val beløp: BigDecimal
+    val beløp: BigDecimal,
 )

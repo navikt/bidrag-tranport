@@ -22,7 +22,7 @@ data class RolleDto(
     @Deprecated("Bruk fødselsnummer", ReplaceWith("fødselsnummer"))
     val foedselsnummer: PersonIdent? = fødselsnummer,
     @Deprecated("Bruk rolletype", ReplaceWith("type"))
-    val rolleType: Rolletype = type
+    val rolleType: Rolletype = type,
 ) {
     fun valider() {
         require(reellMottager == null || type == Rolletype.BARN) { "Reell mottager kan kun opprettes for barn." }

@@ -12,11 +12,11 @@ data class TransformerInntekterRequest(
     @Schema(description = "Periodisert liste over inntekter fra Sigrun")
     val skattegrunnlagsliste: List<SkattegrunnlagForLigningsår> = emptyList(),
 
-    @Schema(description = "Periodisert liste over kontantstøtte, MERK: én liste per barn")
-    val kontantstotteliste: List<Kontantstotte> = emptyList(),
+    @Schema(description = "Periodisert liste over kontantstøtte")
+    val kontantstøtteliste: List<Kontantstøtte> = emptyList(),
 
     @Schema(description = "Periodisert liste over utvidet barnetrygd og småbarnstillegg")
-    val utvidetBarnetrygdOgSmaabarnstilleggliste: List<UtvidetBarnetrygdOgSmaabarnstillegg> = emptyList()
+    val utvidetBarnetrygdOgSmåbarnstilleggliste: List<UtvidetBarnetrygdOgSmåbarnstillegg> = emptyList(),
 )
 
 data class SkattegrunnlagForLigningsår(
@@ -25,7 +25,7 @@ data class SkattegrunnlagForLigningsår(
     val ligningsår: Int,
 
     @Schema(description = "Poster med skattegrunnlag")
-    val skattegrunnlagsposter: List<SkattegrunnlagspostDto>
+    val skattegrunnlagsposter: List<SkattegrunnlagspostDto>,
 )
 
 data class Ainntektspost(
@@ -42,11 +42,11 @@ data class Ainntektspost(
     @Schema(description = "Beskrivelse av inntekt")
     val beskrivelse: String?,
 
-    @Schema(description = "Belop")
-    val belop: BigDecimal
+    @Schema(description = "Beløp")
+    val beløp: BigDecimal,
 )
 
-data class Kontantstotte(
+data class Kontantstøtte(
 
     @Schema(description = "Periode fra-dato")
     val periodeFra: LocalDate,
@@ -55,14 +55,14 @@ data class Kontantstotte(
     val periodeTil: LocalDate?,
 
     @Schema(description = "Beløp kontantstøtte")
-    val belop: BigDecimal,
+    val beløp: BigDecimal,
 
     @Schema(description = "Id til barnet kontantstøtten mottas for")
-    val barnPersonId: String
+    val barnPersonId: String,
 
 )
 
-data class UtvidetBarnetrygdOgSmaabarnstillegg(
+data class UtvidetBarnetrygdOgSmåbarnstillegg(
 
     @Schema(description = "Type stønad, utvidet barnetrygd eller småbarnstillegg")
     val type: String,
@@ -74,6 +74,6 @@ data class UtvidetBarnetrygdOgSmaabarnstillegg(
     val periodeTil: LocalDate?,
 
     @Schema(description = "Beløp utvidet barnetrygd eller småbarnstillegg")
-    val belop: BigDecimal
+    val beløp: BigDecimal,
 
 )

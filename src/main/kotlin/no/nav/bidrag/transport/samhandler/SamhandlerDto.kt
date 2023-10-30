@@ -21,5 +21,5 @@ data class SamhandlerDto(
     val adresse: AdresseDto? = null,
 
     @Schema(description = "Samhandlerens kontonummer. Kontonummer er ikke inkludert i søkeresultat, kun i oppslag.")
-    val kontonummer: KontonummerDto? = null
+    val kontonummer: KontonummerDto? = null,
 )

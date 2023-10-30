@@ -25,5 +25,5 @@ class OpprettSakRequest(
     val konvensjonsdato: Konvensjonsdato? = null,
     val ffuReferansenr: FfuReferansenr? = null,
     val land: Landkode? = null,
-    val roller: Set<RolleDto> = setOf()
+    val roller: Set<RolleDto> = setOf(),
 )

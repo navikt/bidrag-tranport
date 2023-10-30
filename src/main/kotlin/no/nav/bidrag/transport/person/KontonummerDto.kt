@@ -37,11 +37,11 @@ data class KontonummerDto(
     @Schema(description = "Adressefelt 3, utenlandsk bank")
     val bankadresse3: String? = null,
     @Schema(description = "Tilleggsinformasjon")
-    val metadata: MetadataDto
+    val metadata: MetadataDto,
 )
 
 data class MetadataDto(
     val gyldigFom: OpprettetTidspunkt,
     val opprettetAv: String,
-    val kilde: String?
+    val kilde: String?,
 )

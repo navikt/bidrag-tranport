@@ -5,7 +5,7 @@ import java.time.LocalDate
 
 enum class HendelseType {
     JOURNALFORING,
-    ENDRING
+    ENDRING,
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -28,7 +28,7 @@ data class JournalpostHendelse(
     val sporing: Sporingsdata? = null,
     val sakstilknytninger: List<String> = emptyList(),
     val dokumentDato: LocalDate? = null,
-    val journalfortDato: LocalDate? = null
+    val journalfortDato: LocalDate? = null,
 ) {
     fun erHendelseTypeJournalforing() = hendelseType == HendelseType.JOURNALFORING
     fun harEnhet() = enhet != null
@@ -72,7 +72,7 @@ data class Sporingsdata(
     val correlationId: String? = null,
     val brukerident: String? = null,
     val saksbehandlersNavn: String? = "ukjent saksbehandler",
-    val enhetsnummer: String? = null
+    val enhetsnummer: String? = null,
 ) {
 
     fun lagSaksbehandlerInfo(saksbehandlerEnhet: String? = null) =
@@ -80,7 +80,7 @@ data class Sporingsdata(
             "ukjent saksbehandler"
         } else {
             hentBrukeridentMedSaksbehandler(
-                saksbehandlerEnhet ?: enhetsnummer ?: ""
+                saksbehandlerEnhet ?: enhetsnummer ?: "",
             )
         }
 

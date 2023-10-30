@@ -37,7 +37,7 @@ data class EndreJournalpostCommand(
     @Schema(description = "Skal journalposten journalføres aka. registreres")
     val skalJournalfores: Boolean = false,
     @Schema(description = "Liste med retur detaljer som skal endres")
-    val endreReturDetaljer: List<EndreReturDetaljer> = listOf()
+    val endreReturDetaljer: List<EndreReturDetaljer> = listOf(),
 ) {
 
     @Suppress("unused")
@@ -51,7 +51,7 @@ data class EndreReturDetaljer(
     @Schema(description = "Ny dato på retur detaljer")
     val nyDato: LocalDate? = null,
     @Schema(description = "Beskrivelse av retur (eks. addresse forsøkt sendt)")
-    val beskrivelse: String
+    val beskrivelse: String,
 )
 
 @Schema(description = "Metadata for endring av et dokument")
@@ -63,5 +63,5 @@ data class EndreDokument(
     @Schema(description = "Identifikator til dokumentet")
     val dokumentreferanse: String? = dokId,
     @Schema(description = "Tittel på dokumentet")
-    val tittel: String? = null
+    val tittel: String? = null,
 )

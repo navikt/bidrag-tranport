@@ -12,7 +12,7 @@ data class Sakshendelse(
     val saksnummer: Saksnummer,
     val hendelsestype: Sakshendelsestype,
     val roller: List<Saksrolle> = emptyList(),
-    val sporingId: NavCallId
+    val sporingId: NavCallId,
 )
 
 data class Saksrolle(
@@ -20,9 +20,9 @@ data class Saksrolle(
     val type: Rolletype,
     val samhandlerId: SamhandlerId? = null,
     val reelMottager: ReellMottager? = null,
-    val ukjent: Ukjent = Ukjent(false)
+    val ukjent: Ukjent = Ukjent(false),
 )
 enum class Sakshendelsestype {
     ENDRING,
-    OPPRETTELSE
+    OPPRETTELSE,
 }

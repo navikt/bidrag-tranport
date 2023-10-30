@@ -52,5 +52,5 @@ data class PersonDto(
     val kortnavn: Kortnavn? = null,
     @Schema(description = "Kortnavn på personen, navn som benyttes ved maskinelle utskrifter (maks 40 tegn)", deprecated = true)
     @Deprecated("Skrivefeil", ReplaceWith("kortnavn"))
-    val kortNavn: Kortnavn? = kortnavn
+    val kortNavn: Kortnavn? = kortnavn,
 )

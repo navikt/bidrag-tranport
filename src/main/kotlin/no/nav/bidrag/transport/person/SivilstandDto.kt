@@ -10,7 +10,7 @@ import java.time.LocalDateTime
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class SivilstandshistorikkDto(
     @Schema(description = "Liste over alle hentede forekomster av sivilstand fra bidrag-person")
-    val sivilstandDto: List<SivilstandDto>
+    val sivilstandDto: List<SivilstandDto>,
 )
 
 data class SivilstandDto(
@@ -19,5 +19,5 @@ data class SivilstandDto(
     val bekreftelsesdato: Bekreftelsesdato?,
     val master: String?,
     val registrert: LocalDateTime?,
-    val historisk: Boolean?
+    val historisk: Boolean?,
 )

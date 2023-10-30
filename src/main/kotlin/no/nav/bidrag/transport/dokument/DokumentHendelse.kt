@@ -7,7 +7,7 @@ data class DokumentHendelse(
     val sporingId: String,
     val arkivSystem: DokumentArkivSystemDto? = null,
     val status: DokumentStatusDto? = null,
-    val hendelseType: DokumentHendelseType
+    val hendelseType: DokumentHendelseType,
 )
 enum class DokumentHendelseType {
     /**
@@ -28,5 +28,5 @@ enum class DokumentHendelseType {
     /**
      Dokumentet ble ferdigstilt og er dermed låst for endringer.
      */
-    FERDIGSTILT
+    FERDIGSTILT,
 }

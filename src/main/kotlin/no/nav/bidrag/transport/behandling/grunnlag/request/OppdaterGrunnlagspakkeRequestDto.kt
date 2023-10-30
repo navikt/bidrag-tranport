@@ -15,7 +15,7 @@ data class OppdaterGrunnlagspakkeRequestDto(
     @Schema(description = "Liste over hvilke typer grunnlag som skal hentes inn. På nivået under er personId og perioder angitt")
     @field:Valid
     @field:NotEmpty(message = "Listen kan ikke være null eller tom.")
-    val grunnlagRequestDtoListe: List<GrunnlagRequestDto>
+    val grunnlagRequestDtoListe: List<GrunnlagRequestDto>,
 )
 
 data class GrunnlagRequestDto(
@@ -26,7 +26,7 @@ data class GrunnlagRequestDto(
     @Schema(description = "Angir personId som grunnlag skal hentes for")
     @field:Pattern(
         regexp = "^[0-9]{11}\$",
-        message = "Ugyldig format. Må inneholde eksakt 11 siffer."
+        message = "Ugyldig format. Må inneholde eksakt 11 siffer.",
     )
     val personId: String,
 
@@ -34,5 +34,5 @@ data class GrunnlagRequestDto(
     val periodeFra: LocalDate,
 
     @Schema(description = "Grunnlag skal hentes TIL denne perioden, på formatet YYYY-MM-DD")
-    val periodeTil: LocalDate
+    val periodeTil: LocalDate,
 )

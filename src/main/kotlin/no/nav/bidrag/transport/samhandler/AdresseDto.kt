@@ -26,5 +26,5 @@ data class AdresseDto(
     val poststed: Poststed? = null,
 
     @Schema(description = "Land. ISO 3166-1 alfa-3.")
-    val land: Landkode3? = null
+    val land: Landkode3? = null,
 )

@@ -10,5 +10,5 @@ data class BehandlingsstatusResponse(
     val batchUid: String,
     val totaltAntall: Int,
     val mislyketAntall: Int,
-    val fullfoertAntall: Int
+    val fullfoertAntall: Int,
 )

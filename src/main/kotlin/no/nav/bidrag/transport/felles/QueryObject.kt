@@ -23,8 +23,8 @@ interface QueryObject {
                 JavaTimeModule()
                     .addDeserializer(
                         YearMonth::class.java,
-                        YearMonthDeserializer(DateTimeFormatter.ofPattern("u-MM")) // Denne trengs for å parse år over 9999 riktig.
-                    )
+                        YearMonthDeserializer(DateTimeFormatter.ofPattern("u-MM")), // Denne trengs for å parse år over 9999 riktig.
+                    ),
             )
             .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
 
