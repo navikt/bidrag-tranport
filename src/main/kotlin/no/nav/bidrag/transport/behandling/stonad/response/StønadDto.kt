@@ -1,15 +1,13 @@
 package no.nav.bidrag.transport.behandling.stonad.response
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.enums.Innkreving
-import no.nav.bidrag.domain.enums.StønadType
-import no.nav.bidrag.domain.ident.PersonIdent
-import no.nav.bidrag.domain.string.Saksnummer
-import no.nav.bidrag.domain.string.Valutakode
-import no.nav.bidrag.domain.tid.Periode
-import no.nav.bidrag.domain.tid.PeriodeTil
+import no.nav.bidrag.domene.enums.Innkreving
+import no.nav.bidrag.domene.enums.StønadType
+import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.streng.Saksnummer
+import no.nav.bidrag.domene.streng.Valutakode
+import no.nav.bidrag.domene.tid.Datoperiode
 import java.math.BigDecimal
-import java.time.LocalDate
 import java.time.LocalDateTime
 
 data class StønadDto(
@@ -58,11 +56,8 @@ data class StønadPeriodeDto(
     @Schema(description = "Periodeid")
     val periodeid: Int,
 
-    @Schema(description = "Periode fra-og-med-dato")
-    val fom: Periode<LocalDate>,
-
-    @Schema(description = "Periode til-dato")
-    val til: Periode<LocalDate>?,
+    @Schema(description = "Periode med Fra-og-med-dato og til-dato med format ÅÅÅÅ-MM-DD")
+    val periode: Datoperiode,
 
     @Schema(description = "Stønadsid")
     val stønadsid: Int,

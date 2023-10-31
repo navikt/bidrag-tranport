@@ -1,10 +1,10 @@
 package no.nav.bidrag.transport.samhandler
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.ident.OffentligId
-import no.nav.bidrag.domain.ident.SamhandlerId
-import no.nav.bidrag.domain.string.FulltNavn
-import no.nav.bidrag.domain.string.OffentligIdtype
+import no.nav.bidrag.domene.ident.OffentligId
+import no.nav.bidrag.domene.ident.SamhandlerId
+import no.nav.bidrag.domene.streng.FulltNavn
+import no.nav.bidrag.domene.streng.OffentligIdtype
 
 data class SamhandlerDto(
     val tssId: SamhandlerId,

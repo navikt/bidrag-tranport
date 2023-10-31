@@ -1,12 +1,12 @@
 package no.nav.bidrag.transport.sak
 
-import no.nav.bidrag.domain.bool.Ukjent
-import no.nav.bidrag.domain.enums.Rolletype
-import no.nav.bidrag.domain.ident.NavCallId
-import no.nav.bidrag.domain.ident.PersonIdent
-import no.nav.bidrag.domain.ident.ReellMottager
-import no.nav.bidrag.domain.ident.SamhandlerId
-import no.nav.bidrag.domain.string.Saksnummer
+import no.nav.bidrag.domene.bool.Ukjent
+import no.nav.bidrag.domene.enums.Rolletype
+import no.nav.bidrag.domene.ident.NavCallId
+import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.ident.ReellMottager
+import no.nav.bidrag.domene.ident.SamhandlerId
+import no.nav.bidrag.domene.streng.Saksnummer
 
 data class Sakshendelse(
     val saksnummer: Saksnummer,

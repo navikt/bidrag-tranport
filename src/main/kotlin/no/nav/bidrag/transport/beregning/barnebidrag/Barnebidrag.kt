@@ -1,7 +1,7 @@
 package no.nav.bidrag.transport.beregning.barnebidrag
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.enums.resultatkoder.ResultatKodeBarnebidrag
+import no.nav.bidrag.domene.enums.resultatkoder.ResultatKodeBarnebidrag
 import no.nav.bidrag.transport.beregning.felles.Grunnlag
 import no.nav.bidrag.transport.beregning.felles.Periode
 import java.math.BigDecimal

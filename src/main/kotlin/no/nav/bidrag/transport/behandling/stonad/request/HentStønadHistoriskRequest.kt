@@ -1,9 +1,9 @@
 package no.nav.bidrag.transport.behandling.stonad.request
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.enums.StønadType
-import no.nav.bidrag.domain.ident.PersonIdent
-import no.nav.bidrag.domain.string.Saksnummer
+import no.nav.bidrag.domene.enums.StønadType
+import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.streng.Saksnummer
 import java.time.LocalDateTime
 
 @Schema(description = "Request for å hente stønad og perioder som var gyldige på angitt tidspunkt")

@@ -1,8 +1,8 @@
 package no.nav.bidrag.transport.person
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.enums.Gradering
-import no.nav.bidrag.domain.ident.PersonIdent
+import no.nav.bidrag.domene.enums.Gradering
+import no.nav.bidrag.domene.ident.PersonIdent
 
 data class Graderingsinfo(
     @Schema(description = "Map med ident til gradering.")

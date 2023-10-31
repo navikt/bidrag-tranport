@@ -1,13 +1,13 @@
 package no.nav.bidrag.transport.samhandler
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.string.Bankkode
-import no.nav.bidrag.domain.string.Banknavn
-import no.nav.bidrag.domain.string.Iban
-import no.nav.bidrag.domain.string.Landkode3
-import no.nav.bidrag.domain.string.NorskKontonummer
-import no.nav.bidrag.domain.string.Swift
-import no.nav.bidrag.domain.string.Valutakode
+import no.nav.bidrag.domene.streng.Bankkode
+import no.nav.bidrag.domene.streng.Banknavn
+import no.nav.bidrag.domene.streng.Iban
+import no.nav.bidrag.domene.streng.Landkode3
+import no.nav.bidrag.domene.streng.NorskKontonummer
+import no.nav.bidrag.domene.streng.Swift
+import no.nav.bidrag.domene.streng.Valutakode
 
 @Schema(
     description = "Representerer kontonummer for en samhandler. For norske kontonummer " +

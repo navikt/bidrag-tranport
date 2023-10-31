@@ -2,10 +2,10 @@ package no.nav.bidrag.transport.person
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.number.Fødselsår
-import no.nav.bidrag.domain.string.FulltNavn
-import no.nav.bidrag.domain.tid.Dødsdato
-import no.nav.bidrag.domain.tid.Fødselsdato
+import no.nav.bidrag.domene.streng.FulltNavn
+import no.nav.bidrag.domene.tall.Fødselsår
+import no.nav.bidrag.domene.tid.Dødsdato
+import no.nav.bidrag.domene.tid.Fødselsdato
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class NavnFødselDødDto(

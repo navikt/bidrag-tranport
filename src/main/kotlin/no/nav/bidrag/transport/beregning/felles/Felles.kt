@@ -2,7 +2,7 @@ package no.nav.bidrag.transport.beregning.felles
 
 import com.fasterxml.jackson.databind.JsonNode
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.enums.GrunnlagType
+import no.nav.bidrag.domene.enums.GrunnlagType
 import java.time.LocalDate
 
 @Schema(description = "Grunnlaget for en beregning av barnebidrag, forskudd og særtilskudd")

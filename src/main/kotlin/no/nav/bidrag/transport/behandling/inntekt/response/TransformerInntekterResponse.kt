@@ -1,9 +1,9 @@
 package no.nav.bidrag.transport.behandling.inntekt.response
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.enums.InntektRapportering
-import no.nav.bidrag.domain.tid.FomMåned
-import no.nav.bidrag.domain.tid.TomMåned
+import no.nav.bidrag.domene.enums.InntektRapportering
+import no.nav.bidrag.domene.tid.FomMåned
+import no.nav.bidrag.domene.tid.TomMåned
 import java.math.BigDecimal
 import java.time.YearMonth
 

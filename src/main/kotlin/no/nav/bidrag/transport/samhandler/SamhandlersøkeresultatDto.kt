@@ -1,7 +1,7 @@
 package no.nav.bidrag.transport.samhandler
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.bool.FlereForekomster
+import no.nav.bidrag.domene.bool.FlereForekomster
 
 @Schema(description = "Søkeresultat etter søk på samhandler.")
 data class SamhandlersøkeresultatDto(

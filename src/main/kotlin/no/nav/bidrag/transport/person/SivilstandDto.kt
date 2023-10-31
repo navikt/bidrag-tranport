@@ -2,9 +2,9 @@ package no.nav.bidrag.transport.person
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.enums.Sivilstandstype
-import no.nav.bidrag.domain.tid.Bekreftelsesdato
-import no.nav.bidrag.domain.tid.FomDato
+import no.nav.bidrag.domene.enums.Sivilstandstype
+import no.nav.bidrag.domene.tid.Bekreftelsesdato
+import no.nav.bidrag.domene.tid.FomDato
 import java.time.LocalDateTime
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

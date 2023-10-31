@@ -2,12 +2,12 @@ package no.nav.bidrag.transport.sak
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.bool.MottagerErVerge
-import no.nav.bidrag.domain.enums.Rolletype
-import no.nav.bidrag.domain.ident.PersonIdent
-import no.nav.bidrag.domain.ident.ReellMottager
-import no.nav.bidrag.domain.ident.SamhandlerId
-import no.nav.bidrag.domain.string.Objektnummer
+import no.nav.bidrag.domene.bool.MottagerErVerge
+import no.nav.bidrag.domene.enums.Rolletype
+import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.ident.ReellMottager
+import no.nav.bidrag.domene.ident.SamhandlerId
+import no.nav.bidrag.domene.streng.Objektnummer
 
 data class RolleDto(
     @JsonProperty("fodselsnummer")
