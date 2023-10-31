@@ -1,8 +1,8 @@
 package no.nav.bidrag.organisasjon.dto
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.ident.SaksbehandlerId
-import no.nav.bidrag.domain.string.Navn
+import no.nav.bidrag.domene.ident.SaksbehandlerId
+import no.nav.bidrag.domene.string.Navn
 
 data class SaksbehandlerDto(
     val ident: SaksbehandlerId,

@@ -2,17 +2,17 @@ package no.nav.bidrag.transport.person
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.enums.Diskresjonskode
-import no.nav.bidrag.domain.enums.Kjønn
-import no.nav.bidrag.domain.ident.AktørId
-import no.nav.bidrag.domain.ident.PersonIdent
-import no.nav.bidrag.domain.string.Etternavn
-import no.nav.bidrag.domain.string.Fornavn
-import no.nav.bidrag.domain.string.FulltNavn
-import no.nav.bidrag.domain.string.Kortnavn
-import no.nav.bidrag.domain.string.Mellomnavn
-import no.nav.bidrag.domain.tid.Dødsdato
-import no.nav.bidrag.domain.tid.Fødselsdato
+import no.nav.bidrag.domene.enums.Diskresjonskode
+import no.nav.bidrag.domene.enums.Kjønn
+import no.nav.bidrag.domene.ident.AktørId
+import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.string.Etternavn
+import no.nav.bidrag.domene.string.Fornavn
+import no.nav.bidrag.domene.string.FulltNavn
+import no.nav.bidrag.domene.string.Kortnavn
+import no.nav.bidrag.domene.string.Mellomnavn
+import no.nav.bidrag.domene.tid.Dødsdato
+import no.nav.bidrag.domene.tid.Fødselsdato
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class PersonDto(

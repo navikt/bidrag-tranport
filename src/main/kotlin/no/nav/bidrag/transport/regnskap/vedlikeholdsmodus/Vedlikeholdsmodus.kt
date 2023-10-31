@@ -1,7 +1,7 @@
 package no.nav.bidrag.transport.regnskap.vedlikeholdsmodus
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.enums.regnskap.Årsakskode
+import no.nav.bidrag.domene.enums.regnskap.Årsakskode
 
 @Schema(name = "Vedlikeholdsmodus", description = "Kontroll av vedlikeholdsmodus.")
 data class Vedlikeholdsmodus(

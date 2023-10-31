@@ -2,20 +2,20 @@ package no.nav.bidrag.transport.person
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.ident.PersonIdent
-import no.nav.bidrag.domain.number.MatrikkelId
-import no.nav.bidrag.domain.string.Adressenavn
-import no.nav.bidrag.domain.string.Bruksenhetsnummer
-import no.nav.bidrag.domain.string.Bydelsnummer
-import no.nav.bidrag.domain.string.FulltNavn
-import no.nav.bidrag.domain.string.Husbokstav
-import no.nav.bidrag.domain.string.Husnummer
-import no.nav.bidrag.domain.string.Kommunenummer
-import no.nav.bidrag.domain.string.Postnummer
-import no.nav.bidrag.domain.tid.Dødsdato
-import no.nav.bidrag.domain.tid.FomDato
-import no.nav.bidrag.domain.tid.Fødselsdato
-import no.nav.bidrag.domain.tid.TomDato
+import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.string.Adressenavn
+import no.nav.bidrag.domene.string.Bruksenhetsnummer
+import no.nav.bidrag.domene.string.Bydelsnummer
+import no.nav.bidrag.domene.string.FulltNavn
+import no.nav.bidrag.domene.string.Husbokstav
+import no.nav.bidrag.domene.string.Husnummer
+import no.nav.bidrag.domene.string.Kommunenummer
+import no.nav.bidrag.domene.string.Postnummer
+import no.nav.bidrag.domene.tall.MatrikkelId
+import no.nav.bidrag.domene.tid.Dødsdato
+import no.nav.bidrag.domene.tid.FomDato
+import no.nav.bidrag.domene.tid.Fødselsdato
+import no.nav.bidrag.domene.tid.TomDato
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class HusstandsmedlemmerDto(

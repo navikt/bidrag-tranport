@@ -7,23 +7,22 @@ import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.Size
-import no.nav.bidrag.domain.enums.BehandlingsrefKilde
-import no.nav.bidrag.domain.enums.EngangsbeløpType
-import no.nav.bidrag.domain.enums.GrunnlagType
-import no.nav.bidrag.domain.enums.Innkreving
-import no.nav.bidrag.domain.enums.StønadType
-import no.nav.bidrag.domain.enums.VedtakKilde
-import no.nav.bidrag.domain.enums.VedtakType
-import no.nav.bidrag.domain.ident.PersonIdent
-import no.nav.bidrag.domain.string.Enhetsnummer
-import no.nav.bidrag.domain.string.Landkode
-import no.nav.bidrag.domain.string.Saksnummer
-import no.nav.bidrag.domain.string.Valutakode
-import no.nav.bidrag.domain.tid.FomDato
-import no.nav.bidrag.domain.tid.TilDato
-import no.nav.bidrag.domain.tid.Vedtakstidspunkt
+import no.nav.bidrag.domene.enums.BehandlingsrefKilde
+import no.nav.bidrag.domene.enums.EngangsbeløpType
+import no.nav.bidrag.domene.enums.GrunnlagType
+import no.nav.bidrag.domene.enums.Innkreving
+import no.nav.bidrag.domene.enums.StønadType
+import no.nav.bidrag.domene.enums.VedtakKilde
+import no.nav.bidrag.domene.enums.VedtakType
+import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.string.Enhetsnummer
+import no.nav.bidrag.domene.string.Landkode
+import no.nav.bidrag.domene.string.Saksnummer
+import no.nav.bidrag.domene.string.Valutakode
+import no.nav.bidrag.domene.tid.Datoperiode
 import java.math.BigDecimal
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 @Schema
 data class OpprettVedtakRequestDto(
@@ -42,7 +41,7 @@ data class OpprettVedtakRequestDto(
     val opprettetAvNavn: String?,
 
     @Schema(description = "Tidspunkt/timestamp når vedtaket er fattet")
-    val vedtakstidspunkt: Vedtakstidspunkt,
+    val vedtakstidspunkt: LocalDateTime,
 
     @Schema(description = "Enheten som er ansvarlig for vedtaket")
     @NotBlank
@@ -126,15 +125,11 @@ data class OpprettStønadsendringRequestDto(
     val periodeListe: List<OpprettVedtakPeriodeRequestDto>,
 )
 
-
 @Schema
 data class OpprettVedtakPeriodeRequestDto(
 
-    @Schema(description = "Fra-og-med-dato")
-    val fom: FomDato,
-
-    @Schema(description = "Til-dato")
-    val til: TilDato?,
+    @Schema(description = "Periode med Fra-og-med-dato og til-dato med format ÅÅÅÅ-MM-DD")
+    val periode: Datoperiode,
 
     @Schema(description = "Beregnet stønadsbeløp")
     @Min(0)
@@ -221,4 +216,3 @@ data class OpprettBehandlingsreferanseRequestDto(
     @NotBlank
     val referanse: String,
 )
-

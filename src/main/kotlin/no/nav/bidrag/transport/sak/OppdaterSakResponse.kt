@@ -1,19 +1,19 @@
 package no.nav.bidrag.transport.sak
 
-import no.nav.bidrag.domain.bool.Ansatt
-import no.nav.bidrag.domain.bool.Inhabilitet
-import no.nav.bidrag.domain.bool.LevdeAdskilt
-import no.nav.bidrag.domain.bool.Paragraf19
-import no.nav.bidrag.domain.enums.Arbeidsfordeling
-import no.nav.bidrag.domain.enums.Bidragssakstatus
-import no.nav.bidrag.domain.enums.Konvensjon
-import no.nav.bidrag.domain.enums.Sakskategori
-import no.nav.bidrag.domain.string.Enhetsnummer
-import no.nav.bidrag.domain.string.FfuReferansenr
-import no.nav.bidrag.domain.string.Landkode
-import no.nav.bidrag.domain.string.Saksnummer
-import no.nav.bidrag.domain.tid.Konvensjonsdato
-import no.nav.bidrag.domain.tid.SanertDato
+import no.nav.bidrag.domene.bool.Ansatt
+import no.nav.bidrag.domene.bool.Inhabilitet
+import no.nav.bidrag.domene.bool.LevdeAdskilt
+import no.nav.bidrag.domene.bool.Paragraf19
+import no.nav.bidrag.domene.enums.Arbeidsfordeling
+import no.nav.bidrag.domene.enums.Bidragssakstatus
+import no.nav.bidrag.domene.enums.Konvensjon
+import no.nav.bidrag.domene.enums.Sakskategori
+import no.nav.bidrag.domene.string.Enhetsnummer
+import no.nav.bidrag.domene.string.FfuReferansenr
+import no.nav.bidrag.domene.string.Landkode
+import no.nav.bidrag.domene.string.Saksnummer
+import no.nav.bidrag.domene.tid.Konvensjonsdato
+import no.nav.bidrag.domene.tid.SanertDato
 
 data class OppdaterSakResponse(
     val saksnummer: Saksnummer,

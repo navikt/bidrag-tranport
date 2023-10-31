@@ -1,15 +1,15 @@
 package no.nav.bidrag.transport.sak
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.bool.BegrensetTilgang
-import no.nav.bidrag.domain.bool.LevdeAdskilt
-import no.nav.bidrag.domain.bool.Paragraf19
-import no.nav.bidrag.domain.bool.UkjentPart
-import no.nav.bidrag.domain.enums.Bidragssakstatus
-import no.nav.bidrag.domain.enums.Sakskategori
-import no.nav.bidrag.domain.string.Enhetsnummer
-import no.nav.bidrag.domain.string.Saksnummer
-import no.nav.bidrag.domain.tid.OpprettetDato
+import no.nav.bidrag.domene.bool.BegrensetTilgang
+import no.nav.bidrag.domene.bool.LevdeAdskilt
+import no.nav.bidrag.domene.bool.Paragraf19
+import no.nav.bidrag.domene.bool.UkjentPart
+import no.nav.bidrag.domene.enums.Bidragssakstatus
+import no.nav.bidrag.domene.enums.Sakskategori
+import no.nav.bidrag.domene.string.Enhetsnummer
+import no.nav.bidrag.domene.string.Saksnummer
+import no.nav.bidrag.domene.tid.OpprettetDato
 
 @Schema(description = "Metadata for en bidragssak")
 data class BidragssakDto(

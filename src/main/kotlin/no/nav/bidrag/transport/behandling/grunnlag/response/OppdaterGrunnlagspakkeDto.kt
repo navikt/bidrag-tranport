@@ -1,8 +1,8 @@
 package no.nav.bidrag.transport.behandling.grunnlag.response
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.enums.GrunnlagRequestType
-import no.nav.bidrag.domain.enums.GrunnlagsRequestStatus
+import no.nav.bidrag.domene.enums.GrunnlagRequestType
+import no.nav.bidrag.domene.enums.GrunnlagsRequestStatus
 
 @Schema(description = "Respons ved oppdatering av  grunnlagspakke")
 data class OppdaterGrunnlagspakkeDto(

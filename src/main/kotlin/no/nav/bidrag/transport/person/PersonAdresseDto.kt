@@ -2,15 +2,15 @@ package no.nav.bidrag.transport.person
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.enums.Adressetype
-import no.nav.bidrag.domain.string.Adresselinje1
-import no.nav.bidrag.domain.string.Adresselinje2
-import no.nav.bidrag.domain.string.Adresselinje3
-import no.nav.bidrag.domain.string.Bruksenhetsnummer
-import no.nav.bidrag.domain.string.Landkode2
-import no.nav.bidrag.domain.string.Landkode3
-import no.nav.bidrag.domain.string.Postnummer
-import no.nav.bidrag.domain.string.Poststed
+import no.nav.bidrag.domene.enums.Adressetype
+import no.nav.bidrag.domene.string.Adresselinje1
+import no.nav.bidrag.domene.string.Adresselinje2
+import no.nav.bidrag.domene.string.Adresselinje3
+import no.nav.bidrag.domene.string.Bruksenhetsnummer
+import no.nav.bidrag.domene.string.Landkode2
+import no.nav.bidrag.domene.string.Landkode3
+import no.nav.bidrag.domene.string.Postnummer
+import no.nav.bidrag.domene.string.Poststed
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class PersonAdresseDto(

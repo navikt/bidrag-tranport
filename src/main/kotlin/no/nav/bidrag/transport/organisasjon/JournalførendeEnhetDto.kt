@@ -1,8 +1,8 @@
 package no.nav.bidrag.transport.organisasjon
 
-import no.nav.bidrag.domain.string.Enhetsnavn
-import no.nav.bidrag.domain.string.Enhetsnummer
-import no.nav.bidrag.domain.string.Enhetstype
+import no.nav.bidrag.domene.string.Enhetsnavn
+import no.nav.bidrag.domene.string.Enhetsnummer
+import no.nav.bidrag.domene.string.Enhetstype
 
 data class JournalførendeEnhetDto(
     val nummer: Enhetsnummer? = null,

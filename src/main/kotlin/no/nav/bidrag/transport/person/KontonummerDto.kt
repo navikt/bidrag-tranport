@@ -2,13 +2,13 @@ package no.nav.bidrag.transport.person
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.string.Bankkode
-import no.nav.bidrag.domain.string.Banknavn
-import no.nav.bidrag.domain.string.Iban
-import no.nav.bidrag.domain.string.Landkode
-import no.nav.bidrag.domain.string.NorskKontonummer
-import no.nav.bidrag.domain.string.Swift
-import no.nav.bidrag.domain.tid.OpprettetTidspunkt
+import no.nav.bidrag.domene.string.Bankkode
+import no.nav.bidrag.domene.string.Banknavn
+import no.nav.bidrag.domene.string.Iban
+import no.nav.bidrag.domene.string.Landkode
+import no.nav.bidrag.domene.string.NorskKontonummer
+import no.nav.bidrag.domene.string.Swift
+import no.nav.bidrag.domene.tid.OpprettetTidspunkt
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Schema(description = "Representerer kontonummer for en person. For norske kontonummer er det kun norskKontornr som er utfyllt, ellers benyttes de andre feltene for utlandske kontonummer.")

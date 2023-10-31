@@ -1,8 +1,8 @@
 package no.nav.bidrag.transport.sak
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domain.bool.Paragraf19
-import no.nav.bidrag.domain.string.Saksnummer
+import no.nav.bidrag.domene.bool.Paragraf19
+import no.nav.bidrag.domene.string.Saksnummer
 
 @Schema(
     description = "Metadata for pip tjeneste " +
