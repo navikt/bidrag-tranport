@@ -7,7 +7,7 @@ import no.nav.bidrag.domene.enums.Rolletype
 import no.nav.bidrag.domene.ident.PersonIdent
 import no.nav.bidrag.domene.ident.ReellMottager
 import no.nav.bidrag.domene.ident.SamhandlerId
-import no.nav.bidrag.domene.string.Objektnummer
+import no.nav.bidrag.domene.streng.Objektnummer
 
 data class RolleDto(
     @JsonProperty("fodselsnummer")

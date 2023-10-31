@@ -7,8 +7,8 @@ import no.nav.bidrag.domene.bool.Paragraf19
 import no.nav.bidrag.domene.bool.UkjentPart
 import no.nav.bidrag.domene.enums.Bidragssakstatus
 import no.nav.bidrag.domene.enums.Sakskategori
-import no.nav.bidrag.domene.string.Enhetsnummer
-import no.nav.bidrag.domene.string.Saksnummer
+import no.nav.bidrag.domene.streng.Enhetsnummer
+import no.nav.bidrag.domene.streng.Saksnummer
 import no.nav.bidrag.domene.tid.OpprettetDato
 
 @Schema(description = "Metadata for en bidragssak")

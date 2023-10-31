@@ -2,7 +2,7 @@ package no.nav.bidrag.transport.person
 
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domene.ident.PersonIdent
-import no.nav.bidrag.domene.string.Språkkode
+import no.nav.bidrag.domene.streng.Språkkode
 
 @Schema(
     description = "Representerer en person med tilhørende informasjon om navn, " +

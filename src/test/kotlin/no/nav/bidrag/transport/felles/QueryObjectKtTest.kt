@@ -1,9 +1,9 @@
 package no.nav.bidrag.transport.felles
 
 import io.kotest.matchers.shouldBe
-import no.nav.bidrag.domene.string.FulltNavn
-import no.nav.bidrag.domene.string.Område
-import no.nav.bidrag.domene.string.Postnummer
+import no.nav.bidrag.domene.streng.FulltNavn
+import no.nav.bidrag.domene.streng.Område
+import no.nav.bidrag.domene.streng.Postnummer
 import no.nav.bidrag.transport.samhandler.SøkSamhandlerQuery
 import org.junit.jupiter.api.Test
 import java.time.LocalDate

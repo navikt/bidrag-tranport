@@ -2,12 +2,12 @@ package no.nav.bidrag.transport.person
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.string.Bankkode
-import no.nav.bidrag.domene.string.Banknavn
-import no.nav.bidrag.domene.string.Iban
-import no.nav.bidrag.domene.string.Landkode
-import no.nav.bidrag.domene.string.NorskKontonummer
-import no.nav.bidrag.domene.string.Swift
+import no.nav.bidrag.domene.streng.Bankkode
+import no.nav.bidrag.domene.streng.Banknavn
+import no.nav.bidrag.domene.streng.Iban
+import no.nav.bidrag.domene.streng.Landkode
+import no.nav.bidrag.domene.streng.NorskKontonummer
+import no.nav.bidrag.domene.streng.Swift
 import no.nav.bidrag.domene.tid.OpprettetTidspunkt
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

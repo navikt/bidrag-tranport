@@ -7,9 +7,9 @@ import no.nav.bidrag.domene.bool.LevdeAdskilt
 import no.nav.bidrag.domene.bool.Paragraf19
 import no.nav.bidrag.domene.enums.Konvensjon
 import no.nav.bidrag.domene.enums.Sakskategori
-import no.nav.bidrag.domene.string.Enhetsnummer
-import no.nav.bidrag.domene.string.FfuReferansenr
-import no.nav.bidrag.domene.string.Landkode
+import no.nav.bidrag.domene.streng.Enhetsnummer
+import no.nav.bidrag.domene.streng.FfuReferansenr
+import no.nav.bidrag.domene.streng.Landkode
 import no.nav.bidrag.domene.tid.Konvensjonsdato
 
 class OpprettSakRequest(

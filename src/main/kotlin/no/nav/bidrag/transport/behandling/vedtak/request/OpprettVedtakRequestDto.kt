@@ -15,10 +15,10 @@ import no.nav.bidrag.domene.enums.StønadType
 import no.nav.bidrag.domene.enums.VedtakKilde
 import no.nav.bidrag.domene.enums.VedtakType
 import no.nav.bidrag.domene.ident.PersonIdent
-import no.nav.bidrag.domene.string.Enhetsnummer
-import no.nav.bidrag.domene.string.Landkode
-import no.nav.bidrag.domene.string.Saksnummer
-import no.nav.bidrag.domene.string.Valutakode
+import no.nav.bidrag.domene.streng.Enhetsnummer
+import no.nav.bidrag.domene.streng.Landkode
+import no.nav.bidrag.domene.streng.Saksnummer
+import no.nav.bidrag.domene.streng.Valutakode
 import no.nav.bidrag.domene.tid.Datoperiode
 import java.math.BigDecimal
 import java.time.LocalDate

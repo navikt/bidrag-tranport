@@ -6,7 +6,7 @@ import no.nav.bidrag.domene.ident.NavCallId
 import no.nav.bidrag.domene.ident.PersonIdent
 import no.nav.bidrag.domene.ident.ReellMottager
 import no.nav.bidrag.domene.ident.SamhandlerId
-import no.nav.bidrag.domene.string.Saksnummer
+import no.nav.bidrag.domene.streng.Saksnummer
 
 data class Sakshendelse(
     val saksnummer: Saksnummer,

@@ -1,12 +1,12 @@
 package no.nav.bidrag.transport.samhandler
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.string.Adresselinje1
-import no.nav.bidrag.domene.string.Adresselinje2
-import no.nav.bidrag.domene.string.Adresselinje3
-import no.nav.bidrag.domene.string.Landkode3
-import no.nav.bidrag.domene.string.Postnummer
-import no.nav.bidrag.domene.string.Poststed
+import no.nav.bidrag.domene.streng.Adresselinje1
+import no.nav.bidrag.domene.streng.Adresselinje2
+import no.nav.bidrag.domene.streng.Adresselinje3
+import no.nav.bidrag.domene.streng.Landkode3
+import no.nav.bidrag.domene.streng.Postnummer
+import no.nav.bidrag.domene.streng.Poststed
 
 @Schema(description = "Representerer navn og/eller adresse for en samhandler.")
 data class AdresseDto(

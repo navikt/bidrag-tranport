@@ -1,15 +1,15 @@
 package no.nav.bidrag.transport.organisasjon
 
 import no.nav.bidrag.domene.enums.Enhetsstatus
-import no.nav.bidrag.domene.string.Adresselinje1
-import no.nav.bidrag.domene.string.Adresselinje2
-import no.nav.bidrag.domene.string.Enhetsnavn
-import no.nav.bidrag.domene.string.Enhetsnummer
-import no.nav.bidrag.domene.string.Kommunenummer
-import no.nav.bidrag.domene.string.Landnavn
-import no.nav.bidrag.domene.string.Postnummer
-import no.nav.bidrag.domene.string.Poststed
-import no.nav.bidrag.domene.string.Telefonnummer
+import no.nav.bidrag.domene.streng.Adresselinje1
+import no.nav.bidrag.domene.streng.Adresselinje2
+import no.nav.bidrag.domene.streng.Enhetsnavn
+import no.nav.bidrag.domene.streng.Enhetsnummer
+import no.nav.bidrag.domene.streng.Kommunenummer
+import no.nav.bidrag.domene.streng.Landnavn
+import no.nav.bidrag.domene.streng.Postnummer
+import no.nav.bidrag.domene.streng.Poststed
+import no.nav.bidrag.domene.streng.Telefonnummer
 
 data class EnhetDto(
     val nummer: Enhetsnummer,

@@ -3,7 +3,7 @@ package no.nav.bidrag.transport.behandling.stonad.request
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domene.enums.StønadType
 import no.nav.bidrag.domene.ident.PersonIdent
-import no.nav.bidrag.domene.string.Saksnummer
+import no.nav.bidrag.domene.streng.Saksnummer
 
 @Schema(description = "Request for å hente stønad som matcher angitte parametre")
 data class HentStønadRequest(

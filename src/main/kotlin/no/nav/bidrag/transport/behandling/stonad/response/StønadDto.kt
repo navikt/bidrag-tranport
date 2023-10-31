@@ -4,8 +4,8 @@ import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domene.enums.Innkreving
 import no.nav.bidrag.domene.enums.StønadType
 import no.nav.bidrag.domene.ident.PersonIdent
-import no.nav.bidrag.domene.string.Saksnummer
-import no.nav.bidrag.domene.string.Valutakode
+import no.nav.bidrag.domene.streng.Saksnummer
+import no.nav.bidrag.domene.streng.Valutakode
 import no.nav.bidrag.domene.tid.Datoperiode
 import java.math.BigDecimal
 import java.time.LocalDateTime

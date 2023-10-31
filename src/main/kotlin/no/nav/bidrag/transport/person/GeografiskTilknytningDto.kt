@@ -5,7 +5,7 @@ import no.nav.bidrag.domene.bool.Utland
 import no.nav.bidrag.domene.enums.Diskresjonskode
 import no.nav.bidrag.domene.ident.AktørId
 import no.nav.bidrag.domene.ident.PersonIdent
-import no.nav.bidrag.domene.string.GeografiskTilknytning
+import no.nav.bidrag.domene.streng.GeografiskTilknytning
 
 data class GeografiskTilknytningDto(
     @Schema(description = "Identen til personen")
