@@ -17,7 +17,7 @@ data class VedtakHendelse(
     val kilde: VedtakKilde,
     val type: VedtakType,
     val id: Int,
-    val vedtakTidspunkt: LocalDateTime,
+    val vedtakstidspunkt: LocalDateTime,
     val enhetsnummer: Enhetsnummer,
     val innkrevingUtsattTilDato: LocalDate?,
     val fastsattILand: String?,
