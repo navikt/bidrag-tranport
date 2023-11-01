@@ -13,11 +13,8 @@ import no.nav.bidrag.domene.enums.VedtakKilde
 import no.nav.bidrag.domene.enums.VedtakType
 import no.nav.bidrag.domene.ident.PersonIdent
 import no.nav.bidrag.domene.streng.Enhetsnummer
-import no.nav.bidrag.domene.streng.Landkode
 import no.nav.bidrag.domene.streng.Saksnummer
-import no.nav.bidrag.domene.streng.Valutakode
 import no.nav.bidrag.domene.tid.Datoperiode
-import no.nav.bidrag.domene.tid.OpprettetTidspunkt
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -47,10 +44,10 @@ data class VedtakDto(
     val innkrevingUtsattTilDato: LocalDate?,
 
     @Schema(description = "Settes hvis vedtaket er fastsatt i utlandet")
-    val fastsattILand: Landkode?,
+    val fastsattILand: String?,
 
     @Schema(description = "Tidspunkt vedtaket er fattet")
-    val opprettetTidspunkt: OpprettetTidspunkt,
+    val opprettetTidspunkt: LocalDateTime,
 
     @Schema(description = "Liste over alle grunnlag som inngår i vedtaket")
     val grunnlagListe: List<GrunnlagDto>,
@@ -111,6 +108,9 @@ data class StønadsendringDto(
     @Schema(description = "Referanse som brukes i utlandssaker")
     val eksternReferanse: String?,
 
+    @Schema(description = "Liste over grunnlag som er knyttet direkte til stønadsendringen")
+    val grunnlagReferanseListe: List<String>,
+
     @Schema(description = "Liste over alle perioder som inngår i stønadsendringen")
     val periodeListe: List<VedtakPeriodeDto>,
 )
@@ -118,7 +118,7 @@ data class StønadsendringDto(
 @Schema
 data class VedtakPeriodeDto(
 
-    @Schema(description = "Periode med Fra-og-med-dato og til-dato med format ÅÅÅÅ-MM-DD")
+    @Schema(description = "Periode med fra-og-med-dato og til-dato med format ÅÅÅÅ-MM-DD")
     val periode: Datoperiode,
 
     @Schema(description = "Beregnet stønadsbeløp")
@@ -126,7 +126,7 @@ data class VedtakPeriodeDto(
     val beløp: BigDecimal?,
 
     @Schema(description = "Valutakoden tilhørende stønadsbeløpet")
-    val valutakode: Valutakode?,
+    val valutakode: String?,
 
     @Schema(description = "Resultatkoden tilhørende stønadsbeløpet")
     val resultatkode: String,
@@ -162,7 +162,7 @@ data class EngangsbeløpDto(
 
     @Schema(description = "Valutakoden tilhørende engangsbeløpet")
     @NotBlank
-    val valutakode: Valutakode?,
+    val valutakode: String?,
 
     @Schema(description = "Resultatkoden tilhørende engangsbeløpet")
     @NotBlank

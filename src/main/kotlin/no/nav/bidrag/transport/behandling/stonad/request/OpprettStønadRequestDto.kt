@@ -5,7 +5,6 @@ import no.nav.bidrag.domene.enums.Innkreving
 import no.nav.bidrag.domene.enums.StønadType
 import no.nav.bidrag.domene.ident.PersonIdent
 import no.nav.bidrag.domene.streng.Saksnummer
-import no.nav.bidrag.domene.streng.Valutakode
 import no.nav.bidrag.domene.tid.Datoperiode
 import java.math.BigDecimal
 import java.time.LocalDateTime
@@ -38,11 +37,11 @@ data class OpprettStønadRequestDto(
     val opprettetAv: String,
 
     @Schema(description = "Liste over alle perioder som inngår i stønaden")
-    val periodeListe: List<OpprettStønadPeriodeRequestDto>,
+    val periodeListe: List<OpprettPeriodeRequestDto>,
 )
 
 @Schema(description = "Egenskaper ved en periode")
-data class OpprettStønadPeriodeRequestDto(
+data class OpprettPeriodeRequestDto(
 
     @Schema(description = "Periode med Fra-og-med-dato og til-dato med format ÅÅÅÅ-MM-DD")
     val periode: Datoperiode,
@@ -63,7 +62,7 @@ data class OpprettStønadPeriodeRequestDto(
     val beløp: BigDecimal?,
 
     @Schema(description = "Valutakoden tilhørende stønadsbeløpet")
-    val valutakode: Valutakode?,
+    val valutakode: String?,
 
     @Schema(description = "Resultatkoden tilhørende stønadsbeløpet")
     val resultatkode: String,
