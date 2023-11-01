@@ -7,9 +7,7 @@ import no.nav.bidrag.domene.enums.VedtakKilde
 import no.nav.bidrag.domene.enums.VedtakType
 import no.nav.bidrag.domene.ident.PersonIdent
 import no.nav.bidrag.domene.streng.Enhetsnummer
-import no.nav.bidrag.domene.streng.Landkode
 import no.nav.bidrag.domene.streng.Saksnummer
-import no.nav.bidrag.domene.streng.Valutakode
 import no.nav.bidrag.domene.tid.Datoperiode
 import java.math.BigDecimal
 import java.time.LocalDate
@@ -22,7 +20,7 @@ data class VedtakHendelse(
     val vedtakTidspunkt: LocalDateTime,
     val enhetsnummer: Enhetsnummer,
     val innkrevingUtsattTilDato: LocalDate?,
-    val fastsattILand: Landkode?,
+    val fastsattILand: String?,
     val opprettetAv: String,
     val opprettetAvNavn: String?,
     val opprettetTidspunkt: LocalDateTime,
@@ -57,7 +55,7 @@ data class Stønadsendring(
 data class Periode(
     val periode: Datoperiode,
     val beløp: BigDecimal?,
-    val valutakode: Valutakode?,
+    val valutakode: String?,
     val resultatkode: String,
     val delytelseId: String?,
 )
@@ -69,7 +67,7 @@ data class Engangsbeløp(
     val kravhaver: PersonIdent,
     val mottaker: PersonIdent,
     val beløp: BigDecimal?,
-    val valutakode: Valutakode?,
+    val valutakode: String?,
     val resultatkode: String,
     val innkreving: Innkreving,
     val endring: Boolean,

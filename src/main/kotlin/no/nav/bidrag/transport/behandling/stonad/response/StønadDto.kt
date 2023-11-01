@@ -5,7 +5,6 @@ import no.nav.bidrag.domene.enums.Innkreving
 import no.nav.bidrag.domene.enums.StønadType
 import no.nav.bidrag.domene.ident.PersonIdent
 import no.nav.bidrag.domene.streng.Saksnummer
-import no.nav.bidrag.domene.streng.Valutakode
 import no.nav.bidrag.domene.tid.Datoperiode
 import java.math.BigDecimal
 import java.time.LocalDateTime
@@ -56,7 +55,7 @@ data class StønadPeriodeDto(
     @Schema(description = "Periodeid")
     val periodeid: Int,
 
-    @Schema(description = "Periode med Fra-og-med-dato og til-dato med format ÅÅÅÅ-MM-DD")
+    @Schema(description = "Periode med fra-og-med-dato og til-dato med format ÅÅÅÅ-MM-DD")
     val periode: Datoperiode,
 
     @Schema(description = "Stønadsid")
@@ -78,7 +77,7 @@ data class StønadPeriodeDto(
     val beløp: BigDecimal?,
 
     @Schema(description = "Valutakoden tilhørende stønadsbeløpet")
-    val valutakode: Valutakode?,
+    val valutakode: String?,
 
     @Schema(description = "Resultatkode for stønaden")
     val resultatkode: String,
