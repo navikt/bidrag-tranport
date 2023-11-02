@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
 import no.nav.bidrag.domene.enums.BehandlingsrefKilde
+import no.nav.bidrag.domene.enums.Beslutningstype
 import no.nav.bidrag.domene.enums.Engangsbeløptype
 import no.nav.bidrag.domene.enums.GrunnlagType
 import no.nav.bidrag.domene.enums.Innkrevingstype
@@ -99,8 +100,11 @@ data class StønadsendringDto(
     @Schema(description = "Angir om stønaden skal innkreves")
     val innkreving: Innkrevingstype,
 
-    @Schema(description = "Angir om en stønad skal endres som følge av vedtaket")
-    val endring: Boolean,
+    @Schema(
+        description = "Angir om søknaden om engangsbeløp er besluttet avvist, stadfestet eller skal medføre endring" +
+            "Gyldige verdier er 'AVVIST', 'STADFESTELSE' og 'ENDRING'",
+    )
+    val beslutning: Beslutningstype,
 
     @Schema(description = "Id for vedtaket det er klaget på")
     val omgjørVedtakId: Int?,
@@ -171,8 +175,11 @@ data class EngangsbeløpDto(
     @Schema(description = "Angir om engangsbeløpet skal innkreves")
     val innkreving: Innkrevingstype,
 
-    @Schema(description = "Angir om et engangsbeløp skal endres som følge av vedtaket")
-    val endring: Boolean,
+    @Schema(
+        description = "Angir om søknaden om engangsbeløp er besluttet avvist, stadfestet eller skal medføre endring" +
+            "Gyldige verdier er 'AVVIST', 'STADFESTELSE' og 'ENDRING'",
+    )
+    val beslutning: Beslutningstype,
 
     @Schema(description = "Id for vedtaket det er klaget på. Utgjør sammen med referanse en unik id for et engangsbeløp")
     val omgjørVedtakId: Int?,
