@@ -5,7 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domene.enums.Diskresjonskode
 import no.nav.bidrag.domene.enums.Kjønn
 import no.nav.bidrag.domene.ident.AktørId
-import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.streng.Etternavn
 import no.nav.bidrag.domene.streng.Fornavn
 import no.nav.bidrag.domene.streng.FulltNavn
@@ -17,7 +17,7 @@ import no.nav.bidrag.domene.tid.Fødselsdato
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class PersonDto(
     @Schema(description = "Identen til personen")
-    val ident: PersonIdent,
+    val ident: Personident,
     @Schema(description = "Navn til personen, format <Etternavn, Fornavn Middelnavn>")
     val navn: FulltNavn? = null,
     @Schema(description = "Fornavn til personen")

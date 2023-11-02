@@ -1,21 +1,21 @@
 package no.nav.bidrag.transport.behandling.vedtak
 
-import no.nav.bidrag.domene.enums.EngangsbeløpType
-import no.nav.bidrag.domene.enums.Innkreving
-import no.nav.bidrag.domene.enums.StønadType
-import no.nav.bidrag.domene.enums.VedtakKilde
-import no.nav.bidrag.domene.enums.VedtakType
-import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.enums.Engangsbeløptype
+import no.nav.bidrag.domene.enums.Innkrevingstype
+import no.nav.bidrag.domene.enums.Stønadstype
+import no.nav.bidrag.domene.enums.Vedtakskilde
+import no.nav.bidrag.domene.enums.Vedtakstype
+import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.streng.Enhetsnummer
 import no.nav.bidrag.domene.streng.Saksnummer
-import no.nav.bidrag.domene.tid.Datoperiode
+import no.nav.bidrag.domene.tid.ÅrMånedsperiode
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
 
 data class VedtakHendelse(
-    val kilde: VedtakKilde,
-    val type: VedtakType,
+    val kilde: Vedtakskilde,
+    val type: Vedtakstype,
     val id: Int,
     val vedtakstidspunkt: LocalDateTime,
     val enhetsnummer: Enhetsnummer,
@@ -39,13 +39,13 @@ data class Sporingsdata(val correlationId: String) {
 }
 
 data class Stønadsendring(
-    val type: StønadType,
+    val type: Stønadstype,
     val sak: Saksnummer,
-    val skyldner: PersonIdent,
-    val kravhaver: PersonIdent,
-    val mottaker: PersonIdent,
+    val skyldner: Personident,
+    val kravhaver: Personident,
+    val mottaker: Personident,
     val førsteIndeksreguleringsår: Int?,
-    val innkreving: Innkreving,
+    val innkreving: Innkrevingstype,
     val endring: Boolean,
     val omgjørVedtakId: Int?,
     val eksternReferanse: String?,
@@ -53,7 +53,7 @@ data class Stønadsendring(
 )
 
 data class Periode(
-    val periode: Datoperiode,
+    val periode: ÅrMånedsperiode,
     val beløp: BigDecimal?,
     val valutakode: String?,
     val resultatkode: String,
@@ -61,15 +61,15 @@ data class Periode(
 )
 
 data class Engangsbeløp(
-    val type: EngangsbeløpType,
+    val type: Engangsbeløptype,
     val sak: Saksnummer,
-    val skyldner: PersonIdent,
-    val kravhaver: PersonIdent,
-    val mottaker: PersonIdent,
+    val skyldner: Personident,
+    val kravhaver: Personident,
+    val mottaker: Personident,
     val beløp: BigDecimal?,
     val valutakode: String?,
     val resultatkode: String,
-    val innkreving: Innkreving,
+    val innkreving: Innkrevingstype,
     val endring: Boolean,
     val omgjørVedtakId: Int?,
     val referanse: String,

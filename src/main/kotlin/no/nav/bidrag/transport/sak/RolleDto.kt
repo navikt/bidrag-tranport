@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domene.bool.MottagerErVerge
 import no.nav.bidrag.domene.enums.Rolletype
-import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.ident.ReellMottager
 import no.nav.bidrag.domene.ident.SamhandlerId
 import no.nav.bidrag.domene.streng.Objektnummer
 
 data class RolleDto(
     @JsonProperty("fodselsnummer")
-    val fødselsnummer: PersonIdent? = null,
+    val fødselsnummer: Personident? = null,
     @Schema(description = "Kode for rolletype tilsvarende kodene i T_KODE_ROLLETYPE.")
     val type: Rolletype,
     @Deprecated("Internlogisk felt, burde ikke brukes utenfor back end.")
@@ -20,7 +20,7 @@ data class RolleDto(
     val mottagerErVerge: MottagerErVerge = MottagerErVerge(false),
     val samhandlerIdent: SamhandlerId? = null,
     @Deprecated("Bruk fødselsnummer", ReplaceWith("fødselsnummer"))
-    val foedselsnummer: PersonIdent? = fødselsnummer,
+    val foedselsnummer: Personident? = fødselsnummer,
     @Deprecated("Bruk rolletype", ReplaceWith("type"))
     val rolleType: Rolletype = type,
 ) {

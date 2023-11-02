@@ -3,7 +3,7 @@ package no.nav.bidrag.transport.sak
 import no.nav.bidrag.domene.bool.Ukjent
 import no.nav.bidrag.domene.enums.Rolletype
 import no.nav.bidrag.domene.ident.NavCallId
-import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.ident.ReellMottager
 import no.nav.bidrag.domene.ident.SamhandlerId
 import no.nav.bidrag.domene.streng.Saksnummer
@@ -16,7 +16,7 @@ data class Sakshendelse(
 )
 
 data class Saksrolle(
-    val ident: PersonIdent? = null,
+    val ident: Personident? = null,
     val type: Rolletype,
     val samhandlerId: SamhandlerId? = null,
     val reelMottager: ReellMottager? = null,

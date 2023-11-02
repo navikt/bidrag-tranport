@@ -8,16 +8,16 @@ import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.Size
 import no.nav.bidrag.domene.enums.BehandlingsrefKilde
-import no.nav.bidrag.domene.enums.EngangsbeløpType
+import no.nav.bidrag.domene.enums.Beslutningstype
+import no.nav.bidrag.domene.enums.Engangsbeløptype
 import no.nav.bidrag.domene.enums.GrunnlagType
-import no.nav.bidrag.domene.enums.Innkreving
-import no.nav.bidrag.domene.enums.StønadType
-import no.nav.bidrag.domene.enums.VedtakKilde
-import no.nav.bidrag.domene.enums.VedtakType
-import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.enums.Innkrevingstype
+import no.nav.bidrag.domene.enums.Stønadstype
+import no.nav.bidrag.domene.enums.Vedtakskilde
+import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.streng.Enhetsnummer
 import no.nav.bidrag.domene.streng.Saksnummer
-import no.nav.bidrag.domene.tid.Datoperiode
+import no.nav.bidrag.domene.tid.ÅrMånedsperiode
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -26,10 +26,10 @@ import java.time.LocalDateTime
 data class OpprettVedtakRequestDto(
 
     @Schema(description = "Hva er kilden til vedtaket. Automatisk eller manuelt")
-    val kilde: VedtakKilde,
+    val kilde: Vedtakskilde,
 
     @Schema(description = "Type vedtak")
-    val type: VedtakType,
+    val type: Vedtakskilde,
 
     @Schema(description = "Id til saksbehandler/batchjobb evt. annet som oppretter vedtaket")
     @Size(min = 5)
@@ -89,28 +89,29 @@ data class OpprettStønadsendringRequestDto(
 
     @Schema(description = "Stønadstype")
     @NotBlank
-    val type: StønadType,
+    val type: Stønadstype,
 
     @Schema(description = "Referanse til sak")
     val sak: Saksnummer,
 
     @Schema(description = "Personidenten til den som skal betale bidraget")
-    val skyldner: PersonIdent,
+    val skyldner: Personident,
 
     @Schema(description = "Personidenten til den som krever bidraget")
-    val kravhaver: PersonIdent,
+    val kravhaver: Personident,
 
     @Schema(description = "Personidenten til den som mottar bidraget")
-    val mottaker: PersonIdent,
+    val mottaker: Personident,
 
     @Schema(description = "Angir første år en stønad skal indeksreguleres")
     val førsteIndeksreguleringsår: Int?,
 
     @Schema(description = "Angir om stønaden skal innkreves")
-    val innkreving: Innkreving,
+    val innkreving: Innkrevingstype,
 
-    @Schema(description = "Angir om en stønad skal endres som følge av vedtaket")
-    val endring: Boolean,
+    @Schema(description = "Angir om søknaden om stønadsendring er besluttet avvist, stadfestet eller skal medføre endring" +
+        "Gyldige verdier er 'AVVIST', 'STADFESTELSE' og 'ENDRING'")
+    val beslutning: Beslutningstype,
 
     @Schema(description = "Id for vedtaket det er klaget på")
     val omgjørVedtakId: Int?,
@@ -129,8 +130,8 @@ data class OpprettStønadsendringRequestDto(
 @Schema
 data class OpprettPeriodeRequestDto(
 
-    @Schema(description = "Periode med fra-og-med-dato og til-dato med format ÅÅÅÅ-MM-DD")
-    val periode: Datoperiode,
+    @Schema(description = "Periode med fra-og-med-dato og til-dato med format ÅÅÅÅ-MM")
+    val periode: ÅrMånedsperiode,
 
     @Schema(description = "Beregnet stønadsbeløp")
     @Min(0)
@@ -157,19 +158,19 @@ data class OpprettEngangsbeløpRequestDto(
 
     @Schema(description = "Beløpstype. Saertilskudd, gebyr m.m.")
     @NotBlank
-    val type: EngangsbeløpType,
+    val type: Engangsbeløptype,
 
     @Schema(description = "Referanse til sak")
     val sak: Saksnummer,
 
     @Schema(description = "Personidenten til den som skal betale engangsbeløpet")
-    val skyldner: PersonIdent,
+    val skyldner: Personident,
 
     @Schema(description = "Personidenten til den som krever engangsbeløpet")
-    val kravhaver: PersonIdent,
+    val kravhaver: Personident,
 
     @Schema(description = "Personidenten til den som mottar engangsbeløpet")
-    val mottaker: PersonIdent,
+    val mottaker: Personident,
 
     @Schema(description = "Beregnet engangsbeløp")
     @Min(0)
@@ -184,10 +185,11 @@ data class OpprettEngangsbeløpRequestDto(
     val resultatkode: String,
 
     @Schema(description = "Angir om engangsbeløpet skal innkreves")
-    val innkreving: Innkreving,
+    val innkreving: Innkrevingstype,
 
-    @Schema(description = "Angir om et engangsbeløp skal endres som følge av vedtaket")
-    val endring: Boolean,
+    @Schema(description = "Angir om søknaden om engangsbeløp er besluttet avvist, stadfestet eller skal medføre endring" +
+        "Gyldige verdier er 'AVVIST', 'STADFESTELSE' og 'ENDRING'")
+    val beslutning: Beslutningstype,
 
     @Schema(description = "Id for vedtaket det er klaget på. Utgjør sammen med referanse en unik id for et engangsbeløp")
     val omgjørVedtakId: Int?,
