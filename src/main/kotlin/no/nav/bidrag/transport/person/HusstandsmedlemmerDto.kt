@@ -2,7 +2,7 @@ package no.nav.bidrag.transport.person
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.streng.Adressenavn
 import no.nav.bidrag.domene.streng.Bruksenhetsnummer
 import no.nav.bidrag.domene.streng.Bydelsnummer
@@ -40,7 +40,7 @@ data class Husstand(
 data class Husstandsmedlem(
     val gyldigFraOgMed: FomDato?,
     val gyldigTilOgMed: TomDato?,
-    val personId: PersonIdent,
+    val personId: Personident,
     val navn: FulltNavn,
     val fødselsdato: Fødselsdato? = null,
     val dødsdato: Dødsdato? = null,

@@ -1,7 +1,7 @@
 package no.nav.bidrag.transport.person
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.streng.Språkkode
 
 @Schema(
@@ -16,5 +16,5 @@ data class PersondetaljerDto(
     val språk: Språkkode?,
 
     @Schema(description = "Liste over tidligere identer personen har hatt.")
-    val tidligereIdenter: List<PersonIdent>?,
+    val tidligereIdenter: List<Personident>?,
 )

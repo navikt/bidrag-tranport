@@ -5,13 +5,13 @@ import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
 import no.nav.bidrag.domene.enums.BehandlingsrefKilde
-import no.nav.bidrag.domene.enums.EngangsbeløpType
+import no.nav.bidrag.domene.enums.Engangsbeløptype
 import no.nav.bidrag.domene.enums.GrunnlagType
-import no.nav.bidrag.domene.enums.Innkreving
-import no.nav.bidrag.domene.enums.StønadType
-import no.nav.bidrag.domene.enums.VedtakKilde
-import no.nav.bidrag.domene.enums.VedtakType
-import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.enums.Innkrevingstype
+import no.nav.bidrag.domene.enums.Stønadstype
+import no.nav.bidrag.domene.enums.Vedtakskilde
+import no.nav.bidrag.domene.enums.Vedtakstype
+import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.streng.Enhetsnummer
 import no.nav.bidrag.domene.streng.Saksnummer
 import no.nav.bidrag.domene.tid.Datoperiode
@@ -23,10 +23,10 @@ import java.time.LocalDateTime
 data class VedtakDto(
 
     @Schema(description = "Hva er kilden til vedtaket. Automatisk eller manuelt")
-    val kilde: VedtakKilde,
+    val kilde: Vedtakskilde,
 
     @Schema(description = "Type vedtak")
-    val type: VedtakType,
+    val type: Vedtakstype,
 
     @Schema(description = "Id til saksbehandler/batchjobb evt annet som opprettet vedtaket")
     val opprettetAv: String,
@@ -79,25 +79,25 @@ data class GrunnlagDto(
 data class StønadsendringDto(
 
     @Schema(description = "Stønadstype")
-    val type: StønadType,
+    val type: Stønadstype,
 
     @Schema(description = "Referanse til sak")
     val sak: Saksnummer,
 
     @Schema(description = "Personidenten til den som skal betale bidraget")
-    val skyldner: PersonIdent,
+    val skyldner: Personident,
 
     @Schema(description = "Personidenten til den som krever bidraget")
-    val kravhaver: PersonIdent,
+    val kravhaver: Personident,
 
     @Schema(description = "Personidenten til den som mottar bidraget")
-    val mottaker: PersonIdent,
+    val mottaker: Personident,
 
     @Schema(description = "Angir første år en stønad skal indeksreguleres")
     val førsteIndeksreguleringsår: Int?,
 
     @Schema(description = "Angir om stønaden skal innkreves")
-    val innkreving: Innkreving,
+    val innkreving: Innkrevingstype,
 
     @Schema(description = "Angir om en stønad skal endres som følge av vedtaket")
     val endring: Boolean,
@@ -142,19 +142,19 @@ data class VedtakPeriodeDto(
 data class EngangsbeløpDto(
 
     @Schema(description = "Type Engangsbeløp. Saertilskudd, gebyr m.m.")
-    val type: EngangsbeløpType,
+    val type: Engangsbeløptype,
 
     @Schema(description = "Referanse til sak")
     val sak: Saksnummer,
 
     @Schema(description = "Personidenten til den som skal betale engangsbeløpet")
-    val skyldner: PersonIdent,
+    val skyldner: Personident,
 
     @Schema(description = "Personidenten til den som krever engangsbeløpet")
-    val kravhaver: PersonIdent,
+    val kravhaver: Personident,
 
     @Schema(description = "Personidenten til den som mottar engangsbeløpet")
-    val mottaker: PersonIdent,
+    val mottaker: Personident,
 
     @Schema(description = "Beregnet engangsbeløp")
     @Min(0)
@@ -169,7 +169,7 @@ data class EngangsbeløpDto(
     val resultatkode: String,
 
     @Schema(description = "Angir om engangsbeløpet skal innkreves")
-    val innkreving: Innkreving,
+    val innkreving: Innkrevingstype,
 
     @Schema(description = "Angir om et engangsbeløp skal endres som følge av vedtaket")
     val endring: Boolean,

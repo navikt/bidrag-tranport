@@ -1,9 +1,9 @@
 package no.nav.bidrag.transport.behandling.stonad.response
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.enums.Innkreving
-import no.nav.bidrag.domene.enums.StønadType
-import no.nav.bidrag.domene.ident.PersonIdent
+import no.nav.bidrag.domene.enums.Innkrevingstype
+import no.nav.bidrag.domene.enums.Stønadstype
+import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.streng.Saksnummer
 import no.nav.bidrag.domene.tid.Datoperiode
 import java.math.BigDecimal
@@ -14,25 +14,25 @@ data class StønadDto(
     val stønadsid: Int,
 
     @Schema(description = "Stønadstype")
-    val type: StønadType,
+    val type: Stønadstype,
 
     @Schema(description = "Referanse til sak")
     val sak: Saksnummer,
 
     @Schema(description = "Personidenten til den som skal betale bidraget")
-    val skyldner: PersonIdent,
+    val skyldner: Personident,
 
     @Schema(description = "Personidenten til den som krever bidraget")
-    val kravhaver: PersonIdent,
+    val kravhaver: Personident,
 
     @Schema(description = "Personidenten til den som mottar bidraget")
-    val mottaker: PersonIdent,
+    val mottaker: Personident,
 
     @Schema(description = "Angir første år en stønad skal indeksreguleres")
     val førsteIndeksreguleringsår: Int?,
 
     @Schema(description = "Angir om stønaden skal innkreves")
-    val innkreving: Innkreving,
+    val innkreving: Innkrevingstype,
 
     @Schema(description = "opprettet_av")
     val opprettetAv: String,
