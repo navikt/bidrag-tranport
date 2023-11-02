@@ -14,6 +14,7 @@ import no.nav.bidrag.domene.enums.GrunnlagType
 import no.nav.bidrag.domene.enums.Innkrevingstype
 import no.nav.bidrag.domene.enums.Stønadstype
 import no.nav.bidrag.domene.enums.Vedtakskilde
+import no.nav.bidrag.domene.enums.Vedtakstype
 import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.streng.Enhetsnummer
 import no.nav.bidrag.domene.streng.Saksnummer
@@ -29,7 +30,7 @@ data class OpprettVedtakRequestDto(
     val kilde: Vedtakskilde,
 
     @Schema(description = "Type vedtak")
-    val type: Vedtakskilde,
+    val type: Vedtakstype,
 
     @Schema(description = "Id til saksbehandler/batchjobb evt. annet som oppretter vedtaket")
     @Size(min = 5)
