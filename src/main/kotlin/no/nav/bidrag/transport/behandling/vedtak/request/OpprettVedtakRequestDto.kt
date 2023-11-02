@@ -109,8 +109,10 @@ data class OpprettStønadsendringRequestDto(
     @Schema(description = "Angir om stønaden skal innkreves")
     val innkreving: Innkrevingstype,
 
-    @Schema(description = "Angir om søknaden om stønadsendring er besluttet avvist, stadfestet eller skal medføre endring" +
-        "Gyldige verdier er 'AVVIST', 'STADFESTELSE' og 'ENDRING'")
+    @Schema(
+        description = "Angir om søknaden om stønadsendring er besluttet avvist, stadfestet eller skal medføre endring" +
+            "Gyldige verdier er 'AVVIST', 'STADFESTELSE' og 'ENDRING'",
+    )
     val beslutning: Beslutningstype,
 
     @Schema(description = "Id for vedtaket det er klaget på")
@@ -187,8 +189,10 @@ data class OpprettEngangsbeløpRequestDto(
     @Schema(description = "Angir om engangsbeløpet skal innkreves")
     val innkreving: Innkrevingstype,
 
-    @Schema(description = "Angir om søknaden om engangsbeløp er besluttet avvist, stadfestet eller skal medføre endring" +
-        "Gyldige verdier er 'AVVIST', 'STADFESTELSE' og 'ENDRING'")
+    @Schema(
+        description = "Angir om søknaden om engangsbeløp er besluttet avvist, stadfestet eller skal medføre endring" +
+            "Gyldige verdier er 'AVVIST', 'STADFESTELSE' og 'ENDRING'",
+    )
     val beslutning: Beslutningstype,
 
     @Schema(description = "Id for vedtaket det er klaget på. Utgjør sammen med referanse en unik id for et engangsbeløp")
