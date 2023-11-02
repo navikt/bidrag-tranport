@@ -8,7 +8,7 @@ import no.nav.bidrag.domene.enums.Vedtakstype
 import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.streng.Enhetsnummer
 import no.nav.bidrag.domene.streng.Saksnummer
-import no.nav.bidrag.domene.tid.Datoperiode
+import no.nav.bidrag.domene.tid.ÅrMånedsperiode
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -53,7 +53,7 @@ data class Stønadsendring(
 )
 
 data class Periode(
-    val periode: Datoperiode,
+    val periode: ÅrMånedsperiode,
     val beløp: BigDecimal?,
     val valutakode: String?,
     val resultatkode: String,

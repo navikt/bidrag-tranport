@@ -5,7 +5,7 @@ import no.nav.bidrag.domene.enums.Innkrevingstype
 import no.nav.bidrag.domene.enums.Stønadstype
 import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.streng.Saksnummer
-import no.nav.bidrag.domene.tid.Datoperiode
+import no.nav.bidrag.domene.tid.ÅrMånedsperiode
 import java.math.BigDecimal
 import java.time.LocalDateTime
 
@@ -43,8 +43,8 @@ data class OpprettStønadRequestDto(
 @Schema(description = "Egenskaper ved en periode")
 data class OpprettStønadsperiodeRequestDto(
 
-    @Schema(description = "Periode med Fra-og-med-dato og til-dato med format ÅÅÅÅ-MM-DD")
-    val periode: Datoperiode,
+    @Schema(description = "Periode med Fra-og-med-dato og til-dato med format ÅÅÅÅ-MM")
+    val periode: ÅrMånedsperiode,
 
     @Schema(description = "Vedtaksid")
     val vedtaksid: Int,
