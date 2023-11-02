@@ -1,5 +1,6 @@
 package no.nav.bidrag.transport.behandling.vedtak
 
+import no.nav.bidrag.domene.enums.Beslutningstype
 import no.nav.bidrag.domene.enums.Engangsbeløptype
 import no.nav.bidrag.domene.enums.Innkrevingstype
 import no.nav.bidrag.domene.enums.Stønadstype
@@ -46,7 +47,7 @@ data class Stønadsendring(
     val mottaker: Personident,
     val førsteIndeksreguleringsår: Int?,
     val innkreving: Innkrevingstype,
-    val endring: Boolean,
+    val beslutning: Beslutningstype,
     val omgjørVedtakId: Int?,
     val eksternReferanse: String?,
     val periodeListe: List<Periode>,
@@ -70,7 +71,7 @@ data class Engangsbeløp(
     val valutakode: String?,
     val resultatkode: String,
     val innkreving: Innkrevingstype,
-    val endring: Boolean,
+    val beslutning: Beslutningstype,
     val omgjørVedtakId: Int?,
     val referanse: String,
     val delytelseId: String?,
