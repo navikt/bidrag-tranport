@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank
 import no.nav.bidrag.domene.enums.BehandlingsrefKilde
 import no.nav.bidrag.domene.enums.Beslutningstype
 import no.nav.bidrag.domene.enums.Engangsbeløptype
-import no.nav.bidrag.domene.enums.GrunnlagType
+import no.nav.bidrag.domene.enums.Grunnlagstype
 import no.nav.bidrag.domene.enums.Innkrevingstype
 import no.nav.bidrag.domene.enums.Stønadstype
 import no.nav.bidrag.domene.enums.Vedtakskilde
@@ -70,7 +70,7 @@ data class GrunnlagDto(
     val referanse: String,
 
     @Schema(description = "Grunnlagstype")
-    val type: GrunnlagType,
+    val type: Grunnlagstype,
 
     @Schema(description = "Innholdet i grunnlaget")
     val innhold: JsonNode,

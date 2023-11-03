@@ -1,4 +1,4 @@
-package no.nav.bidrag.transport.beregning.saertilskudd
+package no.nav.bidrag.transport.behandling.beregning.saertilskudd
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
@@ -9,8 +9,8 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domene.enums.Rolle
 import no.nav.bidrag.domene.enums.resultatkoder.ResultatKodeSaertilskudd
-import no.nav.bidrag.transport.beregning.felles.Grunnlag
-import no.nav.bidrag.transport.beregning.felles.Periode
+import no.nav.bidrag.domene.tid.ÅrMånedsperiode
+import no.nav.bidrag.transport.behandling.beregning.felles.Grunnlag
 import java.math.BigDecimal
 import java.time.LocalDate
 
@@ -140,7 +140,7 @@ data class BeregnetTotalSaertilskuddResultat(
 @Schema(description = "Resultatet av en beregning for en gitt periode")
 data class ResultatPeriode(
     @Schema(description = "Søknadsbarn") var barn: Int = 0,
-    @Schema(description = "Beregnet resultat periode") var periode: Periode,
+    @Schema(description = "Beregnet resultat periode") var periode: ÅrMånedsperiode,
     @Schema(description = "Beregnet resultat innhold") var resultat: ResultatBeregning,
     @Schema(description = "Beregnet grunnlag innhold") var grunnlagReferanseListe: List<String>,
 )
