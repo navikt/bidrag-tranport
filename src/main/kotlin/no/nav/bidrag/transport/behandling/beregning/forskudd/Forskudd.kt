@@ -1,9 +1,9 @@
-package no.nav.bidrag.transport.beregning.forskudd
+package no.nav.bidrag.transport.behandling.beregning.forskudd
 
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domene.enums.resultatkoder.ResultatKodeForskudd
-import no.nav.bidrag.transport.beregning.felles.Grunnlag
-import no.nav.bidrag.transport.beregning.felles.Periode
+import no.nav.bidrag.domene.tid.ÅrMånedsperiode
+import no.nav.bidrag.transport.behandling.beregning.felles.Grunnlag
 import java.math.BigDecimal
 
 // Resultat
@@ -15,7 +15,7 @@ data class BeregnetForskuddResultat(
 
 @Schema(description = "Resultatet av en beregning for en gitt periode")
 data class ResultatPeriode(
-    @Schema(description = "Beregnet resultat periode") var periode: Periode,
+    @Schema(description = "Beregnet resultat periode") var periode: ÅrMånedsperiode,
     @Schema(description = "Beregnet resultat innhold") var resultat: ResultatBeregning,
     @Schema(description = "Beregnet grunnlag innhold") var grunnlagReferanseListe: List<String>,
 )
