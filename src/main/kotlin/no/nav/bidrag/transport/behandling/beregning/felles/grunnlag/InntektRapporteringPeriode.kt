@@ -9,8 +9,8 @@ import java.math.BigDecimal
 data class InntektRapporteringPeriode(
     @Schema(description = "Periode") val periode: ÅrMånedsperiode,
     @Schema(description = "Type inntektrapportering") val inntektRapportering: InntektRapportering,
-    @Schema(description = "Referanse til barnet inntekten gjelder for") val gjelderBarn: String,
+    @Schema(description = "Referanse til barnet inntekten gjelder for") val gjelderBarn: String? = null,
     @Schema(description = "Inntekt beløp") val beløp: BigDecimal,
-    @Schema(description = "Er registrert manuelt?") val manueltRegistrert: Boolean? = null,
+    @Schema(description = "Er registrert manuelt?") val manueltRegistrert: Boolean,
     @Schema(description = "Skal være del av beregning?") val valgt: Boolean,
 )
