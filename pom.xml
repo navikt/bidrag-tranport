@@ -18,7 +18,7 @@
     <bidrag-domene.version>20231108114058_5370a68</bidrag-domene.version>
     <kotlin.version>1.9.20</kotlin.version>
     <kotlin.code.style>official</kotlin.code.style>
-    <jackson.version>2.14.2</jackson.version>
+    <jackson.version>2.15.3</jackson.version>
     <spring.version>6.0.13</spring.version>
     <jakarta.version>3.0.2</jakarta.version>
     <swagger.version>2.2.18</swagger.version>
