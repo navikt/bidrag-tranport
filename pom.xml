@@ -15,7 +15,7 @@
     <sha1/>
     <changelist>-SNAPSHOT</changelist>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <bidrag-domene.version>20231106082224_3c21521</bidrag-domene.version>
+    <bidrag-domene.version>20231108114058_5370a68</bidrag-domene.version>
     <kotlin.version>1.9.20</kotlin.version>
     <kotlin.code.style>official</kotlin.code.style>
     <jackson.version>2.14.2</jackson.version>
