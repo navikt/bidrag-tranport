@@ -1,5 +1,6 @@
 package no.nav.bidrag.transport.behandling.vedtak.response
 
+import io.swagger.v3.oas.annotations.media.Schema
 import com.fasterxml.jackson.databind.JsonNode
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.Min
