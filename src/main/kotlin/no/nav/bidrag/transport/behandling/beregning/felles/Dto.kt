@@ -9,7 +9,7 @@ import no.nav.bidrag.domene.tid.ÅrMånedsperiode
 @Schema(description = "Grunnlaget for en beregning av barnebidrag, forskudd og særtilskudd")
 data class BeregnGrunnlag(
     @Schema(description = "Beregningsperiode") val periode: ÅrMånedsperiode? = null,
-    @Schema(description = "Ident til søknadsbarnet") val søknadsbarnReferanse: String? = null,
+    @Schema(description = "Referanse til Person-objekt som tilhører søknadsbarnet") val søknadsbarnReferanse: String? = null,
     @Schema(description = "Periodisert liste over grunnlagselementer") val grunnlagListe: List<Grunnlag>? = null,
 )
 
@@ -17,7 +17,7 @@ fun BeregnGrunnlag.valider() {
     requireNotNull(periode) { "beregningsperiode kan ikke være null" }
     requireNotNull(periode.fom) { "beregningsperiode fom kan ikke være null" }
     requireNotNull(periode.til) { "beregningsperiode til kan ikke være null" }
-    requireNotNull(søknadsbarnReferanse) { "søknadsbarnIdent kan ikke være null" }
+    requireNotNull(søknadsbarnReferanse) { "søknadsbarnReferanse kan ikke være null" }
     grunnlagListe?.map { it.valider() } ?: throw IllegalArgumentException("grunnlagListe kan ikke være null")
 }
 
