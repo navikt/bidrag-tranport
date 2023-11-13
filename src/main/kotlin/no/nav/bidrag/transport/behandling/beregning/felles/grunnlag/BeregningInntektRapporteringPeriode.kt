@@ -5,8 +5,8 @@ import no.nav.bidrag.domene.enums.InntektRapportering
 import no.nav.bidrag.domene.tid.ÅrMånedsperiode
 import java.math.BigDecimal
 
-@Schema(description = "Inntekt for person")
-data class InntektRapporteringPeriode(
+@Schema(description = "Rapportert inntekt for person")
+data class BeregningInntektRapporteringPeriode(
     @Schema(description = "Periode") val periode: ÅrMånedsperiode,
     @Schema(description = "Type inntektrapportering") val inntektRapportering: InntektRapportering,
     @Schema(description = "Referanse til barnet inntekten gjelder for") val gjelderBarn: String? = null,
