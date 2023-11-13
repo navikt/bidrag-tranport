@@ -21,7 +21,7 @@
     <jackson.version>2.15.3</jackson.version>
     <spring.version>6.0.13</spring.version>
     <jakarta.version>3.0.2</jakarta.version>
-    <swagger.version>2.2.18</swagger.version>
+    <swagger.version>2.2.19</swagger.version>
     <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
     <kotest.version>5.8.0</kotest.version>
     <java.version>1.8</java.version>
