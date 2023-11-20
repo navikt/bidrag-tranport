@@ -1,11 +1,11 @@
 package no.nav.bidrag.transport.organisasjon
 
-import no.nav.bidrag.domene.enums.Behandlingstype
-import no.nav.bidrag.domene.enums.Sakskategori
+import no.nav.bidrag.domene.enums.sak.Sakskategori
+import no.nav.bidrag.domene.enums.vedtak.Behandlingstype
 import no.nav.bidrag.domene.ident.Personident
-import no.nav.bidrag.domene.streng.Behandlingstema
-import no.nav.bidrag.domene.streng.TEMA_BIDRAG
-import no.nav.bidrag.domene.streng.Tema
+import no.nav.bidrag.domene.organisasjon.Behandlingstema
+import no.nav.bidrag.domene.organisasjon.TEMA_BIDRAG
+import no.nav.bidrag.domene.organisasjon.Tema
 
 data class HentEnhetRequest(
     val ident: Personident,

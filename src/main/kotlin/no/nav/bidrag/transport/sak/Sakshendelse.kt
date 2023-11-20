@@ -1,18 +1,17 @@
 package no.nav.bidrag.transport.sak
 
-import no.nav.bidrag.domene.bool.Ukjent
-import no.nav.bidrag.domene.enums.Rolletype
-import no.nav.bidrag.domene.ident.NavCallId
+import no.nav.bidrag.domene.enums.rolle.Rolletype
 import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.ident.ReellMottager
 import no.nav.bidrag.domene.ident.SamhandlerId
-import no.nav.bidrag.domene.streng.Saksnummer
+import no.nav.bidrag.domene.sak.Saksnummer
+import no.nav.bidrag.domene.sak.bool.Ukjent
 
 data class Sakshendelse(
     val saksnummer: Saksnummer,
     val hendelsestype: Sakshendelsestype,
     val roller: List<Saksrolle> = emptyList(),
-    val sporingId: NavCallId,
+    val sporingId: String,
 )
 
 data class Saksrolle(

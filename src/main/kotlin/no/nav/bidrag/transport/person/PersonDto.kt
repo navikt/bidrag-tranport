@@ -2,15 +2,12 @@ package no.nav.bidrag.transport.person
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.enums.Diskresjonskode
-import no.nav.bidrag.domene.enums.Kjønn
+import no.nav.bidrag.domene.enums.person.Diskresjonskode
+import no.nav.bidrag.domene.enums.person.Kjønn
 import no.nav.bidrag.domene.ident.AktørId
 import no.nav.bidrag.domene.ident.Personident
-import no.nav.bidrag.domene.streng.Etternavn
-import no.nav.bidrag.domene.streng.Fornavn
-import no.nav.bidrag.domene.streng.FulltNavn
-import no.nav.bidrag.domene.streng.Kortnavn
-import no.nav.bidrag.domene.streng.Mellomnavn
+import no.nav.bidrag.domene.person.FulltNavn
+import no.nav.bidrag.domene.person.Kortnavn
 import no.nav.bidrag.domene.tid.Dødsdato
 import no.nav.bidrag.domene.tid.Fødselsdato
 
@@ -21,11 +18,11 @@ data class PersonDto(
     @Schema(description = "Navn til personen, format <Etternavn, Fornavn Middelnavn>")
     val navn: FulltNavn? = null,
     @Schema(description = "Fornavn til personen")
-    val fornavn: Fornavn? = null,
+    val fornavn: String? = null,
     @Schema(description = "Mellomnavn til personen")
-    val mellomnavn: Mellomnavn? = null,
+    val mellomnavn: String? = null,
     @Schema(description = "Etternavn til personen")
-    val etternavn: Etternavn? = null,
+    val etternavn: String? = null,
     @Schema(description = "Kjønn til personen")
     val kjønn: Kjønn? = null,
     @Schema(description = "Kjønn til personen", deprecated = true)

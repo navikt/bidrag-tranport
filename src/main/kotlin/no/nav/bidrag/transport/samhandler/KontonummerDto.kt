@@ -1,13 +1,12 @@
 package no.nav.bidrag.transport.samhandler
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.streng.Bankkode
-import no.nav.bidrag.domene.streng.Banknavn
-import no.nav.bidrag.domene.streng.Iban
-import no.nav.bidrag.domene.streng.Landkode3
-import no.nav.bidrag.domene.streng.NorskKontonummer
-import no.nav.bidrag.domene.streng.Swift
-import no.nav.bidrag.domene.streng.Valutakode
+import no.nav.bidrag.domene.bank.Bankkode
+import no.nav.bidrag.domene.bank.Banknavn
+import no.nav.bidrag.domene.bank.Iban
+import no.nav.bidrag.domene.bank.NorskKontonummer
+import no.nav.bidrag.domene.bank.Swift
+import no.nav.bidrag.domene.land.Landkode3
 
 @Schema(
     description = "Representerer kontonummer for en samhandler. For norske kontonummer " +
@@ -27,5 +26,5 @@ data class KontonummerDto(
     @Schema(description = "BankCode. Format varierer.")
     val bankCode: Bankkode? = null,
     @Schema(description = "Kontoens valuta.")
-    val valutakode: Valutakode? = null,
+    val valutakode: String? = null,
 )

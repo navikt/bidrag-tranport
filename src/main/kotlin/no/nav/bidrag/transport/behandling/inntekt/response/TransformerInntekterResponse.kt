@@ -1,9 +1,8 @@
 package no.nav.bidrag.transport.behandling.inntekt.response
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.enums.InntektRapportering
-import no.nav.bidrag.domene.tid.FomMåned
-import no.nav.bidrag.domene.tid.TomMåned
+import no.nav.bidrag.domene.enums.inntekt.Inntektsrapportering
+import no.nav.bidrag.domene.tid.ÅrMånedsperiode
 import java.math.BigDecimal
 import java.time.YearMonth
 
@@ -20,7 +19,7 @@ data class TransformerInntekterResponse(
 
 data class SummertMånedsinntekt(
     @Schema(description = "Periode (YYYYMM)", example = "2023-01", type = "String", pattern = "YYYYMM")
-    val periode: YearMonth,
+    val gjelderÅrMåned: YearMonth,
 
     @Schema(description = "Summert inntekt for måneden", example = "50000")
     val sumInntekt: BigDecimal,
@@ -31,7 +30,7 @@ data class SummertMånedsinntekt(
 
 data class SummertÅrsinntekt(
     @Schema(description = "Type inntektrapportering", example = "AINNTEKT")
-    val inntektRapportering: InntektRapportering,
+    val inntektRapportering: Inntektsrapportering,
 
     @Schema(description = "Visningsnavn for inntekt", example = "Lønn og trekk 2022")
     val visningsnavn: String,
@@ -42,11 +41,8 @@ data class SummertÅrsinntekt(
     @Schema(description = "Summert inntekt for perioden, omgjort til årsinntekt", example = "600000")
     val sumInntekt: BigDecimal,
 
-    @Schema(description = "Første måned (YYYYMM) i perioden inntekten gjelder for", example = "2023-01", type = "String", pattern = "YYYYMM")
-    val periodeFra: FomMåned,
-
-    @Schema(description = "Siste månded (YYYYMM) i perioden inntekten gjelder for", example = "2023-12", type = "string", pattern = "YYYYMM")
-    val periodeTom: TomMåned?,
+    @Schema(description = "Perioden inntekten gjelder for (fom og til, format YYYYMM)")
+    val periode: ÅrMånedsperiode,
 
     @Schema(description = "Id til barnet kontantstøtten mottas for, brukes kun for kontantstøtte", example = "12345678910")
     val gjelderBarnPersonId: String = "",
