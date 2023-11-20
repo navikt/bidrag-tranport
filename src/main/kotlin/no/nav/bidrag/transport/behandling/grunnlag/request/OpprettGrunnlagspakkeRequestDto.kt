@@ -2,7 +2,7 @@ package no.nav.bidrag.transport.behandling.grunnlag.request
 
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.NotBlank
-import no.nav.bidrag.domene.enums.Formaal
+import no.nav.bidrag.domene.enums.vedtak.Formaal
 
 @Schema(description = "Request for å opprette ny grunnlagspakke, uten annet innhold")
 data class OpprettGrunnlagspakkeRequestDto(

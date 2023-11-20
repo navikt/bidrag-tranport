@@ -1,11 +1,9 @@
 package no.nav.bidrag.organisasjon.dto
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.ident.SaksbehandlerId
-import no.nav.bidrag.domene.streng.Navn
 
 data class SaksbehandlerDto(
-    val ident: SaksbehandlerId,
+    val ident: String,
     @Schema(description = "Saksbehandlers navn (med eventuelt fornavn bak komma)")
-    val navn: Navn? = null,
+    val navn: String? = null,
 )

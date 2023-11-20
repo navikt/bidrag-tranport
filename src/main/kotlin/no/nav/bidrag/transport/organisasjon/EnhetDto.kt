@@ -1,15 +1,13 @@
 package no.nav.bidrag.transport.organisasjon
 
-import no.nav.bidrag.domene.enums.Enhetsstatus
-import no.nav.bidrag.domene.streng.Adresselinje1
-import no.nav.bidrag.domene.streng.Adresselinje2
-import no.nav.bidrag.domene.streng.Enhetsnavn
-import no.nav.bidrag.domene.streng.Enhetsnummer
-import no.nav.bidrag.domene.streng.Kommunenummer
-import no.nav.bidrag.domene.streng.Landnavn
-import no.nav.bidrag.domene.streng.Postnummer
-import no.nav.bidrag.domene.streng.Poststed
-import no.nav.bidrag.domene.streng.Telefonnummer
+import no.nav.bidrag.domene.adresse.Adresselinje1
+import no.nav.bidrag.domene.adresse.Adresselinje2
+import no.nav.bidrag.domene.adresse.Postnummer
+import no.nav.bidrag.domene.adresse.Poststed
+import no.nav.bidrag.domene.enums.diverse.Enhetsstatus
+import no.nav.bidrag.domene.offentlig.Kommunenummer
+import no.nav.bidrag.domene.organisasjon.Enhetsnavn
+import no.nav.bidrag.domene.organisasjon.Enhetsnummer
 
 data class EnhetDto(
     val nummer: Enhetsnummer,
@@ -28,7 +26,7 @@ data class EnhetKontaktinfoDto(
     val enhetIdent: Enhetsnummer = nummer,
     @Deprecated("bruk navn", ReplaceWith("navn"))
     val enhetNavn: Enhetsnavn? = navn,
-    val telefonnummer: Telefonnummer? = null,
+    val telefonnummer: String? = null,
     val postadresse: EnhetspostadresseDto? = null,
 
 ) {
@@ -37,12 +35,12 @@ data class EnhetKontaktinfoDto(
         fun medStandardadresse(enhetsnummer: Enhetsnummer) = EnhetKontaktinfoDto(
             nummer = enhetsnummer,
             navn = Enhetsnavn("NAV Familie- og pensjonsytelser"),
-            telefonnummer = Telefonnummer("55553333"),
+            telefonnummer = "55553333",
             postadresse = EnhetspostadresseDto(
                 postnummer = Postnummer("0603"),
                 adresselinje1 = Adresselinje1("Postboks 6215 Etterstad"),
                 poststed = Poststed("Oslo"),
-                land = Landnavn("Norway"),
+                land = "Norway",
                 kommunenr = Kommunenummer("0301"),
             ),
         )
@@ -54,6 +52,6 @@ data class EnhetspostadresseDto(
     val adresselinje1: Adresselinje1? = null,
     val adresselinje2: Adresselinje2? = null,
     val poststed: Poststed? = null,
-    val land: Landnavn? = null,
+    val land: String? = null,
     val kommunenr: Kommunenummer? = null,
 )

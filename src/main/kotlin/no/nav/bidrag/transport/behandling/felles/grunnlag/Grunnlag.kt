@@ -1,10 +1,9 @@
 package no.nav.bidrag.transport.behandling.felles.grunnlag
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.enums.Bostatuskode
-import no.nav.bidrag.domene.enums.SivilstandskodeBeregning
+import no.nav.bidrag.domene.enums.person.Bostatuskode
+import no.nav.bidrag.domene.enums.person.SivilstandskodeBeregning
 import no.nav.bidrag.domene.ident.Personident
-import no.nav.bidrag.domene.tid.Fødselsdato
 import no.nav.bidrag.domene.tid.ÅrMånedsperiode
 import java.time.LocalDate
 
@@ -12,7 +11,7 @@ import java.time.LocalDate
 data class Person(
     @Schema(description = "Ident") val ident: Personident = Personident(""),
     @Schema(description = "Navn") val navn: String = "",
-    @Schema(description = "Fødselsdato") val fødselsdato: Fødselsdato = Fødselsdato(LocalDate.parse("2000-01-01")),
+    @Schema(description = "Fødselsdato") val fødselsdato: LocalDate = LocalDate.parse("2000-01-01"),
 )
 
 @Schema(description = "Bostatus for person")

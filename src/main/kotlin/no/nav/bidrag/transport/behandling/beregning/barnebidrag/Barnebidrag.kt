@@ -1,7 +1,7 @@
 package no.nav.bidrag.transport.behandling.beregning.barnebidrag
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.enums.resultatkoder.ResultatKodeBarnebidrag
+import no.nav.bidrag.domene.enums.beregning.ResultatkodeBarnebidrag
 import no.nav.bidrag.domene.tid.ÅrMånedsperiode
 import no.nav.bidrag.transport.behandling.beregning.felles.Grunnlag
 import java.math.BigDecimal
@@ -24,5 +24,5 @@ data class ResultatPeriode(
 @Schema(description = "Resultatet av en beregning")
 data class ResultatBeregning(
     @Schema(description = "Resultat beløp") var belop: BigDecimal,
-    @Schema(description = "Resultat kode") var kode: ResultatKodeBarnebidrag,
+    @Schema(description = "Resultat kode") var kode: ResultatkodeBarnebidrag,
 )

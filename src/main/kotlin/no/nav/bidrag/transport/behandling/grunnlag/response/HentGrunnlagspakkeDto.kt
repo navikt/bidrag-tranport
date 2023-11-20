@@ -1,9 +1,9 @@
 package no.nav.bidrag.transport.behandling.grunnlag.response
 
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.enums.Sivilstandskode
 import no.nav.bidrag.domene.enums.barnetilsyn.Skolealder
 import no.nav.bidrag.domene.enums.barnetilsyn.Tilsyntype
+import no.nav.bidrag.domene.enums.person.Sivilstandskode
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime

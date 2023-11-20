@@ -2,7 +2,7 @@ package no.nav.bidrag.transport.person
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.enums.Familierelasjon
+import no.nav.bidrag.domene.enums.person.Familierelasjon
 import no.nav.bidrag.domene.ident.Personident
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

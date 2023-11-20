@@ -2,16 +2,11 @@ package no.nav.bidrag.transport.person
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.swagger.v3.oas.annotations.media.Schema
+import no.nav.bidrag.domene.adresse.Bruksenhetsnummer
+import no.nav.bidrag.domene.adresse.Postnummer
 import no.nav.bidrag.domene.ident.Personident
-import no.nav.bidrag.domene.streng.Adressenavn
-import no.nav.bidrag.domene.streng.Bruksenhetsnummer
-import no.nav.bidrag.domene.streng.Bydelsnummer
-import no.nav.bidrag.domene.streng.FulltNavn
-import no.nav.bidrag.domene.streng.Husbokstav
-import no.nav.bidrag.domene.streng.Husnummer
-import no.nav.bidrag.domene.streng.Kommunenummer
-import no.nav.bidrag.domene.streng.Postnummer
-import no.nav.bidrag.domene.tall.MatrikkelId
+import no.nav.bidrag.domene.offentlig.Kommunenummer
+import no.nav.bidrag.domene.person.FulltNavn
 import no.nav.bidrag.domene.tid.Dødsdato
 import no.nav.bidrag.domene.tid.FomDato
 import no.nav.bidrag.domene.tid.Fødselsdato
@@ -26,14 +21,14 @@ data class HusstandsmedlemmerDto(
 data class Husstand(
     val gyldigFraOgMed: FomDato?,
     val gyldigTilOgMed: TomDato?,
-    val adressenavn: Adressenavn? = null,
-    val husnummer: Husnummer? = null,
-    val husbokstav: Husbokstav? = null,
+    val adressenavn: String? = null,
+    val husnummer: String? = null,
+    val husbokstav: String? = null,
     val bruksenhetsnummer: Bruksenhetsnummer? = null,
     val postnummer: Postnummer? = null,
-    val bydelsnummer: Bydelsnummer? = null,
+    val bydelsnummer: String? = null,
     val kommunenummer: Kommunenummer? = null,
-    val matrikkelId: MatrikkelId? = null,
+    val matrikkelId: Long? = null,
     val husstandsmedlemListe: List<Husstandsmedlem>,
 )
 
