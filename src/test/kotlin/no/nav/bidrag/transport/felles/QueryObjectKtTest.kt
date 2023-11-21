@@ -1,8 +1,6 @@
 package no.nav.bidrag.transport.felles
 
 import io.kotest.matchers.shouldBe
-import no.nav.bidrag.domene.adresse.Postnummer
-import no.nav.bidrag.domene.person.FulltNavn
 import no.nav.bidrag.transport.samhandler.SøkSamhandlerQuery
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
@@ -72,9 +70,9 @@ internal class QueryObjectKtTest {
     @Test
     fun `toQueryParams bruker JsonProperty`() {
         val søkSamhandlerQuery = SøkSamhandlerQuery(
-            FulltNavn("navn"),
-            Postnummer("postnummer"),
-            "område",
+            navn = "navn",
+            postnummer = "postnummer",
+            område = "område",
         )
 
         val multiValueMap = søkSamhandlerQuery.toQueryParams()

@@ -5,8 +5,6 @@ import no.nav.bidrag.domene.enums.sak.Konvensjon
 import no.nav.bidrag.domene.enums.sak.Sakskategori
 import no.nav.bidrag.domene.land.Landkode
 import no.nav.bidrag.domene.organisasjon.Enhetsnummer
-import no.nav.bidrag.domene.sak.bool.LevdeAdskilt
-import no.nav.bidrag.domene.sak.bool.Paragraf19
 import java.time.LocalDate
 
 class OpprettSakRequest(
@@ -15,8 +13,8 @@ class OpprettSakRequest(
     val kategori: Sakskategori = Sakskategori.N,
     val ansatt: Boolean = false,
     val inhabilitet: Boolean = false,
-    val levdeAdskilt: LevdeAdskilt = LevdeAdskilt(false),
-    val paragraf19: Paragraf19 = Paragraf19(false),
+    val levdeAdskilt: Boolean = false,
+    val paragraf19: Boolean = false,
     @Schema(description = "Kovensjonskode tilsvarende kodene i T_KODE_KONVENSJON.")
     val konvensjon: Konvensjon? = null,
     val konvensjonsdato: LocalDate? = null,

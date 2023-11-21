@@ -7,8 +7,6 @@ import no.nav.bidrag.domene.enums.sak.Sakskategori
 import no.nav.bidrag.domene.land.Landkode
 import no.nav.bidrag.domene.organisasjon.Enhetsnummer
 import no.nav.bidrag.domene.sak.Saksnummer
-import no.nav.bidrag.domene.sak.bool.LevdeAdskilt
-import no.nav.bidrag.domene.sak.bool.Paragraf19
 import java.time.LocalDate
 
 data class OppdaterSakResponse(
@@ -18,8 +16,8 @@ data class OppdaterSakResponse(
     val status: Bidragssakstatus,
     val ansatt: Boolean,
     val inhabilitet: Boolean,
-    val levdeAdskilt: LevdeAdskilt,
-    val paragraf19: Paragraf19,
+    val levdeAdskilt: Boolean,
+    val paragraf19: Boolean,
     val sanertDato: LocalDate?,
     val arbeidsfordeling: Arbeidsfordeling,
     val landkode: Landkode?,
