@@ -24,6 +24,7 @@ data class VedtakHendelse(
     val fastsattILand: String?,
     val opprettetAv: String,
     val opprettetAvNavn: String?,
+    val opprettetAvApplikasjon: String,
     val opprettetTidspunkt: LocalDateTime,
     val stønadsendringListe: List<Stønadsendring>?,
     val engangsbeløpListe: List<Engangsbeløp>?,

@@ -5,7 +5,6 @@ import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.ident.ReellMottager
 import no.nav.bidrag.domene.ident.SamhandlerId
 import no.nav.bidrag.domene.sak.Saksnummer
-import no.nav.bidrag.domene.sak.bool.Ukjent
 
 data class Sakshendelse(
     val saksnummer: Saksnummer,
@@ -19,7 +18,7 @@ data class Saksrolle(
     val type: Rolletype,
     val samhandlerId: SamhandlerId? = null,
     val reelMottager: ReellMottager? = null,
-    val ukjent: Ukjent = Ukjent(false),
+    val ukjent: Boolean = false,
 )
 enum class Sakshendelsestype {
     ENDRING,

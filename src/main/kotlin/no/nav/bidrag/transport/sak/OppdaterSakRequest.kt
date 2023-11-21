@@ -6,8 +6,6 @@ import no.nav.bidrag.domene.enums.sak.Konvensjon
 import no.nav.bidrag.domene.enums.sak.Sakskategori
 import no.nav.bidrag.domene.land.Landkode
 import no.nav.bidrag.domene.sak.Saksnummer
-import no.nav.bidrag.domene.sak.bool.LevdeAdskilt
-import no.nav.bidrag.domene.sak.bool.Paragraf19
 import java.time.LocalDate
 
 data class OppdaterSakRequest(
@@ -15,8 +13,8 @@ data class OppdaterSakRequest(
     val status: Bidragssakstatus? = null,
     val ansatt: Boolean? = null,
     val inhabilitet: Boolean? = null,
-    val levdeAdskilt: LevdeAdskilt? = null,
-    val paragraf19: Paragraf19? = null,
+    val levdeAdskilt: Boolean? = null,
+    val paragraf19: Boolean? = null,
     val sanertDato: LocalDate? = null,
     val arbeidsfordeling: Arbeidsfordeling? = null,
     val kategorikode: Sakskategori? = null,
