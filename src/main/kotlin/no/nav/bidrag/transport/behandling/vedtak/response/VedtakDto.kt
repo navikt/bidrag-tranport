@@ -29,11 +29,11 @@ data class VedtakDto(
     @Schema(description = "Type vedtak")
     val type: Vedtakstype,
 
-    @Schema(description = "Id til saksbehandler/batchjobb evt annet som opprettet vedtaket")
+    @Schema(description = "Id til saksbehandler eller batchjobb som opprettet vedtaket. For saksbehandler er ident hentet fra token")
     val opprettetAv: String,
 
     @Schema(description = "Saksbehandlers navn eller navn på applikasjon ved batchkjøring")
-    val opprettetAvNavn: String?,
+    val opprettetAvNavn: String,
 
     @Schema(description = "Tidspunkt/timestamp når vedtaket er fattet")
     val vedtakstidspunkt: LocalDateTime,

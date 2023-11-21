@@ -6,7 +6,6 @@ import jakarta.validation.Valid
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotEmpty
-import jakarta.validation.constraints.Size
 import no.nav.bidrag.domene.enums.grunnlag.Grunnlagstype
 import no.nav.bidrag.domene.enums.vedtak.BehandlingsrefKilde
 import no.nav.bidrag.domene.enums.vedtak.Beslutningstype
@@ -32,12 +31,8 @@ data class OpprettVedtakRequestDto(
     @Schema(description = "Type vedtak")
     val type: Vedtakstype,
 
-    @Schema(description = "Id til saksbehandler/batchjobb evt. annet som oppretter vedtaket")
-    @Size(min = 5)
-    val opprettetAv: String,
-
-    @Schema(description = "Saksbehandlers navn eller navn på applikasjon ved batchkjøring")
-    val opprettetAvNavn: String?,
+    @Schema(description = "Skal bare brukes ved batchkjøring. Id til batchjobb som oppretter vedtaket")
+    val opprettetAv: String?,
 
     @Schema(description = "Tidspunkt/timestamp når vedtaket er fattet")
     val vedtakstidspunkt: LocalDateTime,
