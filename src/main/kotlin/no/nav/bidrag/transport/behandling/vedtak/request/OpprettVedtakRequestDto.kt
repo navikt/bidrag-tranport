@@ -37,9 +37,9 @@ data class OpprettVedtakRequestDto(
     @Schema(description = "Tidspunkt/timestamp når vedtaket er fattet")
     val vedtakstidspunkt: LocalDateTime,
 
-    @Schema(description = "Enheten som er ansvarlig for vedtaket")
+    @Schema(description = "Enheten som er ansvarlig for vedtaket. Kan være null for feks batch")
     @NotBlank
-    val enhetsnummer: Enhetsnummer,
+    val enhetsnummer: Enhetsnummer?,
 
     @Schema(description = "Settes hvis overføring til Elin skal utsettes")
     val innkrevingUtsattTilDato: LocalDate?,

@@ -30,19 +30,19 @@ data class VedtakDto(
     val type: Vedtakstype,
 
     @Schema(description = "Id til saksbehandler eller batchjobb som opprettet vedtaket. For saksbehandler er ident hentet fra token")
-    val opprettetAv: String,
+    val opprettetAv: String?,
 
     @Schema(description = "Saksbehandlers navn")
-    val opprettetAvNavn: String,
+    val opprettetAvNavn: String?,
 
-    @Schema(description = "Navn på applikasjon")
-    val opprettetAvApplikasjon: String,
+    @Schema(description = "Navn på applikasjon som vedtaket er opprettet i")
+    val kildeapplikasjon: String?,
 
     @Schema(description = "Tidspunkt/timestamp når vedtaket er fattet")
     val vedtakstidspunkt: LocalDateTime,
 
-    @Schema(description = "Enheten som er ansvarlig for vedtaket")
-    val enhetsnummer: Enhetsnummer,
+    @Schema(description = "Enheten som er ansvarlig for vedtaket. Kan være null for feks batch")
+    val enhetsnummer: Enhetsnummer?,
 
     @Schema(description = "Settes hvis overføring til Elin skal utsettes")
     val innkrevingUtsattTilDato: LocalDate?,
