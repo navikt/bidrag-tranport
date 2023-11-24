@@ -3,6 +3,7 @@ registries:
   maven-github:
     type: maven-repository
     url: https://maven.pkg.github.com/navikt/bidrag-domene
+    username: x-access-token
     password: ${{secrets.GITHUB_TOKEN}}
 updates:
   - package-ecosystem: "maven"
