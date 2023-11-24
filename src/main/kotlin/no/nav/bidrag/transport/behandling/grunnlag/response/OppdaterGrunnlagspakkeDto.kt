@@ -1,8 +1,8 @@
 package no.nav.bidrag.transport.behandling.grunnlag.response
 
 import io.swagger.v3.oas.annotations.media.Schema
+import no.nav.bidrag.domene.enums.grunnlag.GrunnlagRequestStatus
 import no.nav.bidrag.domene.enums.grunnlag.GrunnlagRequestType
-import no.nav.bidrag.domene.enums.grunnlag.GrunnlagsRequestStatus
 
 @Schema(description = "Respons ved oppdatering av  grunnlagspakke")
 data class OppdaterGrunnlagspakkeDto(
@@ -23,7 +23,7 @@ data class OppdaterGrunnlagDto(
     val personId: String,
 
     @Schema(description = "Status for utført kall")
-    val status: GrunnlagsRequestStatus,
+    val status: GrunnlagRequestStatus,
 
     @Schema(description = "Statusmelding for utført kall")
     val statusMelding: String,
