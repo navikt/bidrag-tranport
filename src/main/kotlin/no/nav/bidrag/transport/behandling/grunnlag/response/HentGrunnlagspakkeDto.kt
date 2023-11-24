@@ -2,7 +2,7 @@ package no.nav.bidrag.transport.behandling.grunnlag.response
 
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domene.enums.barnetilsyn.Skolealder
-import no.nav.bidrag.domene.enums.barnetilsyn.Tilsyntype
+import no.nav.bidrag.domene.enums.barnetilsyn.Tilsynstype
 import no.nav.bidrag.domene.enums.person.Sivilstandskode
 import java.math.BigDecimal
 import java.time.LocalDate
@@ -27,12 +27,6 @@ data class HentGrunnlagspakkeDto(
 
     @Schema(description = "Periodisert liste over innhentet kontantstøtte")
     val kontantstotteListe: List<KontantstotteDto>,
-
-    @Deprecated(message = "Utgått og erstattet av husstandmedlemmerOgEgneBarnListe")
-    val egneBarnIHusstandenListe: List<RelatertPersonDto> = emptyList(),
-
-    @Deprecated(message = "Utgått og erstattet av husstandmedlemmerOgEgneBarnListe")
-    val husstandmedlemListe: List<RelatertPersonDto> = emptyList(),
 
     @Schema(
         description = "Liste over alle personer som har bodd sammen med BM/BP i perioden fra virkningstidspunkt og fremover med en liste " +
@@ -346,7 +340,7 @@ data class BarnetilsynDto(
     val belop: Int?,
 
     @Schema(description = "Angir om barnetilsynet er heltid eller deltid")
-    val tilsynstype: Tilsyntype?,
+    val tilsynstype: Tilsynstype?,
 
     @Schema(description = "Angir om barnet er over eller under skolealder")
     val skolealder: Skolealder?,
