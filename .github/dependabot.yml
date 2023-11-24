@@ -8,7 +8,7 @@ updates:
   - package-ecosystem: "maven"
     directory: "/"
     registries:
-      - maven-github
+      - "maven-github"
     schedule:
       interval: "weekly"
     commit-message:
