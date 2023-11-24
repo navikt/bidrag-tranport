@@ -1,5 +1,16 @@
 version: 2
+registries:
+  maven-github:
+    type: maven-repository
+    url: https://maven.pkg.github.com/navikt/bidrag-domene
+    password: ${{secrets.GITHUB_TOKEN}}
 updates:
+  - package-ecosystem: "maven"
+    directory: "/"
+    registries:
+      - maven-github
+    schedule:
+      interval: "daily"
   - package-ecosystem: "maven"
     directory: "/"
     schedule:
