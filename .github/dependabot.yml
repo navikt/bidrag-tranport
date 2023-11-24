@@ -10,10 +10,6 @@ updates:
     registries:
       - maven-github
     schedule:
-      interval: "daily"
-  - package-ecosystem: "maven"
-    directory: "/"
-    schedule:
       interval: "weekly"
     commit-message:
       prefix: "[dependency] "
