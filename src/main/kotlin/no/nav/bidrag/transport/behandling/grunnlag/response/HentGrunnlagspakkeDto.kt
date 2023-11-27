@@ -3,7 +3,7 @@ package no.nav.bidrag.transport.behandling.grunnlag.response
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domene.enums.barnetilsyn.Skolealder
 import no.nav.bidrag.domene.enums.barnetilsyn.Tilsynstype
-import no.nav.bidrag.domene.enums.person.Sivilstandskode
+import no.nav.bidrag.domene.enums.person.SivilstandskodePDL
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -298,7 +298,7 @@ data class SivilstandDto(
     val periodeTil: LocalDate?,
 
     @Schema(description = "Personens sivilstand")
-    val sivilstand: Sivilstandskode,
+    val sivilstand: SivilstandskodePDL,
 
     @Schema(description = "Angir om en grunnlagsopplysning er aktiv")
     val aktiv: Boolean,
