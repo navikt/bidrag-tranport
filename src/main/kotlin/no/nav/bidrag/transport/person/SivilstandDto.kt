@@ -2,7 +2,7 @@ package no.nav.bidrag.transport.person
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.swagger.v3.oas.annotations.media.Schema
-import no.nav.bidrag.domene.enums.person.Sivilstandstype
+import no.nav.bidrag.domene.enums.person.SivilstandskodePDL
 import java.time.LocalDate
 import java.time.LocalDateTime
 
@@ -13,7 +13,7 @@ data class SivilstandshistorikkDto(
 )
 
 data class SivilstandDto(
-    val type: Sivilstandstype?,
+    val type: SivilstandskodePDL?,
     val gyldigFraOgMed: LocalDate?,
     val bekreftelsesdato: LocalDate?,
     val master: String?,
