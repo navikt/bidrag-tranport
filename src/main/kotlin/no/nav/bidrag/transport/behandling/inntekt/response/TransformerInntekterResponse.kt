@@ -18,7 +18,7 @@ data class TransformerInntekterResponse(
 )
 
 data class SummertMånedsinntekt(
-    @Schema(description = "Perioden inntekten gjelder for (format YYYYMM)", example = "2023-01", type = "String", pattern = "YYYYMM")
+    @Schema(description = "Perioden inntekten gjelder for (format YYYY-MM)", example = "2023-01", type = "String", pattern = "YYYY-MM")
     val gjelderÅrMåned: YearMonth,
 
     @Schema(description = "Summert inntekt for måneden", example = "50000")
@@ -41,7 +41,7 @@ data class SummertÅrsinntekt(
     @Schema(description = "Summert inntekt for perioden, omgjort til årsinntekt", example = "600000")
     val sumInntekt: BigDecimal,
 
-    @Schema(description = "Perioden inntekten gjelder for (format YYYYMM)", example = "2023-01", type = "String", pattern = "YYYYMM")
+    @Schema(description = "Perioden inntekten gjelder for (fom-til)")
     val periode: ÅrMånedsperiode,
 
     @Schema(description = "Id til barnet kontantstøtten mottas for, brukes kun for kontantstøtte", example = "12345678910")
