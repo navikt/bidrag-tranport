@@ -1,8 +1,10 @@
 package no.nav.bidrag.transport.person
 
 import com.fasterxml.jackson.annotation.JsonInclude
+import io.swagger.annotations.ApiModel
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domene.enums.person.SivilstandskodePDL
+import no.nav.bidrag.transport.behandling.grunnlag.response.SivilstandDto
 import java.time.LocalDate
 import java.time.LocalDateTime
 
@@ -12,6 +14,7 @@ data class SivilstandshistorikkDto(
     val sivilstandDto: List<SivilstandDto>,
 )
 
+@ApiModel("SivilstandDtoPerson")
 data class SivilstandDto(
     val type: SivilstandskodePDL?,
     val gyldigFraOgMed: LocalDate?,
