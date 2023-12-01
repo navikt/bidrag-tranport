@@ -10,7 +10,6 @@ data class OpprettGrunnlagspakkeRequestDto(
     @Schema(description = "Til hvilket formål skal grunnlagspakken benyttes. BIDRAG, FORSKUDD eller SAERTILSKUDD")
     val formaal: Formål,
 
-    @Schema(description = "opprettet av")
-    @field:NotBlank(message = "Kan ikke være null eller blank.")
-    val opprettetAv: String,
+    @Schema(description = "Skal bare brukes ved batchkjøring. Id til batchjobb som oppretter grunnlagspakken")
+    val opprettetAv: String? = null,
 )
