@@ -2,7 +2,7 @@ package no.nav.bidrag.transport.behandling.felles.grunnlag
 
 import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.domene.enums.person.Bostatuskode
-import no.nav.bidrag.domene.enums.person.SivilstandskodePDL
+import no.nav.bidrag.domene.enums.person.Sivilstandskode
 import no.nav.bidrag.domene.ident.Personident
 import no.nav.bidrag.domene.tid.ÅrMånedsperiode
 import java.time.LocalDate
@@ -24,5 +24,5 @@ data class BostatusPeriode(
 @Schema(description = "Sivilstand for person")
 data class SivilstandPeriode(
     @Schema(description = "Periode") val periode: ÅrMånedsperiode,
-    @Schema(description = "Sivilstand") val sivilstand: SivilstandskodePDL,
+    @Schema(description = "Sivilstand") val sivilstand: Sivilstandskode,
 )
