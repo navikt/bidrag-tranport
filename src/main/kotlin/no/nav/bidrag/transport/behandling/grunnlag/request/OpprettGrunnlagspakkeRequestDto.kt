@@ -9,6 +9,13 @@ data class OpprettGrunnlagspakkeRequestDto(
     @Schema(description = "Til hvilket formål skal grunnlagspakken benyttes. BIDRAG, FORSKUDD eller SAERTILSKUDD")
     val formaal: Formål,
 
-    @Schema(description = "Skal bare brukes ved batchkjøring. Id til batchjobb som oppretter grunnlagspakken")
+    @Schema(
+        description = """
+Id på hvem som oppretter grunnlagspakken. Kan være NAV-ident til saksbehandler eller Id på batchjobb.
+        
+`opprettetAv` må settes hvis grunnlagspakken opprettes i system kontekst (feks maskin-maskin kommunikasjon). Ellers hentes NAV-ident til sakbehandler fra tokenet
+    """,
+        example = "BATCH_1234/Z99999",
+    )
     val opprettetAv: String? = null,
 )
