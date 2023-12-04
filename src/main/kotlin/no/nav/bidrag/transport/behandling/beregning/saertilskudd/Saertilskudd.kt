@@ -142,7 +142,7 @@ data class ResultatPeriode(
     @Schema(description = "Søknadsbarn") var barn: Int = 0,
     @Schema(description = "Beregnet resultat periode") var periode: ÅrMånedsperiode,
     @Schema(description = "Beregnet resultat innhold") var resultat: ResultatBeregning,
-    @Schema(description = "Beregnet grunnlag innhold") var grunnlagReferanseListe: List<String>,
+    @Schema(description = "Beregnet grunnlag innhold") var grunnlagsreferanseListe: List<String>,
 )
 
 @Schema(description = "Resultatet av en beregning")
@@ -156,7 +156,7 @@ class BidragsevneResultatPeriode(
     datoFom: LocalDate,
     datoTil: LocalDate,
     val belop: BigDecimal,
-    val grunnlagReferanseListe: List<String>,
+    val grunnlagsreferanseListe: List<String>,
 ) :
     BasePeriode(datoFom, datoTil)
 
@@ -166,7 +166,7 @@ class BPsAndelSaertilskuddResultatPeriode(
     val belop: BigDecimal,
     val prosent: BigDecimal,
     val selvforsorget: Boolean,
-    val grunnlagReferanseListe: List<String>,
+    val grunnlagsreferanseListe: List<String>,
 ) : BasePeriode(datoFom, datoTil)
 
 class SamvaersfradragResultatPeriode(
@@ -174,7 +174,7 @@ class SamvaersfradragResultatPeriode(
     datoTil: LocalDate,
     val belop: BigDecimal,
     val barn: Int,
-    val grunnlagReferanseListe: List<String>,
+    val grunnlagsreferanseListe: List<String>,
 ) : BasePeriode(datoFom, datoTil)
 
 class SjablonResultatPeriode(
