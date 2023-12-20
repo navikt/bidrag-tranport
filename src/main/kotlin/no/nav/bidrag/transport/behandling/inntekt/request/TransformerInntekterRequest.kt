@@ -4,8 +4,12 @@ import io.swagger.v3.oas.annotations.media.Schema
 import no.nav.bidrag.transport.behandling.grunnlag.response.SkattegrunnlagspostDto
 import java.math.BigDecimal
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 data class TransformerInntekterRequest(
+    @Schema(description = "Tidspunktet ainntektene er hentet i bidrag-grunnlag")
+    val ainntektHentetTidspunkt: LocalDateTime,
+
     @Schema(description = "Periodisert liste over inntekter fra Ainntekt")
     val ainntektsposter: List<Ainntektspost> = emptyList(),
 
