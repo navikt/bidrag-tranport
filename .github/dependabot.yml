@@ -2,7 +2,7 @@ version: 2
 registries:
   maven-github:
     type: maven-repository
-    url: https://maven.pkg.github.com/navikt/bidrag-domene
+    url: https://maven.pkg.github.com/navikt/bidrag-transport
     username: x-access-token
     password: ${{secrets.GITHUB_TOKEN}}
 updates:
@@ -12,17 +12,26 @@ updates:
       - "maven-github"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Oslo"
     commit-message:
       prefix: "[dependency] "
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Oslo"
     commit-message:
       prefix: "[docker] "
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Oslo"
     commit-message:
       prefix: "[github-actions] "
