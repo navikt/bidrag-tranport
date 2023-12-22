@@ -14,7 +14,7 @@ data class SivilstandPdlHistorikkDto(
 
 data class SivilstandPdlDto(
     val type: SivilstandskodePDL?,
-    val gyldigFraOgMed: LocalDate?,
+    val gyldigFom: LocalDate?,
     val bekreftelsesdato: LocalDate?,
     val master: String?,
     val registrert: LocalDateTime?,
