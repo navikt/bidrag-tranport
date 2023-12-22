@@ -7,12 +7,12 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-data class SivilstandshistorikkDto(
+data class SivilstandPdlHistorikkDto(
     @Schema(description = "Liste over alle hentede forekomster av sivilstand fra bidrag-person")
-    val sivilstandDto: List<SivilstandPersonDto>,
+    val sivilstandPdlDto: List<SivilstandPdlDto>,
 )
 
-data class SivilstandPersonDto(
+data class SivilstandPdlDto(
     val type: SivilstandskodePDL?,
     val gyldigFraOgMed: LocalDate?,
     val bekreftelsesdato: LocalDate?,
