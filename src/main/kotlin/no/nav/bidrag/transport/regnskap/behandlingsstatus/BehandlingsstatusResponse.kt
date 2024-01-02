@@ -8,7 +8,7 @@ data class BehandlingsstatusResponse(
     val konteringFeil: List<Feilmelding>,
     val batchStatus: Batchstatus,
     val batchUid: String,
-    val totaltAntall: Int,
-    val mislyketAntall: Int,
-    val fullfoertAntall: Int,
+    val totaltAntallKrav: Int,
+    val mislyketAntallKrav: Int,
+    val fullfoertAntallKrav: Int,
 )
