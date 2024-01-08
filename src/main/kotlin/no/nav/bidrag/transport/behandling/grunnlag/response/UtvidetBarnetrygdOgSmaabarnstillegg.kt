@@ -37,3 +37,24 @@ data class UtvidetBarnetrygdOgSmaabarnstilleggDto(
     @Schema(description = "Hentet tidspunkt")
     val hentetTidspunkt: LocalDateTime,
 )
+
+data class UtvidetBarnetrygdOgSmaabarnstilleggGrunnlagDto(
+
+    @Schema(description = "Id til personen ubst er rapportert for")
+    val personId: String,
+
+    @Schema(description = "Type stønad, utvidet barnetrygd eller småbarnstillegg")
+    val type: String,
+
+    @Schema(description = "Periode fra- og med måned")
+    val periodeFra: LocalDate,
+
+    @Schema(description = "Periode til- og med måned")
+    val periodeTil: LocalDate?,
+
+    @Schema(description = "Beløp")
+    val beløp: BigDecimal,
+
+    @Schema(description = "Angir om stønaden er manuelt beregnet")
+    val manueltBeregnet: Boolean,
+)

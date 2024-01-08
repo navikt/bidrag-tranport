@@ -2,10 +2,9 @@ package no.nav.bidrag.transport.behandling.grunnlag.response
 
 import io.swagger.v3.oas.annotations.media.Schema
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.YearMonth
 
-data class ArbeidsforholdDto(
+data class ArbeidsforholdGrunnlagDto(
     @Schema(description = "Id til personen arbeidsforholdet gjelder")
     val partPersonId: String,
 
@@ -29,9 +28,6 @@ data class ArbeidsforholdDto(
 
     @Schema(description = "Liste over registrerte permitteringer")
     val permitteringer: List<Permittering>?,
-
-    @Schema(description = "Hentet tidspunkt")
-    val hentetTidspunkt: LocalDateTime,
 )
 
 data class Ansettelsesdetaljer(

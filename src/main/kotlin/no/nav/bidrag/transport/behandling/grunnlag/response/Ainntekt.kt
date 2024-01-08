@@ -32,6 +32,21 @@ data class AinntektDto(
     val ainntektspostListe: List<AinntektspostDto>,
 )
 
+data class AinntektGrunnlagDto(
+
+    @Schema(description = "Id til personen inntekten er rapportert for")
+    val personId: String,
+
+    @Schema(description = "Periode fra-dato")
+    val periodeFra: LocalDate,
+
+    @Schema(description = "Periode til-dato")
+    val periodeTil: LocalDate,
+
+    @Schema(description = "Liste over poster for innhentede inntektsposter")
+    val ainntektspostListe: List<AinntektspostDto>,
+)
+
 data class AinntektspostDto(
 
     @Schema(description = "Perioden innteksposten er utbetalt YYYYMM")

@@ -41,3 +41,27 @@ data class BarnetilsynDto(
     @Schema(description = "Hentet tidspunkt")
     val hentetTidspunkt: LocalDateTime,
 )
+
+data class BarnetilsynGrunnlagDto(
+
+    @Schema(description = "Id til personen som mottar barnetilsynet")
+    val partPersonId: String,
+
+    @Schema(description = "Id til barnet barnetilsynet er for")
+    val barnPersonId: String,
+
+    @Schema(description = "Periode fra-dato")
+    val periodeFra: LocalDate,
+
+    @Schema(description = "Periode til-dato")
+    val periodeTil: LocalDate?,
+
+    @Schema(description = "Beløpet barnetilsynet er på")
+    val beløp: Int?,
+
+    @Schema(description = "Angir om barnetilsynet er heltid eller deltid")
+    val tilsynstype: Tilsynstype?,
+
+    @Schema(description = "Angir om barnet er over eller under skolealder")
+    val skolealder: Skolealder?,
+)
