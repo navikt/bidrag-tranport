@@ -32,6 +32,21 @@ data class SkattegrunnlagDto(
     val skattegrunnlagListe: List<SkattegrunnlagspostDto>,
 )
 
+data class SkattegrunnlagGrunnlagDto(
+
+    @Schema(description = "Id til personen inntekten er rapportert for")
+    val personId: String,
+
+    @Schema(description = "Periode fra")
+    val periodeFra: LocalDate,
+
+    @Schema(description = "Periode frem til")
+    val periodeTil: LocalDate,
+
+    @Schema(description = "Liste over poster med skattegrunnlag")
+    val skattegrunnlagListe: List<SkattegrunnlagspostDto>,
+)
+
 data class SkattegrunnlagspostDto(
 
     @Schema(description = "Type skattegrunnlag: Ordinær eller Svalbard")

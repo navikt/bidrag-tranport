@@ -40,3 +40,27 @@ data class BarnetilleggDto(
     @Schema(description = "Hentet tidspunkt")
     val hentetTidspunkt: LocalDateTime,
 )
+
+data class BarnetilleggGrunnlagDto(
+
+    @Schema(description = "Id til personen barnetillegg er rapportert for")
+    val partPersonId: String,
+
+    @Schema(description = "Id til barnet barnetillegget er rapportert for")
+    val barnPersonId: String,
+
+    @Schema(description = "Type barnetillegg")
+    val barnetilleggType: String,
+
+    @Schema(description = "Periode fra- og med måned")
+    val periodeFra: LocalDate,
+
+    @Schema(description = "Periode til- og med måned")
+    val periodeTil: LocalDate?,
+
+    @Schema(description = "Bruttobeløp")
+    val beløpBrutto: BigDecimal,
+
+    @Schema(description = "Angir om barnet er felles- eller særkullsbarn")
+    val barnType: String,
+)

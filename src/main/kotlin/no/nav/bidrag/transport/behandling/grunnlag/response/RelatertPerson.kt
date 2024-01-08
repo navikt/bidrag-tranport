@@ -36,6 +36,26 @@ data class RelatertPersonDto(
     val borISammeHusstandDtoListe: List<BorISammeHusstandDto>,
 )
 
+data class RelatertPersonGrunnlagDto(
+    @Schema(description = "Personid til BM/BP")
+    val partPersonId: String?,
+
+    @Schema(description = "Personid til relatert person. Dette er husstandsmedlem eller barn av BM/BP")
+    val relatertPersonPersonId: String?,
+
+    @Schema(description = "Navn på den relaterte personen, format <Fornavn, mellomnavn, Etternavn")
+    val navn: String?,
+
+    @Schema(description = "Den relaterte personens fødselsdato")
+    val fødselsdato: LocalDate?,
+
+    @Schema(description = "Angir om den relaterte personen er barn av BM/BP")
+    val erBarnAvBmBp: Boolean,
+
+    @Schema(description = "Liste over perioder personen bor i samme husstand som BM/BP")
+    val borISammeHusstandDtoListe: List<BorISammeHusstandDto>,
+)
+
 data class BorISammeHusstandDto(
     @Schema(description = "Personen bor i samme husstand som BM/BP fra- og med måned")
     val periodeFra: LocalDate?,

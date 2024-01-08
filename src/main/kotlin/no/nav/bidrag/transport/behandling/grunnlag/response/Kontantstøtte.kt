@@ -33,3 +33,21 @@ data class KontantstotteDto(
     @Schema(description = "Hentet tidspunkt")
     val hentetTidspunkt: LocalDateTime,
 )
+
+data class KontantstøtteGrunnlagDto(
+
+    @Schema(description = "Id til personen som mottar kontantstøtten")
+    val partPersonId: String,
+
+    @Schema(description = "Id til barnet kontantstøtten mottas for")
+    val barnPersonId: String,
+
+    @Schema(description = "Periode fra-dato")
+    val periodeFra: LocalDate,
+
+    @Schema(description = "Periode til-dato")
+    val periodeTil: LocalDate?,
+
+    @Schema(description = "Beløpet kontantstøtten er på")
+    val beløp: Int,
+)

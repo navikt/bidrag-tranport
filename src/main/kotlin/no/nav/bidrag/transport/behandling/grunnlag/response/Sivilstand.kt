@@ -30,3 +30,17 @@ data class SivilstandDto(
     @Schema(description = "Hentet tidspunkt")
     val hentetTidspunkt: LocalDateTime,
 )
+
+data class SivilstandGrunnlagDto(
+    @Schema(description = "Id til personen sivilstanden er rapportert for")
+    val personId: String?,
+
+    @Schema(description = "Sivilstand gjelder fra- og med måned")
+    val periodeFra: LocalDate?,
+
+    @Schema(description = "Sivilstand gjelder til- og med måned")
+    val periodeTil: LocalDate?,
+
+    @Schema(description = "Personens sivilstand")
+    val sivilstand: SivilstandskodePDL,
+)
